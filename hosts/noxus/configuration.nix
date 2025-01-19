@@ -74,11 +74,6 @@
     variant = "";
   };
 
-  # VM only
-  # Configure QEMU Guest
-  services.qemuGuest.enable = true;
-  services.spice-vdagentd.enable = true;
-
   # Configure console keymap
   console.keyMap = "de";
 
