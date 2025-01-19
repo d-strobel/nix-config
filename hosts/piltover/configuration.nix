@@ -29,6 +29,8 @@
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
     };
+    # Opinionated: disable channels
+    channel.enable = true;
 
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
@@ -40,16 +42,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Hostname
-  networking.hostName = "noxus";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "piltover";
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   withUWSM = true;
-  # };
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

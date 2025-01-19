@@ -28,12 +28,19 @@
     inherit (self) outputs;
   in {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#noxus'
+    # Available through 'nixos-rebuild --flake .#<HOST>'
     nixosConfigurations = {
       noxus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/noxus/configuration.nix
+          inputs.disko.nixosModules.disko
+        ];
+      };
+      piltover = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/piltover/configuration.nix
           inputs.disko.nixosModules.disko
         ];
       };
