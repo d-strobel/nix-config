@@ -1,21 +1,27 @@
 {
   imports = [
+    ./alacritty.nix
     ./bat.nix
     ./eza.nix
     ./font.nix
     ./fish.nix
+    ./firefox.nix
     ./fzf.nix
-    ./git.nix
     ./ghostty.nix
+    ./git.nix
+    ./gtk.nix
+    # ./hyprcursor.nix
     ./hyprland.nix
+    ./hyprpaper.nix
+    ./hyprlock.nix
     ./k9s.nix
     ./neovim.nix
-    # ./obsidian.nix
+    ./packages.nix
+    ./qt.nix
     ./starship.nix
-    # ./swaync.nix
     ./tmux.nix
+    ./tofi.nix
     ./waybar.nix
-    ./wofi.nix
     ./zoxide.nix
   ];
 }

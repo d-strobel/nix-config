@@ -5,12 +5,6 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Disko
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,7 +15,6 @@
   outputs = {
     self,
     nixpkgs,
-    disko,
     home-manager,
     ...
   } @ inputs: let
@@ -34,14 +27,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/noxus/configuration.nix
-          inputs.disko.nixosModules.disko
         ];
       };
       piltover = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/piltover/configuration.nix
-          inputs.disko.nixosModules.disko
         ];
       };
     };

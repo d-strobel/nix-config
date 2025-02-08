@@ -5,13 +5,15 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     extraConfig = ''
       ################
       ### MONITORS ###
       ################
       
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor=,preferred,auto,auto
+      # monitor=,preferred,auto,1
+      monitor=eDP-1,1920x1080,0x0,1
       
       
       ###################
@@ -21,8 +23,8 @@
       # See https://wiki.hyprland.org/Configuring/Keywords/
       
       # Set programs that you use
-      $terminal = ghostty
-      $menu = wofi --show drun
+      $terminal = alacritty
+      $menu = tofi-drun | xargs hyprctl dispatch exec --
       
       
       #################
@@ -32,9 +34,8 @@
       # Autostart necessary processes (like notifications daemons, status bars, etc.)
       # Or execute your favorite apps at launch like this:
       
-      # exec-once = $terminal
-      # exec-once = nm-applet &
-      # exec-once = waybar
+      exec-once = systemctl --user start hyprpolkitagent
+      exec-once = waybar
       
       
       #############################
@@ -55,10 +56,10 @@
       
       # https://wiki.hyprland.org/Configuring/Variables/#general
       general {
-          gaps_in = 5
-          gaps_out = 20
+          gaps_in = 2
+          gaps_out = 2
       
-          border_size = 2
+          border_size = 1
       
           # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
           col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
@@ -75,7 +76,7 @@
       
       # https://wiki.hyprland.org/Configuring/Variables/#decoration
       decoration {
-          rounding = 10
+          rounding = 4
       
           # Change transparency of focused and unfocused windows
           active_opacity = 1.0
@@ -100,7 +101,7 @@
       
       # https://wiki.hyprland.org/Configuring/Variables/#animations
       animations {
-          enabled = yes, please :)
+          enabled = no
       
           # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
       
@@ -179,7 +180,7 @@
       
       # https://wiki.hyprland.org/Configuring/Variables/#gestures
       gestures {
-          workspace_swipe = false
+          workspace_swipe = true
       }
       
       # Example per-device config
@@ -201,6 +202,8 @@
       bind = $mainMod shift, Q, killactive,
       bind = $mainMod shift, M, exit,
       bind = $mainMod, SPACE, exec, $menu
+      bind = $mainMod, T, exec, ghostty
+      bind = $mainMod shift, Return, exec, hyprlock
       
       # Move focus with mainMod + vim keybinds
       bind = $mainMod, h, movefocus, l
@@ -235,11 +238,6 @@
       bind = $mainMod SHIFT, 7, movetoworkspace, 7
       bind = $mainMod SHIFT, 8, movetoworkspace, 8
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
-      bind = $mainMod SHIFT, 0, movetoworkspace, 10
-      
-      # Example special workspace (scratchpad)
-      bind = $mainMod, S, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, S, movetoworkspace, special:magic
       
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
@@ -281,8 +279,14 @@
       
       # Fix some dragging issues with XWayland
       windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+      # Fix XWaylandBridge for Screensharing
+      windowrulev2 = opacity 0.0 override, class:^(xwaylandvideobridge)$
+      windowrulev2 = noanim, class:^(xwaylandvideobridge)$
+      windowrulev2 = noinitialfocus, class:^(xwaylandvideobridge)$
+      windowrulev2 = maxsize 1 1, class:^(xwaylandvideobridge)$
+      windowrulev2 = noblur, class:^(xwaylandvideobridge)$
+      windowrulev2 = nofocus, class:^(xwaylandvideobridge)$
     '';
   };
-
-  # home.file.".config/hypr/hyprland-main.conf".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/hypr/hyprland.conf;
 }

@@ -1,9 +1,17 @@
 {
   programs.tmux = {
     enable = true;
+    clock24 = true;
+    escapeTime = 0;
+    baseIndex = 1;
+    keyMode = "vi";
+    historyLimit = 5000;
+    terminal = "screen-256color";
+    mouse = true;
+    shortcut = "a";
+    
     extraConfig = ''
       # Set true color
-      set -g default-terminal "screen-256color"
       set -ga terminal-overrides ",xterm-256color*:Tc"
 
       # Reload tmux config
@@ -14,11 +22,7 @@
       set-option -g prefix C-a
       bind-key C-a send-prefix
 
-      # Increase scrollback buffer
-      set-option -g history-limit 5000
-
-      # Set window start index to 1
-      set -g base-index 1
+      set -sg escape-time 0
 
       # Renumber all windows after one is closed
       set -g renumber-windows on
