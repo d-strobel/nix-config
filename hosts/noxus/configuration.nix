@@ -76,6 +76,21 @@
 
   security.pam.services.hyprlock = {};
 
+  # Automount
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
+  # DBus
+  services.dbus = {
+    enable = true;
+    packages = [ pkgs.dconf ];
+  };
+
+  programs.dconf = {
+    enable = true;
+  };
+
   # Enable fish for user shell
   programs.fish.enable = true;
 

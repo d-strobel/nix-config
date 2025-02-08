@@ -12,7 +12,6 @@
 
     # CLI tools
     ffmpeg
-    btop
     ripgrep
     fd
     unzip

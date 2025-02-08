@@ -2,6 +2,7 @@
   imports = [
     ./alacritty.nix
     ./bat.nix
+    ./btop.nix
     ./eza.nix
     ./font.nix
     ./fish.nix
@@ -22,6 +23,7 @@
     ./tmux.nix
     ./tofi.nix
     ./waybar.nix
+    ./xdg.nix
     ./zoxide.nix
   ];
 }
