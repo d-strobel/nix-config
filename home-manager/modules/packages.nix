@@ -10,16 +10,6 @@
     overskride
     networkmanagerapplet
 
-    # Cosmic apps
-    cosmic-edit
-    cosmic-icons
-    cosmic-files
-    cosmic-player
-    cosmic-settings
-    cosmic-launcher
-    xdg-desktop-portal-cosmic
-    pop-launcher
-
     # CLI tools
     ffmpeg
     ripgrep
