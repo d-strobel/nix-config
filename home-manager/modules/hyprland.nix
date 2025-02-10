@@ -23,7 +23,7 @@
       # See https://wiki.hyprland.org/Configuring/Keywords/
       
       # Set programs that you use
-      $terminal = alacritty
+      $terminal = ghostty
       $menu = tofi-drun | xargs hyprctl dispatch exec --
       
       
@@ -59,14 +59,14 @@
           gaps_in = 2
           gaps_out = 2
       
-          border_size = 1
+          border_size = 2
       
           # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
           col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
           col.inactive_border = rgba(595959aa)
       
           # Set to true enable resizing windows by clicking and dragging on borders and gaps
-          resize_on_border = false
+          resize_on_border = true
       
           # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
           allow_tearing = false
@@ -153,7 +153,7 @@
       # https://wiki.hyprland.org/Configuring/Variables/#misc
       misc {
           force_default_wallpaper = 0
-          disable_hyprland_logo = false
+          disable_hyprland_logo = true
       }
       
       

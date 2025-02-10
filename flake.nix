@@ -10,12 +10,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Theming
+    # stylix.url = "github:danth/stylix";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    # stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;

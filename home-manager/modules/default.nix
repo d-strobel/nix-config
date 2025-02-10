@@ -6,7 +6,7 @@
     ./eza.nix
     ./font.nix
     ./fish.nix
-    ./firefox.nix
+    ./librewolf.nix
     ./fzf.nix
     ./ghostty.nix
     ./git.nix

@@ -10,6 +10,16 @@
     overskride
     networkmanagerapplet
 
+    # Cosmic apps
+    cosmic-edit
+    cosmic-icons
+    cosmic-files
+    cosmic-player
+    cosmic-settings
+    cosmic-launcher
+    xdg-desktop-portal-cosmic
+    pop-launcher
+
     # CLI tools
     ffmpeg
     ripgrep
@@ -28,10 +38,10 @@
     bintools
 
     # Window-Manager tools
-    nwg-look
     hyprpolkitagent
     libsForQt5.xwaylandvideobridge
     libnotify
+    xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
