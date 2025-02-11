@@ -1,6 +1,11 @@
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.tmux = {
     enable = true;
+    package = pkgs.tmux;
     clock24 = true;
     escapeTime = 0;
     baseIndex = 1;
@@ -9,8 +14,61 @@
     terminal = "screen-256color";
     mouse = true;
     shortcut = "a";
-    
-    extraConfig = ''
+
+    extraConfig = let
+      searchPaths = "~/Work ~/Private";
+      
+      # Script to search for active sessions
+      tmuxSessions = pkgs.writeShellScriptBin "tmux-sessions" ''
+        last_session=$(${pkgs.tmux}/bin/tmux display-message -p '#{client_last_session}')
+        sessions=$(${pkgs.tmux}/bin/tmux list-sessions -F '#{session_name}' | grep -v "^$last_session$")
+
+        if [[ -z $last_session ]]; then
+            selected=$(echo "$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
+        else
+            selected=$(echo -e "$last_session\n$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
+        fi
+
+        if [[ -z $selected ]]; then
+            exit 0
+        fi
+
+        selected_name=$(echo "$selected" | sed 's/:.*//')
+
+        if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
+            ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
+        fi
+
+        ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
+      '';
+
+      # Script to create new sessions
+      tmuxSessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
+        if [[ $# -eq 1 ]]; then
+            selected=$1
+        else
+            selected=$(${pkgs.fd}/bin/fd . --type d --max-depth 1 --full-path ${searchPaths} | ${pkgs.fzf}/bin/fzf --tmux=bottom --border-label=" Sessionizer ")
+        fi
+
+        if [[ -z $selected ]]; then
+            exit 0
+        fi
+
+        selected_name=$(basename "$selected" | tr . _)
+        tmux_running=$(pgrep tmux)
+
+        if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+            ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
+            exit 0
+        fi
+
+        if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
+            ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
+        fi
+
+        ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
+      '';
+    in ''
       # Set true color
       set -ga terminal-overrides ",xterm-256color*:Tc"
 
@@ -60,11 +118,11 @@
       set-option -g status-position bottom
       set-option -g status-style 'bg=#0f1117,fg=white'
 
-      # Status bar left
-      set-option -g status-left-length 40
+      # Set session
+      set-option -g status-left-length 50
       set-option -g status-left '#[fg=#17171b,bg=#818596,bold] #S #[fg=#17171b,bg=#0f1117,bold]'
 
-      # Status bar center
+      # Set windows
       set-option -g status-justify left
       set-option -g window-status-format '#[fg=#c6c8d1,bg=#0f1117] #I #W '
       set-option -g window-status-current-format '#[fg=#c6c8d1,bg=#2e313f] #I #W '
@@ -78,8 +136,8 @@
 
       #TODO: Create session scripts
       # Session management with custom scripts
-      # bind-key -r f run-shell "~/.local/bin/tmux-sessionizer"
-      # bind-key -r w run-shell "~/.local/bin/tmux-sessions"
+      bind-key -r f run-shell "${lib.getExe tmuxSessionizer}"
+      bind-key -r w run-shell "${lib.getExe tmuxSessions}"
     '';
   };
 }
