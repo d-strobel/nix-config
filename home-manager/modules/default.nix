@@ -24,6 +24,7 @@
     ./tmux.nix
     ./tofi.nix
     ./waybar.nix
+    ./wlogout.nix
     ./xdg.nix
     ./zoxide.nix
   ];
