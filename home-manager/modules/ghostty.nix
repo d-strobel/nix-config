@@ -7,7 +7,7 @@
       theme = "rose-pine";
       cursor-invert-fg-bg = true;
       background = "#131021";
-      background-opacity = 0.95;
+      background-opacity = 0.5;
 
       # Window
       window-decoration = false;
