@@ -25,10 +25,10 @@
           valign = "center";
         }
         {
-          text = "cmd[update:43200000] echo \"$(date +\"%A, %d %B %Y\")\"";
+          text = "cmd[update:43200000] echo \"$(date +\"%A, %d. %B %Y\")\"";
           shadow_passes = 1;
           shadow_boost = 0.5;
-          font_size = 25;
+          font_size = 28;
           font_family = "JetBrains Mono";
 
           position = "0, 180";
