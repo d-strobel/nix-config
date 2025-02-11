@@ -61,9 +61,10 @@
           border_size = 2
       
           # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-          col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+          # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+          col.active_border = rgba(c4a7e7ee) rgba(f6c177ee) 45deg
           col.inactive_border = rgba(595959aa)
-      
+
           # Set to true enable resizing windows by clicking and dragging on borders and gaps
           resize_on_border = true
       
@@ -91,10 +92,8 @@
           # https://wiki.hyprland.org/Configuring/Variables/#blur
           blur {
               enabled = true
-              size = 3
-              passes = 1
-      
-              vibrancy = 0.1696
+              size = 6
+              passes = 3
           }
       }
       

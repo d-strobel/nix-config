@@ -6,15 +6,26 @@
     border: none;
 }
 
+@define-color black #0a0a0f;
+@define-color highlight #21202e;
+@define-color spacer #1f1d2e;
+@define-color text #e0def4;
+@define-color red #eb6f92;
+@define-color rose #ebbcba;
+@define-color yellow #f6c177;
+@define-color green #31748f;
+@define-color blue #9ccfd8;
+@define-color iris #c4a7e7;
+
 window#waybar {
-    background-color: #000000;
+    background-color: @black;
 }
 
 /* Workspace Buttons */
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #c9c9c9;
+    color: @text;
 }
 
 #workspaces button:hover {
@@ -27,65 +38,65 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: #212026;
+    background-color: @highlight;
 }
 
 /* Center */
 #window {
     background-color: transparent;
-    color: #c9c9c9;
+    color: @text;
 }
 
 /* Right Side */
 #disk {
     padding: 0 10px;
     background-color: transparent;
-    color: #c9c9c9;
-    border-right: 1px solid #282828;
+    color: @text;
+    border-right: 1px solid @spacer;
 }
 
 #network {
     padding: 0 10px;
     background-color: transparent;
-    color: #00b200;
-    border-right: 1px solid #282828;
+    color: @blue;
+    border-right: 1px solid @spacer;
 }
 #network.disabled,
 #network.disconeccted {
-    color: #ff004c;
+    color: @red;
 }
 
 #pulseaudio {
     padding: 0 10px;
     background-color: transparent;
-    color: #c9c9c9;
-    border-right: 1px solid #282828;
+    color: @text;
+    border-right: 1px solid @spacer;
 }
 #pulseaudio.muted {
-    color: #ff004c;
+    color: @red;
 }
 
 #battery {
     padding: 0 10px;
     background-color: transparent;
-    color: #c9c9c9;
-    border-right: 1px solid #282828;
+    color: @text;
+    border-right: 1px solid @spacer;
 }
 #battery.charging {
-    color: #00ff00;
+    color: @green;
 }
 #battery.warning:not(.charging) {
-    color: #ff004c;
+    color: @yellow;
 }
 @keyframes blink {
     to {
-        background-color: #ff004c;
+        background-color: @red;
         color: #000000;
     }
 }
 #battery.critical:not(.charging) {
     background-color: transparent;
-    color: #ff004c;
+    color: @red;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -96,5 +107,5 @@ window#waybar {
 #clock {
     padding: 0 10px;
     background-color: transparent;
-    color: #c9c9c9;
+    color: @text;
 }

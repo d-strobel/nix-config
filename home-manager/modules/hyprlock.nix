@@ -19,6 +19,7 @@
           shadow_boost = 0.5;
           font_size = 100;
           font_family = "JetBrains Mono";
+          color = "rgba(e0def4ff)";
 
           position = "0, 300";
           halign = "center";
@@ -30,6 +31,7 @@
           shadow_boost = 0.5;
           font_size = 28;
           font_family = "JetBrains Mono";
+          color = "rgba(e0def4ff)";
 
           position = "0, 180";
           halign = "center";
@@ -44,13 +46,13 @@
         dots_spacing = 0.3;
 
         inner_color = "rgba(00000000)";
-        outer_color = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        check_color = "rgba(00ff99ee) rgba(ff6633ee) 45deg";
+        outer_color = "rgba(c4a7e7ee) rgba(f6c177ee) 25deg";
+        check_color = "rgba(31748fee) rgba(ebbcbaee) 45deg";
         fail_color = "rgba(ff6633ee) rgba(ff0066ee) 45deg";
         fade_on_empty = false;
 
         font_family = "JetBrains Mono";
-        font_color = "rgba(ffffffff)";
+        font_color = "rgba(e0def4ff)";
 
         position = "0, 0";
         halign = "center";
