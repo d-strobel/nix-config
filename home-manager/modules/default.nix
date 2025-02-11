@@ -20,6 +20,7 @@
     ./packages.nix
     ./qt.nix
     ./starship.nix
+    ./swaync.nix
     ./tmux.nix
     ./tofi.nix
     ./waybar.nix

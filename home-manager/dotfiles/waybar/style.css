@@ -14,7 +14,7 @@ window#waybar {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #c9c9c9;
 }
 
 #workspaces button:hover {
@@ -31,26 +31,45 @@ window#waybar {
 }
 
 /* Center */
-
+#window {
+    background-color: transparent;
+    color: #c9c9c9;
+}
 
 /* Right Side */
+#disk {
+    padding: 0 10px;
+    background-color: transparent;
+    color: #c9c9c9;
+    border-right: 1px solid #282828;
+}
+
+#network {
+    padding: 0 10px;
+    background-color: transparent;
+    color: #00b200;
+    border-right: 1px solid #282828;
+}
+#network.disabled,
+#network.disconeccted {
+    color: #ff004c;
+}
+
 #pulseaudio {
     padding: 0 10px;
     background-color: transparent;
-    color: #ffffff;
-    border-right: 1px solid #ffffff;
+    color: #c9c9c9;
+    border-right: 1px solid #282828;
 }
 #pulseaudio.muted {
-    background-color: transparent;
     color: #ff004c;
-    border-right: 1px solid #ffffff;
 }
 
 #battery {
     padding: 0 10px;
     background-color: transparent;
-    color: #ffffff;
-    border-right: 1px solid #ffffff;
+    color: #c9c9c9;
+    border-right: 1px solid #282828;
 }
 #battery.charging {
     color: #00ff00;
@@ -77,5 +96,5 @@ window#waybar {
 #clock {
     padding: 0 10px;
     background-color: transparent;
-    color: #ffffff;
+    color: #c9c9c9;
 }

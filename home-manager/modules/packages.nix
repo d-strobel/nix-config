@@ -9,6 +9,9 @@
     gnome-disk-utility
     overskride
     networkmanagerapplet
+    pavucontrol
+    vlc
+    xfce.thunar
 
     # CLI tools
     ffmpeg
