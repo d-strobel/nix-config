@@ -20,9 +20,12 @@
     zip
     wget
     wl-clipboard
+    playerctl
+
+    # Screenshot tools
     grim
     slurp
-    playerctl
+    satty
 
     # Compiler stuff
     libgcc

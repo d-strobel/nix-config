@@ -202,6 +202,10 @@
       bind = $mainMod, SPACE, exec, $menu
       bind = $mainMod, T, exec, ghostty
       bind = $mainMod shift, Return, exec, hyprlock
+
+      # Screenshot
+      bind = $mainMod, Print, exec, grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+      bind = $mainMod shift, Print, exec, grim -g "$(slurp -o -r -c '##ff0000ff')" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
       
       # Move focus with mainMod + vim keybinds
       bind = $mainMod, h, movefocus, l

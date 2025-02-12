@@ -10,22 +10,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Theming
-    # stylix.url = "github:danth/stylix";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    # stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
   in {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#<HOST>'
+    # Available through 'nixos-rebuild switch --flake .#<HOST>'
     nixosConfigurations = {
       noxus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
@@ -42,7 +38,7 @@
     };
 
     # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#dstrobel'
+    # Available through 'home-manager switch --flake .#dstrobel'
     homeConfigurations = {
       "dstrobel" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
