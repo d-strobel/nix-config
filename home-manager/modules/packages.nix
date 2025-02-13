@@ -11,6 +11,7 @@
     networkmanagerapplet
     pavucontrol
     vlc
+    sums
 
     # CLI tools
     ffmpeg
@@ -21,6 +22,7 @@
     wget
     wl-clipboard
     playerctl
+    brightnessctl
 
     # Screenshot tools
     grim
