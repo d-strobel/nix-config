@@ -14,6 +14,7 @@
     # ./hyprcursor.nix
     ./hyprland.nix
     ./hyprpaper.nix
+    ./hypridle.nix
     ./hyprlock.nix
     ./k9s.nix
     ./neovim.nix
