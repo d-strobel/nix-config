@@ -17,14 +17,42 @@
       nvim-treesitter-with-plugins = pkgs.vimPlugins.nvim-treesitter.withPlugins (treesitter-plugins:
         # Define Treesitter grammer here
           with treesitter-plugins; [
-            bash
-            c
-            lua
-            nix
-            python
+            yaml
+            xml
+            typescript
+            toml
+            tmux
+            terraform
+            ssh_config
             rust
+            regex
+            python
+            promql
+            nix
+            nginx
+            markdown-inline
+            markdown
+            make
+            lua
+            latex
+            json
+            ini
+            hyprlang
+            html
+            helm
+            hcl
+            gosum
+            gomod
             go
+            gitignore
+            gitcommit
+            fish
+            editorconfig
             dockerfile
+            csv
+            css
+            c
+            bash
           ]);
     in
       with pkgs.vimPlugins; [
