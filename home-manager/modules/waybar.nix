@@ -8,11 +8,16 @@
         layer = "top";
         position = "top";
         height = 30;
-        modules-left = ["hyprland/workspaces"];
+        modules-left = ["custom/nix" "image" "hyprland/workspaces"];
         modules-center = ["hyprland/window"];
         modules-right = ["disk" "network" "pulseaudio" "battery" "clock"];
 
         # Left side
+        "custom/nix" = {
+          on-click = "wlogout";
+          format = " ";
+        };
+
         "hyprland/workspaces" = {
           disable-scroll = true;
           show-special = true;
@@ -42,9 +47,10 @@
 
         "network" = {
           on-click = "nm-connection-editor";
-          format-wifi = "W: {ipaddr} ({signalStrength}%)";
-          format-ethernet = "E: {ipaddr}";
-          format-disconnected = "NET down";
+          format-wifi = "{icon} {ipaddr}";
+          format-ethernet = "󰈀 {ipaddr}";
+          format-disconnected = "󰤮 down";
+          format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤨 "];
           tooltip-format = "{ifname} via {gwaddr}";
           tooltip-format-wifi = "{essid} ({signalStrength}%)";
           tooltip-format-ethernet = "{ifname}";
@@ -53,10 +59,11 @@
         };
 
         "pulseaudio" = {
-          format = "VOL {volume}%";
-          format-bluetooth = "VOL {volume}% ";
-          format-muted = "MUTE 0%";
+          format = "{icon} {volume}%";
+          format-bluetooth = "{icon} {volume}% ";
+          format-muted = " 0%";
           on-click = "pavucontrol";
+          format-icons = [" " " " "  "];
         };
 
         "battery" = {
@@ -65,8 +72,8 @@
             critical = 10;
           };
           format = "{icon} {capacity}%";
-          format-charging = "BAT Loading {capacity}%";
-          format-icons = ["" "" "" "" ""];
+          format-charging = "{icon} 󱐋 {capacity}%";
+          format-icons = [" " " " " " " " " "];
         };
 
         "clock" = {

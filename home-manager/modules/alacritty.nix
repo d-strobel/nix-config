@@ -11,19 +11,21 @@
         padding.x = 6;
         padding.y = 6;
         dynamic_padding = true;
-        opacity = 0.5;
+        opacity = 0.2;
       };
 
       mouse = {
         hide_when_typing = true;
       };
 
-      font = {
-        size = 11;
-        normal.family = "JetBrains Mono";
-        bold.family = "JetBrains Mono";
-        italic.family = "JetBrains Mono";
-        bold_italic.family = "JetBrains Mono";
+      font = let
+        fontName = "JetBrainsMono NF";
+      in {
+        size = 16;
+        normal.family = "${fontName}";
+        bold.family = "${fontName}";
+        italic.family = "${fontName}";
+        bold_italic.family = "${fontName}";
       };
 
       colors.primary = {

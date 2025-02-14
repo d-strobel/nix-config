@@ -12,6 +12,7 @@
     pavucontrol
     vlc
     sums
+    gnome-font-viewer
 
     # CLI tools
     ffmpeg
@@ -30,9 +31,9 @@
     satty
 
     # Compiler stuff
-    libgcc
-    libgccjit
-    bintools
+    # libgcc
+    # libgccjit
+    # bintools
 
     # Window-Manager tools
     hyprpolkitagent

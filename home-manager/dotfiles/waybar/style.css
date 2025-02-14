@@ -1,7 +1,6 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "JetBrains Mono";
-    font-size: 13px;
+    font-family: "JetBrainsMono NF Bold";
+    font-size: 14px;
     font-weight: bold;
     border: none;
 }
@@ -21,11 +20,19 @@ window#waybar {
     background-color: @black;
 }
 
+/* Custom Nix */
+#custom-nix {
+  padding: 0 10px 0 5px;
+  background-color: transparent;
+  color: @iris;
+  font-size: 22; 
+}
+
 /* Workspace Buttons */
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: @text;
+  padding: 0 5px;
+  background-color: transparent;
+  color: @text;
 }
 
 #workspaces button:hover {
