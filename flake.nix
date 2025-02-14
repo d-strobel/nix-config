@@ -29,12 +29,6 @@
           ./hosts/noxus/configuration.nix
         ];
       };
-      piltover = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/piltover/configuration.nix
-        ];
-      };
     };
 
     # Standalone home-manager configuration entrypoint

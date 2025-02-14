@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   programs.ghostty = {
     enable = true;
+    package = with pkgs; ghostty;
     enableFishIntegration = true;
     settings = {
       # Theme and colors

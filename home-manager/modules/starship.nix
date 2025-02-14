@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   programs.starship = {
     enable = true;
+    package = with pkgs; starship;
     enableFishIntegration = true;
   };
 

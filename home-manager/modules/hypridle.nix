@@ -1,6 +1,8 @@
-{
+{pkgs, ...}: {
   services.hypridle = {
     enable = true;
+    package = with pkgs; hypridle;
+
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";

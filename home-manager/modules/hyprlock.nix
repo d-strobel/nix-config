@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   programs.hyprlock = {
     enable = true;
+    package = with pkgs; hyprlock;
     settings = {
       general = {
         hide_cursor = true;

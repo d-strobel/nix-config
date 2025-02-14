@@ -77,7 +77,7 @@ vim.diagnostic.config({
   underline = true,
   severity_sort = false,
   float = {
-    border = 'single',
+    border = 'rounded',
   },
 })
 

@@ -45,7 +45,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  
+
   # Enable bluetooth
   hardware.bluetooth = {
     enable = true;
@@ -84,11 +84,12 @@
   # DBus
   services.dbus = {
     enable = true;
-    packages = [ pkgs.dconf ];
+    packages = with pkgs; [dconf];
   };
 
   programs.dconf = {
     enable = true;
+    packages = with pkgs; dconf;
   };
 
   # Enable fish for user shell
@@ -99,7 +100,7 @@
     isNormalUser = true;
     description = "dstrobel";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.fish;
+    shell = with pkgs; fish;
   };
 
   # Set your time zone.
@@ -138,4 +139,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 }
-

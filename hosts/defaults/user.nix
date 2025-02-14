@@ -6,7 +6,7 @@
     extraGroups = ["networkmanager" "wheel"];
 
     # Managed by home-manager
-    shell = pkgs.fish;
+    shell = with pkgs; fish;
     ignoreShellProgramCheck = true;
   };
 }

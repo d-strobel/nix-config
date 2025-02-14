@@ -5,7 +5,7 @@
 }: {
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    package = with pkgs; tmux;
     clock24 = true;
     escapeTime = 0;
     baseIndex = 1;
@@ -17,57 +17,67 @@
 
     extraConfig = let
       searchPaths = "~/Work ~/Private";
-      
+
       # Script to search for active sessions
-      tmuxSessions = pkgs.writeShellScriptBin "tmux-sessions" ''
-        last_session=$(${pkgs.tmux}/bin/tmux display-message -p '#{client_last_session}')
-        sessions=$(${pkgs.tmux}/bin/tmux list-sessions -F '#{session_name}' | grep -v "^$last_session$")
+      tmuxSessions =
+        pkgs.writeShellScriptBin
+        /*
+        bash
+        */
+        "tmux-sessions" ''
+          last_session=$(${pkgs.tmux}/bin/tmux display-message -p '#{client_last_session}')
+          sessions=$(${pkgs.tmux}/bin/tmux list-sessions -F '#{session_name}' | grep -v "^$last_session$")
 
-        if [[ -z $last_session ]]; then
-            selected=$(echo "$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
-        else
-            selected=$(echo -e "$last_session\n$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
-        fi
+          if [[ -z $last_session ]]; then
+              selected=$(echo "$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
+          else
+              selected=$(echo -e "$last_session\n$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
+          fi
 
-        if [[ -z $selected ]]; then
-            exit 0
-        fi
+          if [[ -z $selected ]]; then
+              exit 0
+          fi
 
-        selected_name=$(echo "$selected" | sed 's/:.*//')
+          selected_name=$(echo "$selected" | sed 's/:.*//')
 
-        if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
-            ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
-        fi
+          if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
+              ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
+          fi
 
-        ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
-      '';
+          ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
+        '';
 
       # Script to create new sessions
-      tmuxSessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
-        if [[ $# -eq 1 ]]; then
-            selected=$1
-        else
-            selected=$(${pkgs.fd}/bin/fd . --type d --max-depth 1 --full-path ${searchPaths} | ${pkgs.fzf}/bin/fzf --tmux=bottom --border-label=" Sessionizer ")
-        fi
+      tmuxSessionizer =
+        pkgs.writeShellScriptBin
+        /*
+        bash
+        */
+        "tmux-sessionizer" ''
+          if [[ $# -eq 1 ]]; then
+              selected=$1
+          else
+              selected=$(${pkgs.fd}/bin/fd . --type d --max-depth 1 --full-path ${searchPaths} | ${pkgs.fzf}/bin/fzf --tmux=bottom --border-label=" Sessionizer ")
+          fi
 
-        if [[ -z $selected ]]; then
-            exit 0
-        fi
+          if [[ -z $selected ]]; then
+              exit 0
+          fi
 
-        selected_name=$(basename "$selected" | tr . _)
-        tmux_running=$(pgrep tmux)
+          selected_name=$(basename "$selected" | tr . _)
+          tmux_running=$(pgrep tmux)
 
-        if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-            ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
-            exit 0
-        fi
+          if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+              ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
+              exit 0
+          fi
 
-        if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
-            ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
-        fi
+          if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
+              ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
+          fi
 
-        ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
-      '';
+          ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
+        '';
     in ''
       # Set true color
       set -ga terminal-overrides ",xterm-256color*:Tc"

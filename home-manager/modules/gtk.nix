@@ -8,7 +8,7 @@
 
     theme = {
       name = "Adwaita-Dark";
-      package = pkgs.gnome-themes-extra;
+      package = with pkgs; gnome-themes-extra;
     };
 
     gtk2.extraConfig = ''

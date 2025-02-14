@@ -1,40 +1,5 @@
 return {
   {
-    "williamboman/mason.nvim",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-    },
-    config = function()
-      require("mason").setup({
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-          border = "single"
-        },
-
-        -- list of servers for mason to install
-        ensure_installed = {
-          "bashls",
-          "ansiblels",
-          "gopls",
-          "lua_ls",
-          "rust_analyzer",
-          "terraformls",
-          "yamlls",
-          "powershell_es",
-          "jsonls",
-          "dockerls",
-          "html",
-          "pylsp",
-        },
-        automatic_installation = true,
-      })
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
       'saghen/blink.cmp',
@@ -52,6 +17,10 @@ return {
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local lspconfig = require("lspconfig")
+      local nix_flake_dir = os.getenv("HOME") .. "/nix-config"
+      local nix_flake = nix_flake_dir .. "/flake.nix"
+      local username = "dstrobel"
+      local hostname = "noxus"
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         vim.lsp.handlers.hover, {
@@ -87,13 +56,14 @@ return {
         filetypes = { "tf", "terraform", "terraform-vars" },
       }
       -- Powershell lsp config
-      lspconfig["powershell_es"].setup({
-        capabilities = capabilities,
-        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
-      })
+      -- lspconfig["powershell_es"].setup({
+      --   capabilities = capabilities,
+      --   bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
+      -- })
       -- JSON lsp config
       lspconfig["jsonls"].setup({
         capabilities = capabilities,
+        cmd = { "vscode-json-languageserver", "--stdio" }
       })
       -- Dockerfile lsp config
       lspconfig["dockerls"].setup({
@@ -149,6 +119,28 @@ return {
             },
           }
         }
+      })
+      lspconfig["nixd"].setup({
+        cmd = { "nixd" },
+        settings = {
+          nixd = {
+            nixpkgs = {
+              expr = 'import (builtins.getFlake "' .. nix_flake .. '").inputs.nixpkgs { }',
+            },
+            formatting = {
+              command = { "alejandra" },
+            },
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake "' ..
+                    nix_flake_dir .. '").nixosConfigurations.\"' .. hostname .. '\".options',
+              },
+              home_manager = {
+                expr = '(builtins.getFlake "' .. nix_flake_dir .. '").homeConfigurations.\"' .. username .. '\".options',
+              },
+            },
+          },
+        },
       })
     end,
   },

@@ -1,4 +1,4 @@
-{pkgs, ...}:{
+{pkgs, ...}: {
   qt = {
     enable = true;
     platformTheme = {
@@ -6,7 +6,7 @@
     };
     style = {
       name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
+      package = with pkgs; adwaita-qt;
     };
   };
 }

@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
+    package = with pkgs; waybar;
     style = ../dotfiles/waybar/style.css;
     settings = {
       mainBar = {
@@ -44,7 +45,7 @@
           format-wifi = "W: {ipaddr} ({signalStrength}%)";
           format-ethernet = "E: {ipaddr}";
           format-disconnected = "NET down";
-          tooltip-format =  "{ifname} via {gwaddr}";
+          tooltip-format = "{ifname} via {gwaddr}";
           tooltip-format-wifi = "{essid} ({signalStrength}%)";
           tooltip-format-ethernet = "{ifname}";
           tooltip-format-disconnected = "Disconnected";
@@ -63,8 +64,9 @@
             warning = 20;
             critical = 10;
           };
-          format = "BAT {capacity}%";
+          format = "{icon} {capacity}%";
           format-charging = "BAT Loading {capacity}%";
+          format-icons = ["" "" "" "" ""];
         };
 
         "clock" = {

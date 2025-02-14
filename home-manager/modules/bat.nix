@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   programs.bat = {
     enable = true;
+    package = with pkgs; bat;
     # themes = {
     #   dracula = {
     #     src = pkgs.fetchFromGitHub {
