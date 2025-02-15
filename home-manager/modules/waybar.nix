@@ -9,7 +9,7 @@
         position = "top";
         height = 30;
         modules-left = ["custom/nix" "image" "hyprland/workspaces"];
-        modules-right = ["memory" "cpu" "disk" "network" "pulseaudio" "battery" "clock"];
+        modules-right = ["memory" "cpu" "disk" "network" "pulseaudio" "backlight" "battery" "clock"];
 
         # Left side
         "custom/nix" = {
@@ -64,6 +64,11 @@
           format-muted = " 0%";
           on-click = "pavucontrol";
           format-icons = [" " " " "  "];
+        };
+
+        "backlight" = {
+          format = "{icon} {percent}%";
+          format-icons = ["󰹐 " "󱩎 " "󱩏 " "󱩐 " "󱩑 " "󱩒 " "󱩓 " "󱩔 " "󱩕 " "󱩖 " "󰛨 "];
         };
 
         "battery" = {

@@ -91,6 +91,13 @@ window#waybar {
     color: @red;
 }
 
+#backlight {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @text;
+    border-right: 1px solid @spacer;
+}
+
 #battery {
     padding: 0 10px;
     background-color: transparent;
