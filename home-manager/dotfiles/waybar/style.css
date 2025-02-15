@@ -22,10 +22,10 @@ window#waybar {
 
 /* Custom Nix */
 #custom-nix {
-  padding: 0 10px 0 5px;
+  padding: 0 5px 0 5px;
   background-color: transparent;
-  color: @iris;
-  font-size: 22; 
+  color: @rose;
+  font-size: 22px; 
 }
 
 /* Workspace Buttons */
@@ -48,13 +48,21 @@ window#waybar {
     background-color: @highlight;
 }
 
-/* Center */
-#window {
+/* Right Side */
+#memory {
+    padding: 0 10px;
     background-color: transparent;
     color: @text;
+    border-right: 1px solid @spacer;
 }
 
-/* Right Side */
+#cpu {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @text;
+    border-right: 1px solid @spacer;
+}
+
 #disk {
     padding: 0 10px;
     background-color: transparent;

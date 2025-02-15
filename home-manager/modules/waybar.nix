@@ -9,8 +9,7 @@
         position = "top";
         height = 30;
         modules-left = ["custom/nix" "image" "hyprland/workspaces"];
-        modules-center = ["hyprland/window"];
-        modules-right = ["disk" "network" "pulseaudio" "battery" "clock"];
+        modules-right = ["memory" "cpu" "disk" "network" "pulseaudio" "battery" "clock"];
 
         # Left side
         "custom/nix" = {
@@ -28,17 +27,18 @@
           };
         };
 
-        # Center
-        "hyprland/window" = {
-          format = "{class}";
-          rewrite = {
-            "(.*).ghostty" = "Ghostty";
-            "(.*).Nautilus" = "Nautilus";
-            "librewolf" = "Librewolf";
-          };
+        # Right side
+        "memory" = {
+          interval = 15;
+          format = "  {percentage}%   {swapPercentage}%";
         };
 
-        # Right side
+        "cpu" = {
+          interval = 5;
+          format = "{icon} {usage}%";
+          format-icons = [" "];
+        };
+
         "disk" = {
           path = "/";
           format = "root: {free}";
