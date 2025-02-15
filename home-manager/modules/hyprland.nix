@@ -1,32 +1,31 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = with pkgs; hyprland;
     systemd.enable = false;
     settings = let
-      alacritty = pkgs.alacritty;
-      tofi = pkgs.tofi;
-      waybar = pkgs.waybar;
+      # Set SUPER as main modifier
       mainMod = "SUPER";
-      hyprlock = pkgs.hyprlock;
-      grim = pkgs.grim;
-      slurp = pkgs.slurp;
-      satty = pkgs.satty;
+
+      # Packages
+      alacritty = "${pkgs.alacritty}/bin/alacritty";
+      tofi = "${pkgs.tofi}/bin/tofi-drun";
+      waybar = "${pkgs.waybar}/bin/waybar";
+      hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
+      grim = "${pkgs.grim}/bin/grim";
+      slurp = "${pkgs.slurp}/bin/slurp";
+      satty = "${pkgs.satty}/bin/satty";
+      brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+      playerctl = "${pkgs.playerctl}/bin/playerctl";
     in {
       # Variables
-      "$mod" = "${mainMod}";
-      "$terminal" = "${alacritty}/bin/alacritty";
-      "$menu" = "${tofi}/bin/tofi-drun | xargs hyprctl dispatch exec --";
+      "$terminal" = "${alacritty}";
+      "$menu" = "${tofi} | xargs hyprctl dispatch exec --";
 
       monitor = ",preferred,auto,1";
 
       exec-once = [
-        "${waybar}/bin/waybar"
+        "${waybar}"
         "systemctl --user start hyprpolkitagent"
       ];
 
@@ -140,10 +139,10 @@
         "${mainMod} shift, M, exit,"
         "${mainMod}, SPACE, exec, $menu"
         "${mainMod}, T, exec, $terminal"
-        "${mainMod} shift, Return, exec, ${hyprlock}/bin/hyprlock"
+        "${mainMod} shift, Return, exec, ${hyprlock}"
 
         # Screenshot
-        "${mainMod}, Print, exec, ${grim}/bin/grim -g \"$(${slurp}/bin/slurp)\" -t ppm - | ${satty}/bin/satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
+        "${mainMod}, Print, exec, ${grim} -g \"$(${slurp})\" -t ppm - | ${satty} --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
 
         # Window management
         "${mainMod}, h, movefocus, l"
@@ -184,15 +183,15 @@
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, ${brightnessctl} s 5%+"
+        ",XF86MonBrightnessDown, exec, ${brightnessctl} s 5%-"
       ];
 
       bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, ${playerctl} next"
+        ", XF86AudioPause, exec, ${playerctl} play-pause"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioPrev, exec, ${playerctl} previous"
       ];
 
       windowrulev2 = [
