@@ -16,6 +16,7 @@
     ./hyprpaper.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./hyprsunset.nix
     ./k9s.nix
     ./neovim.nix
     ./packages.nix

@@ -34,6 +34,12 @@
         text = "Reboot";
         keybind = "r";
       }
+      {
+        label = "nightmode";
+        action = "pgrep hyprsunset && pkill hyprsunset || hyprsunset --temperature 5500";
+        text = "Nightmode";
+        keybind = "n";
+      }
     ];
 
     # style = ../dotfiles/wlogout/style.css;
