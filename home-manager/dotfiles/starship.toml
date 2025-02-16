@@ -7,6 +7,7 @@ ${custom.opentofu}\
 $rust\
 $python\
 ${custom.ansible}\
+$nix_shell\
 $line_break\
 $character
 """
@@ -64,6 +65,11 @@ style = 'red'
 format = 'via [$symbol]($style) [$output]($style bold) '
 shell = '/bin/bash'
 command = 'echo -n $(ansible --version 2>/dev/null | grep -oP "(?<=core )[\d\.]+")'
+
+[nix_shell]
+symbol = ''
+style = 'fg:#1e90c9'
+format = 'in [$symbol]($style) [$name]($style bold) '
 
 # User input
 [line_break]
