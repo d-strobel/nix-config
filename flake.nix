@@ -21,7 +21,7 @@
     inherit (self) outputs;
   in {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild switch --flake .#<HOST>'
+    # Available through 'sudo nixos-rebuild switch --flake .#noxus'
     nixosConfigurations = {
       noxus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};

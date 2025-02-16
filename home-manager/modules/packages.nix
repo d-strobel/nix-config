@@ -30,11 +30,6 @@
     slurp
     satty
 
-    # Compiler stuff
-    # libgcc
-    # libgccjit
-    # bintools
-
     # Window-Manager tools
     hyprpolkitagent
     libsForQt5.xwaylandvideobridge

@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./bat.nix
     ./btop.nix
+    ./direnv.nix
     ./eza.nix
     ./font.nix
     ./fish.nix
