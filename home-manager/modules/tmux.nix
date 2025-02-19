@@ -16,7 +16,13 @@
     shortcut = "a";
 
     extraConfig = let
+      # Search path for tmux sessionizer
       searchPaths = "~/Work ~/Private";
+
+      # Binaries
+      tmux = "${pkgs.tmux}/bin/tmux";
+      fzf = "${pkgs.fzf}/bin/fzf";
+      fd = "${pkgs.fd}/bin/fd";
 
       # Script to search for active sessions
       tmuxSessions =
@@ -25,13 +31,13 @@
         bash
         */
         "tmux-sessions" ''
-          last_session=$(${pkgs.tmux}/bin/tmux display-message -p '#{client_last_session}')
-          sessions=$(${pkgs.tmux}/bin/tmux list-sessions -F '#{session_name}' | grep -v "^$last_session$")
+          last_session=$(${tmux} display-message -p '#{client_last_session}')
+          sessions=$(${tmux} list-sessions -F '#{session_name}' | grep -v "^$last_session$")
 
           if [[ -z $last_session ]]; then
-              selected=$(echo "$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
+              selected=$(echo "$sessions" | ${fzf} --tmux bottom --border-label=" Sessions ")
           else
-              selected=$(echo -e "$last_session\n$sessions" | ${pkgs.fzf}/bin/fzf --tmux bottom --border-label=" Sessions ")
+              selected=$(echo -e "$last_session\n$sessions" | ${fzf} --tmux bottom --border-label=" Sessions ")
           fi
 
           if [[ -z $selected ]]; then
@@ -40,11 +46,11 @@
 
           selected_name=$(echo "$selected" | sed 's/:.*//')
 
-          if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
-              ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
+          if ! ${tmux} has-session -t=$selected_name 2> /dev/null; then
+              ${tmux} new-session -ds $selected_name -c $selected
           fi
 
-          ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
+          ${tmux} switch-client -t $selected_name
         '';
 
       # Script to create new sessions
@@ -57,7 +63,7 @@
           if [[ $# -eq 1 ]]; then
               selected=$1
           else
-              selected=$(${pkgs.fd}/bin/fd . --type d --max-depth 1 --full-path ${searchPaths} | ${pkgs.fzf}/bin/fzf --tmux=bottom --border-label=" Sessionizer ")
+              selected=$(${fd} . --type d --max-depth 1 --full-path ${searchPaths} | ${fzf} --tmux=bottom --border-label=" Sessionizer ")
           fi
 
           if [[ -z $selected ]]; then
@@ -68,15 +74,15 @@
           tmux_running=$(pgrep tmux)
 
           if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-              ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
+              ${tmux} new-session -s $selected_name -c $selected
               exit 0
           fi
 
-          if ! ${pkgs.tmux}/bin/tmux has-session -t=$selected_name 2> /dev/null; then
-              ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
+          if ! ${tmux} has-session -t=$selected_name 2> /dev/null; then
+              ${tmux} new-session -ds $selected_name -c $selected
           fi
 
-          ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
+          ${tmux} switch-client -t $selected_name
         '';
     in ''
       # Set true color
