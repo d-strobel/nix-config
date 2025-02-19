@@ -1,6 +1,7 @@
 # Font
 font = Jetbrains Mono
 font-size = 11
+font-style = Bold
 
 # Window
 horizontal = true
@@ -11,10 +12,12 @@ outline-width = 0
 border-width = 0
 min-input-width = 130
 result-spacing = 20
-padding-top = 3
+padding-top = 5
 padding-bottom = 0
-padding-left = 20
+padding-left = 5
 padding-right = 0
 
 # Colors
-background-color = #000000
+background-color = #0a0a0f
+text-color = #e0def4
+selection-color = #eb6f92 
