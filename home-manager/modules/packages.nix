@@ -13,6 +13,7 @@
     vlc
     sums
     gnome-font-viewer
+    openfortivpn
 
     # CLI tools
     ffmpeg
