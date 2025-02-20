@@ -6,16 +6,19 @@
     obsidian
     signal-desktop
     nautilus
-    gnome-disk-utility
     overskride
     networkmanagerapplet
     pavucontrol
     vlc
-    sums
-    gnome-font-viewer
     openfortivpn
+    gnome-disk-utility
+    gnome-calendar
+    gnome-calculator
+    gnome-clocks
 
     # CLI tools
+    dig
+    traceroute
     ffmpeg
     ripgrep
     fd
