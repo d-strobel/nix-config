@@ -32,7 +32,6 @@
 
     # Container
     podman
-    kind
 
     # Screenshot tools
     grim

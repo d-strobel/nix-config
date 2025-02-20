@@ -17,7 +17,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprsunset.nix
-    ./k9s.nix
+    ./kubernetes.nix
     ./mako.nix
     ./neovim.nix
     ./packages.nix
