@@ -62,10 +62,19 @@
     pulse.enable = true;
   };
 
-  # Display Manager
-  services.displayManager.sddm = {
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.hyprlock = {};
+
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
+    vt = 7;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "dstrobel";
+      };
+    };
   };
 
   # Enable Hyprland
@@ -73,8 +82,6 @@
     enable = true;
     withUWSM = true;
   };
-
-  security.pam.services.hyprlock = {};
 
   # Automount
   services.devmon.enable = true;
