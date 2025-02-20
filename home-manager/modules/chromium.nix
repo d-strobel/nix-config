@@ -6,6 +6,9 @@
     extensions = [
       # ublock Origin
       {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
+
+      # Dark Reader
+      {id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";}
     ];
   };
 }
