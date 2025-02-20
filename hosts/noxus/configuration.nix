@@ -123,8 +123,9 @@ in {
     }
   ];
 
-  # System packages
-  system.packages = with pkgs; [
+  # Additional system packages
+  environment.systemPackages = with pkgs; [
+    parted
     gparted
     vim
   ];
