@@ -9,21 +9,19 @@
     ./fish.nix
     ./librewolf.nix
     ./fzf.nix
-    ./ghostty.nix
     ./git.nix
     ./gtk.nix
-    # ./hyprcursor.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprsunset.nix
     ./k9s.nix
+    ./mako.nix
     ./neovim.nix
     ./packages.nix
     ./qt.nix
     ./starship.nix
-    ./swaync.nix
     ./tmux.nix
     ./tofi.nix
     ./waybar.nix
