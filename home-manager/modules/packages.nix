@@ -11,14 +11,15 @@
     pavucontrol
     vlc
     openfortivpn
+    loupe
     gnome-disk-utility
     gnome-calendar
     gnome-calculator
     gnome-clocks
+    gnome-text-editor
 
     # CLI tools
     dig
-    traceroute
     ffmpeg
     ripgrep
     fd
@@ -28,6 +29,10 @@
     wl-clipboard
     playerctl
     brightnessctl
+
+    # Container
+    podman
+    kind
 
     # Screenshot tools
     grim

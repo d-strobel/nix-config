@@ -28,6 +28,7 @@
     ./waybar.nix
     ./wlogout.nix
     ./xdg.nix
+    ./zathura.nix
     ./zoxide.nix
   ];
 }
