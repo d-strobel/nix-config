@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.pointerCursor = {
-    name = "DMZ-Black";
-    package = with pkgs; vanilla-dmz;
+    name = "Adwaita";
+    package = with pkgs; adwaita-icon-theme;
 
     gtk = {
       enable = true;
