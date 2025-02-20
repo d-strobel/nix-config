@@ -2,6 +2,7 @@
   services.hyprpaper = {
     enable = true;
     package = with pkgs; hyprpaper;
+
     settings = {
       ipc = "on";
       splash = false;
