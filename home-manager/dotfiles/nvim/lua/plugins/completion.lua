@@ -20,11 +20,13 @@ return {
         use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono'
       },
+
+      cmdline = {
+        enabled = false,
+      },
+
       sources = {
         default = { 'lsp', 'path', 'buffer' },
-
-        -- Disable cmdline completions
-        cmdline = {},
       },
 
       signature = {
