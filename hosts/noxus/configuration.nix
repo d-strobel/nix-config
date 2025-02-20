@@ -4,7 +4,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  username = "dstrobel";
+in {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -72,7 +74,7 @@
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "dstrobel";
+        user = "${username}";
       };
     };
   };
@@ -102,13 +104,30 @@
   programs.fish.enable = true;
 
   # User
-  users.users.dstrobel = {
+  users.users."${username}" = {
     initialHashedPassword = "$y$j9T$oBaKT5YqnbXdvecq/tx3X.$GBriGJP22EwEM0MNB5yxt3UDrxX2/t2gHHMNJd8CRuB";
     isNormalUser = true;
-    description = "dstrobel";
+    description = "${username}";
     extraGroups = ["networkmanager" "wheel"];
     shell = with pkgs; fish;
   };
+
+  # Replace sudo with doas
+  security.sudo.enable = false;
+  security.doas.enable = true;
+  security.doas.extraRules = [
+    {
+      users = ["${username}"];
+      keepEnv = true;
+      persist = false;
+    }
+  ];
+
+  # System packages
+  system.packages = with pkgs; [
+    gparted
+    vim
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
