@@ -12,6 +12,12 @@
 
       listener = [
         {
+          # 10 mins
+          timeout = 600;
+          on-timeout = "brightnessctl --save set 15%";
+          on-resume = "brightnessctl --restore";
+        }
+        {
           # 30 mins
           timeout = 1800;
           on-timeout = "hyprctl dispatch dpms off";
