@@ -5,7 +5,7 @@
       name = "gtk";
     };
     style = {
-      name = "adwaita-dark";
+      name = "qt6gtk2";
       package = with pkgs; adwaita-qt;
     };
   };
