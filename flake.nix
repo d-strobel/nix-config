@@ -5,12 +5,6 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # System wide styling
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,7 +15,6 @@
   outputs = {
     self,
     nixpkgs,
-    stylix,
     home-manager,
     ...
   } @ inputs: let
@@ -45,7 +38,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          stylix.homeManagerModules.stylix
           ./home-manager/home.nix
         ];
       };

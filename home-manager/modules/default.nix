@@ -4,6 +4,7 @@
     ./bat.nix
     ./btop.nix
     ./chromium.nix
+    ./cursor.nix
     ./direnv.nix
     ./eza.nix
     ./font.nix
