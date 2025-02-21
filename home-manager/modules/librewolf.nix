@@ -8,6 +8,27 @@
       "de"
     ];
 
+    policies = {
+      Extensions = {
+        Locked = [
+          # Dark theme
+          "firefox-compact-dark@mozilla.org"
+          # uBlock Origin
+          "uBlock0@raymondhill.net"
+          # Bitwarden
+          "446900e4-71c2-419f-a6a7-df9c091e268b"
+          # Dark reader
+          "addon@darkreader.org"
+          # SimpleLogin
+          "addon@simplelogin"
+          # Return YouTube dislike
+          "762f9885-5a13-4abd-9c77-433dcd38b8fd"
+          # Hide YouTube shorts
+          "88ebde3a-4581-4c6b-8019-2a05a9e3e938"
+        ];
+      };
+    };
+
     profiles = {
       default = {
         id = 0;
