@@ -87,4 +87,25 @@
       };
     };
   };
+
+  systemd.user.services = let
+    waybar = "${pkgs.waybar}/bin/waybar";
+  in {
+    waybar = {
+      Unit = {
+        Description = "Wayland status bar.";
+        Documentation = "https://github.com/Alexays/Waybar";
+        Requires = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+      };
+
+      Service = {
+        ExecStart = "${waybar}";
+        ExecStop = "pgrep waybar && pkill waybar";
+        Type = "simple";
+        Restart = "on-failure";
+        
+      };
+    };
+  };
 }

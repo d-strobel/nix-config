@@ -10,7 +10,6 @@
       # Packages
       alacritty = "${pkgs.alacritty}/bin/alacritty";
       tofi = "${pkgs.tofi}/bin/tofi-drun";
-      waybar = "${pkgs.waybar}/bin/waybar";
       hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";
@@ -25,7 +24,6 @@
       monitor = ",preferred,auto,1";
 
       exec-once = [
-        "${waybar}"
         "systemctl --user start hyprpolkitagent"
       ];
 
