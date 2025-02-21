@@ -10,6 +10,7 @@
     settings = let
       # Set SUPER as main modifier
       mainMod = "SUPER";
+      menu = "${tofi} | xargs hyprctl dispatch exec --";
 
       # Packages
       alacritty = "${pkgs.alacritty}/bin/alacritty";
@@ -21,10 +22,6 @@
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
     in {
-      # Variables
-      "$terminal" = "${alacritty}";
-      "$menu" = "${tofi} | xargs hyprctl dispatch exec --";
-
       monitor = ",preferred,auto,1";
 
       exec-once = [
@@ -140,8 +137,8 @@
         # General keybinds
         "${mainMod} shift, Q, killactive,"
         "${mainMod} shift, M, exit,"
-        "${mainMod}, SPACE, exec, $menu"
-        "${mainMod}, T, exec, $terminal"
+        "${mainMod}, SPACE, exec, ${menu}"
+        "${mainMod}, T, exec, ${alacritty}"
         "${mainMod} shift, Return, exec, ${hyprlock}"
 
         # Screenshot
