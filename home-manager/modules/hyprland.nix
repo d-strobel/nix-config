@@ -24,6 +24,7 @@
       monitor = ",preferred,auto,1";
 
       exec-once = [
+        "systemctl --user start waybar"
         "systemctl --user start hyprpolkitagent"
       ];
 
