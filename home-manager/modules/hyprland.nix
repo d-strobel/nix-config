@@ -219,8 +219,10 @@
         "pin,class:^(librewolf)$,title:^(Librewolf)$"
         "float,class:^(librewolf)$,title:^(Librewolf)$"
 
-        # Change border color for ssh sessions
+        # Change border color for SSH sessions
         "bordercolor rgba(f9164fee) rgba(f9f616ee) 45deg,title:^ssh.*"
+        # Change border color for Remmina sessions
+        "bordercolor rgba(f9164fee) rgba(f9f616ee) 45deg,class:^(org.remmina.Remmina)$,initialTitle:^(Remmina)$"
       ];
     };
   };
