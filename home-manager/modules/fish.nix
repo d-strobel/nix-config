@@ -2,8 +2,8 @@
   programs.fish = {
     enable = true;
     package = with pkgs; fish;
-    shellAliases = {
-      sudo = "doas";
-    };
+    # shellAliases = {
+    #   sudo = "doas";
+    # };
   };
 }

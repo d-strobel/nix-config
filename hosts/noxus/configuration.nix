@@ -45,7 +45,7 @@ in {
   # Hostname
   networking.hostName = "noxus";
 
-  # Enable networking
+  # Enable networkmanager
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
@@ -73,7 +73,7 @@ in {
     vt = 7;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --env WAYLAND_DISPLAY=wayland-1";
         user = "${username}";
       };
     };
@@ -113,9 +113,9 @@ in {
   };
 
   # Replace sudo with doas
-  security.sudo.enable = false;
+  security.sudo.enable = true;
   security.doas = {
-    enable = true;
+    enable = false;
     extraRules = [
       {
         groups = ["wheel"];
@@ -128,7 +128,6 @@ in {
   # Additional system packages
   environment.systemPackages = with pkgs; [
     parted
-    gparted
     vim
   ];
 
