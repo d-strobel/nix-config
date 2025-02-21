@@ -11,6 +11,7 @@
     pavucontrol
     vlc
     openfortivpn
+    remmina
     loupe
     gnome-disk-utility
     gnome-calendar
