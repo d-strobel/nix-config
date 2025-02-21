@@ -218,6 +218,9 @@
         "float,class:^(librewolf)$,title:^(Picture-in-Picture)$"
         "pin,class:^(librewolf)$,title:^(Librewolf)$"
         "float,class:^(librewolf)$,title:^(Librewolf)$"
+
+        # Change border color for ssh sessions
+        "bordercolor rgba(f9164fee) rgba(f9f616ee) 45deg,title:^ssh.*"
       ];
     };
   };
