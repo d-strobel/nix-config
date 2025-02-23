@@ -1,0 +1,33 @@
+{pkgs, ...}: {
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.hyprlock = {};
+
+  services.greetd = {
+    enable = true;
+    vt = 7;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --env WAYLAND_DISPLAY=wayland-1";
+      };
+    };
+  };
+
+  # Enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
+  # Automount
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
+  # DBus
+  services.dbus = {
+    enable = true;
+    packages = with pkgs; [dconf];
+  };
+  programs.dconf.enable = true;
+}
