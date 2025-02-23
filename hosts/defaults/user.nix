@@ -5,7 +5,6 @@ in {
   programs.fish.enable = true;
 
   users.users."${username}" = {
-    initialHashedPassword = "$y$j9T$oBaKT5YqnbXdvecq/tx3X.$GBriGJP22EwEM0MNB5yxt3UDrxX2/t2gHHMNJd8CRuB";
     isNormalUser = true;
     description = "Main user";
     extraGroups = ["networkmanager" "wheel"];
@@ -15,12 +14,12 @@ in {
   };
 
   # Replace sudo with doas
-  security.sudo.enable = true;
+  security.sudo.enable = false;
   security.doas = {
-    enable = false;
+    enable = true;
     extraRules = [
       {
-        groups = ["wheel"];
+        users = ["${username}"];
         keepEnv = true;
         persist = false;
       }
