@@ -1,5 +1,6 @@
 {
   imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../defaults
   ];
@@ -8,11 +9,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # LUKS encryption
-  boot.initrd.luks.devices."luks-09b09896-1d5f-4f4e-98e0-120876ece499".device = "/dev/disk/by-uuid/09b09896-1d5f-4f4e-98e0-120876ece499";
+  boot.initrd.luks.devices."luks-1b73dd99-61d5-4de1-a5c1-16f5377f8f1a".device = "/dev/disk/by-uuid/1b73dd99-61d5-4de1-a5c1-16f5377f8f1a";
+  networking = {
+    hostName = "noxus"; # Define your hostname.
+    extraHosts = ''
+      192.168.11.10 vaultwarden.dstrobel.com
+    '';
+  };
 
-  # Hostname
-  networking.hostName = "noxus";
+  # Firewall
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
