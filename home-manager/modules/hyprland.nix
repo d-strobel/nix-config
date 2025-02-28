@@ -24,6 +24,14 @@
     in {
       monitor = ",preferred,auto,1";
 
+      device = [
+        {
+          # Disable notebook touchscreen
+          name = "elan-touchscreen";
+          enabled = false;
+        }
+      ];
+
       exec-once = [
         "systemctl --user start waybar"
         "systemctl --user start hyprpolkitagent"
