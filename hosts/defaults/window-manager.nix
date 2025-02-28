@@ -8,7 +8,7 @@
     vt = 7;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --env WAYLAND_DISPLAY=wayland-1";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
       };
     };
   };
