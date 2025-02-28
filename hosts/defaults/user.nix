@@ -13,16 +13,6 @@ in {
     shell = with pkgs; fish;
   };
 
-  # Replace sudo with doas
-  security.sudo.enable = false;
-  security.doas = {
-    enable = true;
-    extraRules = [
-      {
-        users = ["${username}"];
-        keepEnv = true;
-        persist = false;
-      }
-    ];
-  };
+  # Sudo
+  security.sudo.enable = true;
 }
