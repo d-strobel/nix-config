@@ -14,19 +14,19 @@
         {
           # 10 mins
           timeout = 600;
-          on-timeout = "brightnessctl --save set 15%";
+          on-timeout = "[ $(cat /sys/class/power_supply/AC/online) -eq 0 ] && brightnessctl --save set 15%";
           on-resume = "brightnessctl --restore";
         }
         {
           # 30 mins
           timeout = 1800;
-          on-timeout = "hyprctl dispatch dpms off";
+          on-timeout = "[ $(cat /sys/class/power_supply/AC/online) -eq 0 ] && hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
         {
           # 60 mins
           timeout = 3600;
-          on-timeout = "systemctl suspend";
+          on-timeout = "[ $(cat /sys/class/power_supply/AC/online) -eq 0 ] && systemctl suspend";
         }
       ];
     };
