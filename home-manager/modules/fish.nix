@@ -36,5 +36,13 @@
     in {
       tmux = "${lib.getExe tmuxOpen}";
     };
+
+    functions = let
+      openfortivpn = "${pkgs.openfortivpn}/bin/openfortivpn";
+    in {
+      vpn-connect = "sudo ${openfortivpn}";
+      ipv6-disable = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1";
+      ipv6-enable = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0";
+    };
   };
 }
