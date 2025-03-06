@@ -18,6 +18,10 @@
     gnome-calculator
     gnome-clocks
     gnome-text-editor
+    microsoft-edge
+    cosmic-edit
+    cosmic-files
+    winbox
 
     # CLI tools
     dig
