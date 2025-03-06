@@ -19,7 +19,6 @@
     kubectl
     kubectx
     talosctl
-    omnictl
     kubelogin
     kubelogin-oidc
   ];
