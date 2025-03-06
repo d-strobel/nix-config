@@ -77,8 +77,8 @@
             critical = 10;
           };
           format = "{icon} {capacity}%";
-          format-charging = "{icon} 󱐋 {capacity}%";
-          format-icons = [" " " " " " " " " "];
+          format-charging = " {capacity}%";
+          format-icons = ["󱉞" "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
 
         "clock" = {
@@ -104,7 +104,6 @@
         ExecStop = "pgrep waybar && pkill waybar";
         Type = "simple";
         Restart = "on-failure";
-        
       };
     };
   };
