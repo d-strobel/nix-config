@@ -150,7 +150,6 @@
       set -g pane-border-style 'fg=colour8'
       set -g pane-active-border-style 'fg=green'
 
-      #TODO: Create session scripts
       # Session management with custom scripts
       bind-key -r f run-shell "${lib.getExe tmuxSessionizer}"
       bind-key -r w run-shell "${lib.getExe tmuxSessions}"
