@@ -15,6 +15,7 @@
         "custom/nix" = {
           on-click = "wlogout";
           format = " ";
+          tooltip = false;
         };
 
         "hyprland/workspaces" = {
