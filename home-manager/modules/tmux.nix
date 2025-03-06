@@ -88,9 +88,6 @@
       # Set true color
       set -ga terminal-overrides ",xterm-256color*:Tc"
 
-      # Reload tmux config
-      bind-key R source-file ~/.tmux.conf \; display-message "Config reloaded..."
-
       # Remap ctrl+b to ctrl+a
       unbind C-b
       set-option -g prefix C-a
