@@ -30,6 +30,11 @@
           name = "elan-touchscreen";
           enabled = false;
         }
+        {
+          # Change mouse sensitivity
+          name = "pixart-dell-ms116-usb-optical-mouse";
+          sensitivity = -0.6;
+        }
       ];
 
       exec-once = [
