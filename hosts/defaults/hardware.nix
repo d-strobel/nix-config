@@ -35,8 +35,8 @@
 
       # Hyprland fps drop issue
       # https://wiki.hyprland.org/Configuring/Performance/#low-fpsstutterfps-drops-on-intel-igpu-with-tlp-mainly-laptops
-      INTEL_GPU_MIN_FREQ_ON_AC = 500;
-      INTEL_GPU_MIN_FREQ_ON_BAT = 500;
+      # INTEL_GPU_MIN_FREQ_ON_AC = 500;
+      # INTEL_GPU_MIN_FREQ_ON_BAT = 500;
 
       # Optional helps save long term battery health
       START_CHARGE_THRESH_BAT0 = 20; # 40 and below it starts to charge
