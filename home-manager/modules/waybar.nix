@@ -52,19 +52,29 @@
           format-ethernet = "󰈀 {ipaddr}";
           format-disconnected = "󰤮 down";
           format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤨 "];
-          tooltip-format = "{ifname} via {gwaddr}";
-          tooltip-format-wifi = "{essid} ({signalStrength}%)";
-          tooltip-format-ethernet = "{ifname}";
+          tooltip-format-wifi = ''
+            SSID: {essid} ({signalStrength}%)
+            Interface: {ifname}
+            Address: {ipaddr}/{cidr}
+            Gateway: {gwaddr}
+          '';
+          tooltip-format-ethernet = ''
+            Interface: {ifname}
+            Address: {ipaddr}/{cidr}
+            Gateway: {gwaddr}
+          '';
           tooltip-format-disconnected = "Disconnected";
           max-length = 50;
         };
 
         "pulseaudio" = {
-          format = "{icon} {volume}%";
+          format = "{format_source} {icon} {volume}%";
           format-bluetooth = "{icon} {volume}% ";
-          format-muted = " 0%";
+          format-muted = "{format_source}  0%";
+          format-source = "󰍬 {volume}%";
+          format-source-muted = "󰍭 0%";
           on-click = "pavucontrol";
-          format-icons = [" " " " "  "];
+          format-icons = ["" "" " "];
         };
 
         "backlight" = {
@@ -85,6 +95,7 @@
         "clock" = {
           format = "{:%d.%m.%Y - %H:%M}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
+          tooltip = true;
           calendar = {
             mode = "year";
             mode-mon-col = 3;

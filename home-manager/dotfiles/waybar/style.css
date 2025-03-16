@@ -1,8 +1,7 @@
 * {
-    font-family: "JetBrainsMono NF Bold";
+    font-family: "JetBrainsMono NF";
     font-size: 14px;
-    font-weight: bold;
-    border: none;
+    transition: background-color .3s ease-out;
 }
 
 @define-color black #0a0a0f;
@@ -18,14 +17,18 @@
 
 window#waybar {
     background-color: @black;
+    transition: background-color .5s;
 }
 
 /* Custom Nix */
 #custom-nix {
   padding: 0 5px 0 5px;
   background-color: transparent;
-  color: @rose;
+  color: #7ebae4;
   font-size: 22px; 
+}
+#custom-nix:hover {
+  color: #5277c3;
 }
 
 /* Workspace Buttons */
@@ -76,8 +79,10 @@ window#waybar {
     color: @blue;
     border-right: 1px solid @spacer;
 }
-#network.disabled,
-#network.disconeccted {
+#network.disabled {
+    color: @red;
+}
+#network.disconnected {
     color: @red;
 }
 
@@ -88,6 +93,9 @@ window#waybar {
     border-right: 1px solid @spacer;
 }
 #pulseaudio.muted {
+    color: @red;
+}
+#pulseaudio.source-muted {
     color: @red;
 }
 
