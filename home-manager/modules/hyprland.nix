@@ -8,6 +8,9 @@
     package = with pkgs; hyprland;
     systemd.enable = false;
     settings = let
+      # Home
+      home = "${config.home.homeDirectory}";
+
       # Set SUPER as main modifier
       mainMod = "SUPER";
       menu = "${tofi} | xargs hyprctl dispatch exec --";
@@ -148,7 +151,7 @@
         "${mainMod} shift, Return, exec, ${hyprlock}"
 
         # Screenshot
-        "${mainMod}, Print, exec, ${grim} -g \"$(${slurp})\" -t ppm - | ${satty} --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
+        "${mainMod}, Print, exec, ${grim} -g \"$(${slurp})\" -t ppm - | ${satty} --filename - --fullscreen --output-filename ${home}/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
 
         # Window management
         "${mainMod}, h, movefocus, l"
