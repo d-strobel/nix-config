@@ -70,7 +70,7 @@
         inactive_opacity = 1.0;
 
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 4;
           render_power = 3;
           color = "rgba(1a1a1aee)";
@@ -130,10 +130,6 @@
 
       input = {
         kb_layout = "de";
-        # kb_variant = ;
-        # kb_model = ;
-        # kb_options = ;
-        # kb_rules = ;
         follow_mouse = 1;
         sensitivity = 0;
 
