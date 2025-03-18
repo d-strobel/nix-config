@@ -13,19 +13,24 @@ border-width = 0
 min-input-width = 130
 result-spacing = 20
 
-padding-top = 5
+padding-top = 4
 padding-bottom = 0
 padding-left = 5
 padding-right = 0
 
+margin-top = 0
+margin-bottom = 0
+margin-left = 0
+margin-right = 0
+
 # prompt-background = #eebab1
 prompt-background-padding = 4, 10
-prompt-background-corner-radius = 4
+prompt-background-corner-radius = 10
 
 # Colors
 background-color = #0a0a0f
 text-color = #e0def4
-selection-color = #e0def4 
-selection-background = #21202e
-selection-background-corner-radius = 4
+selection-color = #0a0a0f 
+selection-background = #c4a7e7 
+selection-background-corner-radius = 10
 selection-background-padding = 1, 10
