@@ -34,7 +34,7 @@
           ${tmux} attach-session -t $selected_name
         '';
     in {
-      tmux-open = "${lib.getExe tmuxOpen}";
+      t = "${lib.getExe tmuxOpen}";
       gbws = "git-branch-worktree-switch";
     };
 
