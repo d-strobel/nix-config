@@ -9,7 +9,7 @@
         position = "top";
         height = 30;
         modules-left = ["custom/nix" "image" "hyprland/workspaces"];
-        modules-right = ["memory" "cpu" "disk" "network" "pulseaudio" "backlight" "battery" "clock"];
+        modules-right = ["privacy" "memory" "cpu" "disk" "network" "pulseaudio" "backlight" "battery" "clock"];
 
         # Left side
         "custom/nix" = {
@@ -29,6 +29,29 @@
         };
 
         # Right side
+        "privacy" = {
+          icon-spacing = 4;
+          icon-size = 18;
+          transition-duration = 250;
+          modules = [
+            {
+              type = "screenshare";
+              tooltip = true;
+              tooltip-icon-size = 24;
+            }
+            {
+              type = "audio-out";
+              tooltip = true;
+              tooltip-icon-size = 24;
+            }
+            {
+              type = "audio-in";
+              tooltip = true;
+              tooltip-icon-size = 24;
+            }
+          ];
+        };
+
         "memory" = {
           interval = 15;
           format = "  {percentage}%   {swapPercentage}%";

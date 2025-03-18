@@ -52,6 +52,14 @@ window#waybar {
 }
 
 /* Right Side */
+#privacy {
+    margin: 4px 0;
+    padding: 0 10px;
+    background-color: @iris;
+    color: @black;
+    border-radius: 10px
+}
+
 #memory {
     padding: 0 10px;
     background-color: transparent;
