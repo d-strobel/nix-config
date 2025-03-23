@@ -4,5 +4,6 @@
     parted
     vim
     wineWowPackages.waylandFull
+    uutils-coreutils-noprefix
   ];
 }
