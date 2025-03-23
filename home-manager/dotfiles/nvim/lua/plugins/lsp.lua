@@ -142,6 +142,10 @@ return {
           },
         },
       })
+      -- Astro
+      lspconfig["astro"].setup {
+        capabilities = capabilities,
+      }
     end,
   },
 }

@@ -53,6 +53,7 @@
             css
             c
             bash
+            astro
           ]);
     in
       with pkgs.vimPlugins; [
@@ -148,6 +149,9 @@
 
       # Docker
       dockerfile-language-server-nodejs
+
+      # Astro Web Framework
+      astro-language-server
     ];
 
     # Python
