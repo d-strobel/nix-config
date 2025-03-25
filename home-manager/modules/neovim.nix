@@ -152,6 +152,9 @@
 
       # Astro Web Framework
       astro-language-server
+
+      # CSS
+      tailwindcss-language-server
     ];
 
     # Python

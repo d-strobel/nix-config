@@ -146,6 +146,10 @@ return {
       lspconfig["astro"].setup {
         capabilities = capabilities,
       }
+      -- Tailwindcss
+      lspconfig["tailwindcss"].setup {
+        capabilities = capabilities,
+      }
     end,
   },
 }
