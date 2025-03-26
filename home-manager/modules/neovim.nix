@@ -110,7 +110,7 @@
           install = {
             missing = false,
           },
-          ui = { border = "rounded" },
+          ui = { border = "single" },
         })
       '';
 
