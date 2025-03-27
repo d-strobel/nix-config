@@ -112,6 +112,7 @@ return {
               "*docker-compose*.{yml,yaml}",
               -- Go
               ["https://golangci-lint.run/jsonschema/golangci.jsonschema.json"] = ".golangci.{yml,yaml}",
+              ["https://goreleaser.com/static/schema.json"] = ".goreleaser.{yml,yaml}",
               -- Prometheus
               ["https://json.schemastore.org/prometheus.json"] = "prometheus.{yml.yaml}",
               ["https://json.schemastore.org/prometheus.rules.json"] = "*.rules.{yml,yaml}",
