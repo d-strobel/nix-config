@@ -35,9 +35,6 @@
     playerctl
     brightnessctl
 
-    # Container
-    podman
-
     # Screenshot tools
     grim
     slurp
