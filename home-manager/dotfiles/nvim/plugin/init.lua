@@ -34,7 +34,7 @@ api.nvim_create_autocmd('LspAttach', {
       vim.lsp.inlay_hint.enable(true)
 
       -- Keymap for toggle
-      keymap("n", '<leader>ih', function()
+      vim.keymap.set("n", '<leader>ih', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end)
     end
