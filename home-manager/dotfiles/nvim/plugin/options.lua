@@ -39,3 +39,6 @@ opt.swapfile = false
 
 -- Colors
 opt.termguicolors = true
+
+-- Window border for floating windows
+opt.winborder = 'single'
