@@ -155,13 +155,17 @@
 
       # CSS
       tailwindcss-language-server
-    ];
 
-    # Python
-    extraPython3Packages = pyPkgs:
-      with pyPkgs; [
-        python-lsp-server
-      ];
+      # Python
+      pyright
+    ];
+  };
+
+  # Nvim config
+  home.file."./.config/nvim/plugin" = {
+    enable = true;
+    source = ../dotfiles/nvim/plugin;
+    recursive = true;
   };
 
   # Lua plugins
@@ -171,17 +175,17 @@
     recursive = true;
   };
 
-  # After plugins
+  # After config
   home.file."./.config/nvim/after" = {
     enable = true;
     source = ../dotfiles/nvim/after;
     recursive = true;
   };
 
-  # Nvim config
-  home.file."./.config/nvim/plugin" = {
+  # LSP configs
+  home.file."./.config/nvim/lsp" = {
     enable = true;
-    source = ../dotfiles/nvim/plugin;
+    source = ../dotfiles/nvim/lsp;
     recursive = true;
   };
 }

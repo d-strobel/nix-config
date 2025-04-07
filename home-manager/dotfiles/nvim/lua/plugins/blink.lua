@@ -31,18 +31,15 @@ return {
 
       signature = {
         enabled = true,
-        window = {
-          border = "single",
-        }
       },
 
       completion = {
+        menu = {
+          border = 'none',
+        },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 500,
-          window = {
-            border = "single",
-          }
         },
       },
     },
