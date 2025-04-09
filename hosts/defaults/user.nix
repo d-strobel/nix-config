@@ -7,7 +7,11 @@ in {
   users.users."${username}" = {
     isNormalUser = true;
     description = "Main user";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+    ];
 
     # Managed by home-manager
     shell = with pkgs; fish;

@@ -5,6 +5,7 @@
     ./btop.nix
     ./chromium.nix
     ./cursor.nix
+    ./dconf.nix
     ./direnv.nix
     ./eza.nix
     ./font.nix
