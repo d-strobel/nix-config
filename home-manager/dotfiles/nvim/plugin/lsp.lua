@@ -55,6 +55,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Organize Imports
     if client:supports_method("textDocument/codeAction") then
+      -- Auto organize imports for all go code
       if vim.bo.filetype == "go" then
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = args.buf,
