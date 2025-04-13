@@ -17,7 +17,7 @@
 
     extraConfig = let
       # Search path for tmux sessionizer
-      searchPaths = "~/Work ~/Private";
+      searchPaths = "~/git/github.com/d-strobel ~/git/github.com/laser-zentrale-de ~/git/gitlab.com/strobel-iac";
 
       # Binaries
       tmux = "${pkgs.tmux}/bin/tmux";
