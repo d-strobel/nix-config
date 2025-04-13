@@ -22,13 +22,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
     -- Keymaps
-    vim.keymap.set("n", "<leader>d", function()
-      if not vim.diagnostic.config().virtual_lines then
-        vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
-      else
-        vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
-      end
-    end, { desc = "Toogle virtual text and virtual lines diagnostics." })
+    vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 
     -- Auto-format on save.
     if not client:supports_method('textDocument/willSaveWaitUntil')
