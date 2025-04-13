@@ -1,13 +1,12 @@
 {pkgs, ...}: {
   services.mako = {
-    enable = true; # Enables the Mako notification service
+    enable = true;
     package = with pkgs; mako;
-    defaultTimeout = 5000; # Default timeout for notifications in milliseconds (5 seconds)
+    defaultTimeout = 5000;
     anchor = "top-right";
-    backgroundColor = "#0a0a0f";
-    borderColor = "#31748f";
-    borderRadius = 4;
-    borderSize = 2;
+    backgroundColor = "#0A0A0FCC";
+    borderRadius = 6;
+    borderSize = 0;
     font = "JetBrainsMono NF";
     textColor = "#e0def4";
     height = 150;
