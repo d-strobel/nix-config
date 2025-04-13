@@ -7,12 +7,12 @@
     };
 
     theme = {
-      name = "Adwaita-Dark";
-      package = with pkgs; gnome-themes-extra;
+      name = "adw-gtk3-dark";
+      package = with pkgs; adw-gtk3;
     };
 
     gtk2.extraConfig = ''
-      gtk-icon-theme-name="Adwaita-Dark"
+      gtk-icon-theme-name="adw-gtk3-dark"
     '';
 
     gtk3.extraConfig = {
@@ -28,5 +28,5 @@
     };
   };
 
-  home.sessionVariables.GTK_THEME = "Adwaita-Dark";
+  home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
 }
