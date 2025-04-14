@@ -203,6 +203,12 @@
         ", XF86AudioPrev, exec, ${playerctl} previous"
       ];
 
+      layerrule = [
+        # Enable notifications blur
+        "blur, notifications"
+        "ignorezero, notifications"
+      ];
+
       windowrulev2 = [
         "suppressevent maximize, class:.*"
 
