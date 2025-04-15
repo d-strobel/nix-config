@@ -24,7 +24,9 @@
     # Available through 'sudo nixos-rebuild switch --flake .#noxus'
     nixosConfigurations = {
       noxus = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+        };
         modules = [
           ./hosts/noxus/configuration.nix
         ];
@@ -36,7 +38,9 @@
     homeConfigurations = {
       "dstrobel" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
         modules = [
           ./home-manager/home.nix
         ];
