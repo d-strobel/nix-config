@@ -4,6 +4,7 @@ vim.lsp.enable({
   "astro",
   "bashls",
   "dockerls",
+  "fish_lsp",
   "gopls",
   "jsonls",
   "luals",

@@ -158,6 +158,9 @@
 
       # Python
       pyright
+
+      # Fish
+      fish-lsp
     ];
   };
 
