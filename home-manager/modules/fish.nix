@@ -1,8 +1,11 @@
 {
   pkgs,
   lib,
+  mage-fish-completions,
   ...
-}: {
+}: let
+  mageFishCompletions = mage-fish-completions.packages.${pkgs.system}.default;
+in {
   programs.fish = {
     enable = true;
     package = with pkgs; fish;
@@ -92,4 +95,7 @@
         '';
     };
   };
+
+  # Link magefile target completions
+  home.file.".config/fish/completions/mage.fish".source = "${mageFishCompletions}/mage.fish";
 }

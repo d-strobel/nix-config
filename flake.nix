@@ -10,6 +10,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Mage fish completions
+    mage-fish-completions.url = "github:d-strobel/mage-fish-completions?ref=v0.1.0";
   };
 
   outputs = {
@@ -40,6 +43,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs;
+          mage-fish-completions = inputs.mage-fish-completions;
         };
         modules = [
           ./home-manager/home.nix
