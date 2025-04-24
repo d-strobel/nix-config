@@ -161,6 +161,9 @@
 
       # Fish
       fish-lsp
+
+      # SQL
+      postgres-lsp
     ];
   };
 

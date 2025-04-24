@@ -10,6 +10,7 @@ vim.lsp.enable({
   "luals",
   "nixd",
   "pyright",
+  "postgres_lsp",
   "rust_analyzer",
   "tailwindcss",
   "terraformls",
