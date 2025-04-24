@@ -34,6 +34,7 @@
     wl-clipboard
     playerctl
     brightnessctl
+    wavemon
 
     # Screenshot tools
     grim
