@@ -22,7 +22,6 @@
     cosmic-edit
     cosmic-files
     winbox
-    rustdesk
 
     # CLI tools
     dig
