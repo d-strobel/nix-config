@@ -10,6 +10,7 @@
     ./eza.nix
     ./font.nix
     ./fish.nix
+    ./laser-tools.nix
     ./librewolf.nix
     ./fzf.nix
     ./git.nix

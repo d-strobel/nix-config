@@ -13,6 +13,7 @@
 
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions?ref=v0.1.0";
+    lasergraph-timecode-importer.url = "github:laser-zentrale-de/lasergraph-timecode-importer";
   };
 
   outputs = {
@@ -44,6 +45,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           mage-fish-completions = inputs.mage-fish-completions;
+          lasergraph-timecode-importer = inputs.lasergraph-timecode-importer;
         };
         modules = [
           ./home-manager/home.nix
