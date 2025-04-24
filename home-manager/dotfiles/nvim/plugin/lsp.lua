@@ -14,6 +14,7 @@ vim.lsp.enable({
   "rust_analyzer",
   "tailwindcss",
   "terraformls",
+  "tinymist",
   "yamlls",
 })
 

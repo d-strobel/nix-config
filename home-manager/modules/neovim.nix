@@ -19,6 +19,7 @@
           with treesitter-plugins; [
             yaml
             xml
+            typst
             typescript
             toml
             tmux
@@ -164,6 +165,9 @@
 
       # SQL
       postgres-lsp
+
+      # Typst
+      tinymist
     ];
   };
 
