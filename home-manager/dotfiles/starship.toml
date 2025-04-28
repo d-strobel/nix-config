@@ -7,11 +7,11 @@ ${custom.opentofu}\
 $rust\
 $python\
 ${custom.ansible}\
-$nix_shell\
 $nodejs \
 $lua \
-$line_break\
 $vagrant \
+$nix_shell\
+$line_break\
 $character
 """
 
