@@ -7,7 +7,7 @@ ${custom.opentofu}\
 $rust\
 $python\
 ${custom.ansible}\
-$nodejs \
+$nodejs\
 $nix_shell\
 $line_break\
 $character
