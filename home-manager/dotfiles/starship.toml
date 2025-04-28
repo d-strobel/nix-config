@@ -67,6 +67,12 @@ format = 'via [$symbol]($style) [$output]($style bold) '
 shell = '/bin/bash'
 command = 'echo -n $(ansible --version 2>/dev/null | grep -oP "(?<=core )[\d\.]+")'
 
+[nodejs]
+symbol = ''
+detect_extensions = ['js', 'cjs', 'ts', 'mts', 'cts']
+style = 'green'
+format = 'via [$symbol]($style) [$version]($style bold) '
+
 [nix_shell]
 symbol = ''
 style = 'fg:#1e90c9'
