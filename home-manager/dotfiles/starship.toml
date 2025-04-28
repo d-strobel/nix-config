@@ -8,7 +8,10 @@ $rust\
 $python\
 ${custom.ansible}\
 $nix_shell\
+$nodejs \
+$lua \
 $line_break\
+$vagrant \
 $character
 """
 
