@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.hyprlock = {
     enable = true;
     package = with pkgs; hyprlock;
@@ -8,7 +12,7 @@
       };
 
       background = {
-        path = "/home/dstrobel/.config/wallpapers/nixos-02.jpg";
+        path = "${config.home.homeDirectory}/.config/wallpapers/nixos-02.jpg";
         blur_passes = 2;
         blur_size = 7;
       };
