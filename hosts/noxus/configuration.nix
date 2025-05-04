@@ -11,7 +11,7 @@
 
   boot.initrd.luks.devices."luks-1b73dd99-61d5-4de1-a5c1-16f5377f8f1a".device = "/dev/disk/by-uuid/1b73dd99-61d5-4de1-a5c1-16f5377f8f1a";
   networking = {
-    hostName = "noxus"; # Define your hostname.
+    hostName = "noxus";
     extraHosts = ''
       192.168.11.10 vaultwarden.dstrobel.com
       192.168.178.240 vault.dstrobel.com
