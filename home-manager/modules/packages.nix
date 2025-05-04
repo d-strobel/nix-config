@@ -22,6 +22,7 @@
     cosmic-edit
     cosmic-files
     winbox
+    localsend
 
     # CLI tools
     dig
