@@ -1,6 +1,9 @@
 {
   # Enable networkmanager
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    wireguard.enable = true;
+  };
 
   # Enable bluetooth
   hardware.bluetooth = {
