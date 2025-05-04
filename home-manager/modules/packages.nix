@@ -36,6 +36,7 @@
     playerctl
     brightnessctl
     wavemon
+    openssl
 
     # Screenshot tools
     grim
