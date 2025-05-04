@@ -14,6 +14,7 @@
     hostName = "noxus"; # Define your hostname.
     extraHosts = ''
       192.168.11.10 vaultwarden.dstrobel.com
+      192.168.178.240 vault.dstrobel.com
     '';
   };
 
