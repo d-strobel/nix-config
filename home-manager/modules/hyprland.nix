@@ -119,6 +119,7 @@
         # General keybinds
         "${mainMod} shift, Q, killactive,"
         "${mainMod} shift, M, exit,"
+        "${mainMod} shift, F, fullscreen,"
         "${mainMod}, SPACE, exec, ${menu}"
         "${mainMod}, T, exec, ${alacritty}"
         "${mainMod} shift, Return, exec, ${hyprlock}"
