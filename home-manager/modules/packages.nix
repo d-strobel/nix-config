@@ -23,6 +23,7 @@
     cosmic-files
     winbox
     localsend
+    rustdesk
 
     # CLI tools
     dig
