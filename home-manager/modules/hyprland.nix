@@ -16,7 +16,6 @@
       menu = "${tofi} | xargs hyprctl dispatch exec --";
 
       # Packages
-      alacritty = "${pkgs.alacritty}/bin/alacritty";
       tofi = "${pkgs.tofi}/bin/tofi-drun";
       hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
       grim = "${pkgs.grim}/bin/grim";
@@ -58,7 +57,7 @@
 
       general = {
         gaps_in = 4;
-        gaps_out = 6;
+        gaps_out = 10;
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(d916fcee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -120,8 +119,8 @@
         "${mainMod} shift, Q, killactive,"
         "${mainMod} shift, M, exit,"
         "${mainMod} shift, F, fullscreen,"
+        "${mainMod} shift, T, togglesplit,"
         "${mainMod}, SPACE, exec, ${menu}"
-        "${mainMod}, T, exec, ${alacritty}"
         "${mainMod} shift, Return, exec, ${hyprlock}"
 
         # Screenshot
@@ -181,6 +180,7 @@
         # Enable notifications blur
         "blur, notifications"
         "ignorezero, notifications"
+        "blur, waybar"
       ];
 
       windowrulev2 = [

@@ -16,7 +16,7 @@
 @define-color iris #c4a7e7;
 
 window#waybar {
-    background-color: @black;
+    background-color: rgba(10, 10, 15, 0.3);
     transition: background-color .5s;
 }
 
