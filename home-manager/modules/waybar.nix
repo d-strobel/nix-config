@@ -23,9 +23,6 @@
           show-special = true;
           special-visible-only = true;
           all-outputs = false;
-          persistent-workspaces = {
-            "*" = 9;
-          };
         };
 
         # Right side
