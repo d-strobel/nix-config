@@ -183,7 +183,14 @@
         "blur, waybar"
       ];
 
+      workspace = [
+        # "Smart gaps" / "No gaps when only"
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
+      ];
+
       windowrulev2 = [
+        # Suppress maximize requests from applications
         "suppressevent maximize, class:.*"
 
         # Fix some dragging issues with XWayland
@@ -213,6 +220,12 @@
         # Hide screen share windows
         "workspace special:hidden silent,title:^discord\.com is sharing your screen\."
         "workspace special:hidden silent,title:^teams\.microsoft\.com is sharing your screen\."
+
+        # "Smart gaps" / "No gaps when only"
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
       ];
     };
   };
