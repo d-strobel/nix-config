@@ -1,7 +1,6 @@
 * {
     font-family: "JetBrainsMono NF";
     font-size: 14px;
-    transition: background-color .3s ease-out;
 }
 
 @define-color black #0a0a0f;
@@ -15,15 +14,14 @@
 @define-color blue #9ccfd8;
 @define-color iris #c4a7e7;
 
-window#waybar {
-    background-color: rgba(10, 10, 15, 0.3);
-    transition: background-color .5s;
+#waybar {
+    background-color: transparent;
 }
 
 /* Custom Nix */
 #custom-nix {
   padding: 0 5px 0 5px;
-  background-color: transparent;
+  background-color: @black;
   color: #7ebae4;
   font-size: 22px; 
 }
@@ -33,9 +31,11 @@ window#waybar {
 
 /* Workspace Buttons */
 #workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  color: @text;
+    padding: 0 5px;
+    background-color: @black;
+    color: @text;
+    border: 1px solid @spacer;
+    border-radius: 10px;
 }
 
 #workspaces button:hover {
@@ -51,74 +51,51 @@ window#waybar {
     background-color: @highlight;
 }
 
+/* Center */
+#clock {
+    padding: 0 10px;
+    color: @text;
+    border: 1px solid @spacer;
+    border-radius: 10px;
+    background-color: @black;
+}
+
 /* Right Side */
 #privacy {
     margin: 4px 0;
     padding: 0 10px;
     background-color: @iris;
     color: @black;
-    border-radius: 10px
+    border-radius: 10px;
 }
 
-#memory {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @text;
-    border-right: 1px solid @spacer;
-}
-
-#cpu {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @text;
-    border-right: 1px solid @spacer;
-}
-
-#disk {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @text;
-    border-right: 1px solid @spacer;
-}
-
-#network {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @blue;
-    border-right: 1px solid @spacer;
-}
-#network.disabled {
-    color: @red;
-}
-#network.disconnected {
-    color: @red;
-}
-
-#pulseaudio {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @text;
-    border-right: 1px solid @spacer;
-}
-#pulseaudio.muted {
-    color: @red;
-}
-#pulseaudio.source-muted {
-    color: @red;
-}
-
-#backlight {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @text;
-    border-right: 1px solid @spacer;
-}
-
+#memory,
+#cpu,
+#disk,
+#network,
+#pulseaudio,
+#backlight,
 #battery {
     padding: 0 10px;
-    background-color: transparent;
     color: @text;
-    border-right: 1px solid @spacer;
+    border-radius: 10px;
+    background-color: @black;
+    border: 1px solid @spacer;
+}
+
+/* Status updates */
+#network.disabled {
+  color: @red;
+}
+#network.disconnected {
+  color: @red;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+#pulseaudio.source-muted {
+  color: @red;
 }
 #battery.charging {
     color: @green;
@@ -140,10 +117,4 @@ window#waybar {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#clock {
-    padding: 0 10px;
-    background-color: transparent;
-    color: @text;
 }

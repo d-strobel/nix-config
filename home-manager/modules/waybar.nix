@@ -8,8 +8,9 @@
         layer = "top";
         position = "top";
         height = 30;
-        modules-left = ["custom/nix" "image" "hyprland/workspaces"];
-        modules-right = ["privacy" "memory" "cpu" "disk" "network" "pulseaudio" "backlight" "battery" "clock"];
+        modules-left = ["custom/nix" "hyprland/workspaces"];
+        modules-center = ["clock"];
+        modules-right = ["privacy" "memory" "cpu" "network" "pulseaudio" "backlight" "battery"];
 
         # Left side
         "custom/nix" = {
@@ -68,8 +69,8 @@
 
         "network" = {
           on-click = "nm-connection-editor";
-          format-wifi = "{icon} {ipaddr}";
-          format-ethernet = "󰈀 {ipaddr}";
+          format-wifi = "{icon} {signalStrength}%";
+          format-ethernet = "󰈀 100%";
           format-disconnected = "󰤮 down";
           format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤨 "];
           tooltip-format-wifi = ''
