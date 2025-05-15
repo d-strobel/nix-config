@@ -218,8 +218,8 @@
         "bordercolor rgba(f9164fee) rgba(f9f616ee) 45deg,class:^(org.remmina.Remmina)$,initialTitle:^(Remmina)$"
 
         # Hide screen share windows
-        "workspace special:hidden silent,title:^discord\.com is sharing your screen\."
-        "workspace special:hidden silent,title:^teams\.microsoft\.com is sharing your screen\."
+        "workspace special:hidden silent,title:^discord\.com is sharing (your screen|a window)\."
+        "workspace special:hidden silent,title:^teams\.microsoft\.com is sharing (your screen|a window)\."
 
         # "Smart gaps" / "No gaps when only"
         "bordersize 0, floating:0, onworkspace:w[tv1]"
