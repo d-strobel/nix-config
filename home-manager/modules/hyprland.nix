@@ -180,7 +180,6 @@
         # Enable notifications blur
         "blur, notifications"
         "ignorezero, notifications"
-        "blur, waybar"
       ];
 
       workspace = [
