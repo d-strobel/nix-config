@@ -1,3 +1,6 @@
+<!-- Badges -->
+[![Test][test badge]][test page]
+
 ![logo](./images/nixos.png)
 
 # nix-config
@@ -24,3 +27,7 @@ Personal NixOS configuration
 * [youtube.com/@vimjoyer](https://www.youtube.com/@vimjoyer)
 * [nixalted.com/](https://nixalted.com/)
 * [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
+
+<!-- Badges -->
+[test badge]: https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg
+[test page]: https://github.com/d-strobel/nix-config/actions/workflows/test.yml
