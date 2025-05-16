@@ -1,3 +1,5 @@
+![logo](./images/nixos.png)
+
 # nix-config
 
 Personal NixOS configuration
