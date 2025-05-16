@@ -1,13 +1,15 @@
-# nix-config
-
+<p align="center">
 <!-- Badges -->
-[![Test][test badge]][test page]
+<a href="https://github.com/d-strobel/nix-config/actions/workflows/test.yml">
+    <img src="https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg">
+</a>
+<!-- Logo -->
+<a href="https://nixos.org"><img src="./images/nixos.png"></a>
+</p>
 
-![logo](./images/nixos.png)
-
-## Description
-
-Personal NixOS configuration.
+<!-- Headline + Short description -->
+<h1 align="center">nix-config</h1>
+<p align="center"><i>Personal NixOS configuration.</i>.</p>
 
 ## Installation
 
@@ -47,7 +49,3 @@ sudo nix-collect-garbage -d
 * [youtube.com/@vimjoyer](https://www.youtube.com/@vimjoyer)
 * [nixalted.com/](https://nixalted.com/)
 * [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
-
-<!-- Badges -->
-[test badge]: https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg
-[test page]: https://github.com/d-strobel/nix-config/actions/workflows/test.yml
