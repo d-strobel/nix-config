@@ -13,10 +13,10 @@
 
       # Set SUPER as main modifier
       mainMod = "SUPER";
-      menu = "${tofi} | xargs hyprctl dispatch exec --";
+      menu = "${rofi} -show drun";
 
       # Packages
-      tofi = "${pkgs.tofi}/bin/tofi-drun";
+      rofi = "${pkgs.rofi}/bin/rofi";
       hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
       grim = "${pkgs.grim}/bin/grim";
       slurp = "${pkgs.slurp}/bin/slurp";

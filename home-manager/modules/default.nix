@@ -26,9 +26,9 @@
     ./neovim.nix
     ./packages.nix
     ./qt.nix
+    ./rofi.nix
     ./starship.nix
     ./tmux.nix
-    ./tofi.nix
     ./waybar.nix
     ./wlogout.nix
     ./xdg.nix
