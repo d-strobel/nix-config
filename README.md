@@ -1,11 +1,13 @@
+# nix-config
+
 <!-- Badges -->
 [![Test][test badge]][test page]
 
 ![logo](./images/nixos.png)
 
-# nix-config
+## Description
 
-Personal NixOS configuration
+Personal NixOS configuration.
 
 ## Installation
 
