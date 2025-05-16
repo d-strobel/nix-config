@@ -1,13 +1,16 @@
+<!-- Logo -->
+<p align="center">
+<a href="https://nixos.org"><img src="./images/nixos.png"></a>
+</p>
+
 <!-- Badges -->
 <p align="center">
     <a href="https://github.com/d-strobel/nix-config/actions/workflows/test.yml">
         <img src="https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg">
     </a>
-</p>
-
-<!-- Logo -->
-<p align="center">
-    <a href="https://nixos.org"><img src="./images/nixos.png"></a>
+    <a href="https://github.com/NixOS/nixpkgs">
+        <img src="https://img.shields.io/badge/nixpkgs-nixos--unstable-blue">
+    </a>
 </p>
 
 <!-- Headline and short description -->
