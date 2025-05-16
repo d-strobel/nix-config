@@ -24,6 +24,24 @@ Personal NixOS configuration.
 1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
 1. Install system flake: `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
 
+## Update
+
+In order to update a system run the following commands.
+
+```bash
+# 1. Update the nix flake
+nix flake update
+
+# 2. Rebuild the system
+sudo nixos-rebuild switch --flake .#HOST
+
+# 3. Rebuild the Home-Manager
+home-manager switch --flake .#USER
+
+# 4. Optional: Gargabe collection
+sudo nix-collect-garbage -d
+```
+
 ## Inspirations
 
 * [youtube.com/@vimjoyer](https://www.youtube.com/@vimjoyer)
