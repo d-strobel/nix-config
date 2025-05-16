@@ -1,13 +1,16 @@
-<p align="center">
 <!-- Badges -->
-<a href="https://github.com/d-strobel/nix-config/actions/workflows/test.yml">
-    <img src="https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg">
-</a>
-<!-- Logo -->
-<a href="https://nixos.org"><img src="./images/nixos.png"></a>
+<p align="center">
+    <a href="https://github.com/d-strobel/nix-config/actions/workflows/test.yml">
+        <img src="https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg">
+    </a>
 </p>
 
-<!-- Headline + Short description -->
+<!-- Logo -->
+<p align="center">
+    <a href="https://nixos.org"><img src="./images/nixos.png"></a>
+</p>
+
+<!-- Headline and short description -->
 <h1 align="center">nix-config</h1>
 <p align="center"><i>Personal NixOS configuration.</i>.</p>
 
