@@ -17,7 +17,7 @@ Personal NixOS configuration
 1. Activate LUKS encryption
 1. Boot into the system
 1. Login with the user
-1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>`
+1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>` OR `nmtui`
 1. Create temporary shell: `nix-shell -p vim git home-manager`
 1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
 1. Install system flake: `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
