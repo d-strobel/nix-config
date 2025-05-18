@@ -27,7 +27,7 @@ in {
       kb-page-next = "Page_Down,Control-d";
     };
 
-    themeFileName = "${config.home.homeDirectory}/.config/rofi/${themeFileName}";
+    theme = "${config.home.homeDirectory}/.config/rofi/${themeFileName}";
   };
 
   # themeFileName file
