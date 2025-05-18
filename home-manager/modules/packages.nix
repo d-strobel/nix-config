@@ -5,19 +5,14 @@
     # Desktop apps
     obsidian
     signal-desktop
-    nautilus
     overskride
     networkmanagerapplet
     pavucontrol
     vlc
     openfortivpn
     remmina
-    loupe
     gnome-disk-utility
-    gnome-calendar
     gnome-calculator
-    gnome-clocks
-    gnome-text-editor
     microsoft-edge
     winbox
     localsend
