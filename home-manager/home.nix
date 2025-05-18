@@ -5,7 +5,41 @@
   ...
 }: {
   imports = [
-    ./modules
+    ./modules/alacritty.nix
+    ./modules/bat.nix
+    ./modules/btop.nix
+    ./modules/chromium.nix
+    ./modules/cursor.nix
+    ./modules/cosmic.nix
+    ./modules/dconf.nix
+    ./modules/direnv.nix
+    ./modules/eza.nix
+    ./modules/font.nix
+    ./modules/fish.nix
+    ./modules/laser-tools.nix
+    ./modules/librewolf.nix
+    ./modules/fzf.nix
+    ./modules/git.nix
+    ./modules/gtk.nix
+    ./modules/hyprland.nix
+    ./modules/hyprpaper.nix
+    ./modules/hypridle.nix
+    ./modules/hyprlock.nix
+    ./modules/hyprsunset.nix
+    ./modules/keychain.nix
+    ./modules/kubernetes.nix
+    ./modules/mako.nix
+    ./modules/neovim.nix
+    ./modules/packages.nix
+    ./modules/qt.nix
+    ./modules/rofi.nix
+    ./modules/starship.nix
+    ./modules/tmux.nix
+    ./modules/waybar.nix
+    ./modules/wlogout.nix
+    ./modules/xdg.nix
+    ./modules/zathura.nix
+    ./modules/zoxide.nix
   ];
 
   # Enable flakes
