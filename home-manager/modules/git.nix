@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }: let
   # Github
@@ -37,18 +36,6 @@ in {
       };
     };
   };
-
-  # Create git subdirectories
-  home.activation.createDirs =
-    lib.hm.dag.entryAfter ["writeBoundary"]
-    /*
-    bash
-    */
-    ''
-      mkdir -p ${config.home.homeDirectory}/${githubPath}/d-strobel
-      mkdir -p ${config.home.homeDirectory}/${githubPath}/laser-zentrale-de
-      mkdir -p ${config.home.homeDirectory}/${gitlabPath}/strobel-iac
-    '';
 
   # Github gitconfig
   home.file."./${githubPath}/.gitconfig" = {

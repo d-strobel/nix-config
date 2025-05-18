@@ -19,8 +19,6 @@
     gnome-clocks
     gnome-text-editor
     microsoft-edge
-    cosmic-edit
-    cosmic-files
     winbox
     localsend
     rustdesk
