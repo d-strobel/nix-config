@@ -36,6 +36,7 @@
             make
             lua
             latex
+            just
             json
             ini
             hyprlang
