@@ -17,6 +17,7 @@
     winbox
     localsend
     rustdesk
+    sniffnet
 
     # CLI tools
     dig
