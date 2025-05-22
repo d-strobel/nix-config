@@ -1,0 +1,12 @@
+notify = true
+
+[keybindings]
+"Space" = "playpause"
+"Enter" = "play"
+"Ctrl+n" = "next"
+"Ctrl+p" = "previous"
+"Ctrl+l" = "open selected"
+"Esc" = "back"
+"d" = "noop"
+"Ctrl+j" = "move down 1"
+"Ctrl+k" = "move up 1"

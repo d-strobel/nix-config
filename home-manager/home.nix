@@ -35,6 +35,7 @@
     ./modules/qutebrowser.nix
     ./modules/rofi.nix
     ./modules/starship.nix
+    ./modules/spotify.nix
     ./modules/tmux.nix
     ./modules/waybar.nix
     ./modules/wlogout.nix
