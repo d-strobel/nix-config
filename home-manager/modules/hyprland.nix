@@ -7,6 +7,9 @@
     enable = true;
     package = with pkgs; hyprland;
     systemd.enable = false;
+    extraConfig = ''
+      source = ${config.home.homeDirectory}/.config/hypr/hyprland-extra.conf
+    '';
     settings = let
       # Home
       home = "${config.home.homeDirectory}";
