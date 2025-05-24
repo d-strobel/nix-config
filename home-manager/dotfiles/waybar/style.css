@@ -24,6 +24,7 @@
   background-color: @black;
   color: #7ebae4;
   font-size: 22px; 
+  border-radius: 5px;
 }
 #custom-nix:hover {
   color: #5277c3;
@@ -35,7 +36,7 @@
     background-color: @black;
     color: @text;
     border: 1px solid @spacer;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #workspaces button:hover {
@@ -56,7 +57,7 @@
     padding: 0 10px;
     color: @text;
     border: 1px solid @spacer;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: @black;
 }
 
@@ -66,7 +67,7 @@
     padding: 0 10px;
     background-color: @iris;
     color: @black;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #memory,
@@ -78,7 +79,7 @@
 #battery {
     padding: 0 10px;
     color: @text;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: @black;
     border: 1px solid @spacer;
 }
