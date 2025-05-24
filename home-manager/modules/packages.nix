@@ -13,7 +13,6 @@
     remmina
     gnome-disk-utility
     gnome-calculator
-    microsoft-edge
     winbox
     localsend
     rustdesk
