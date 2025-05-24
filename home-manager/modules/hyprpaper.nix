@@ -3,7 +3,9 @@
   config,
   ...
 }: {
-  services.hyprpaper = {
+  services.hyprpaper = let
+    wallpaper = "landscape-01.jpg";
+  in {
     enable = true;
     package = with pkgs; hyprpaper;
 
@@ -13,11 +15,11 @@
       splash_offset = 2.0;
 
       preload = [
-        "${config.home.homeDirectory}/.config/wallpapers/bg-02.jpg"
+        "${config.home.homeDirectory}/.config/wallpapers/${wallpaper}"
       ];
 
       wallpaper = [
-        ",${config.home.homeDirectory}/.config/wallpapers/bg-02.jpg"
+        ",${config.home.homeDirectory}/.config/wallpapers/${wallpaper}"
       ];
     };
   };
