@@ -25,3 +25,16 @@ vim.filetype.add({
     timer = "systemd",
   }
 })
+
+-- Autocmd for windows that should have another background color
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "fugitive",
+    "qf",
+    "preview",
+    "undotree"
+  },
+  callback = function()
+    vim.wo.winhighlight = "Normal:SpecialWindowBackground"
+  end,
+})

@@ -20,9 +20,8 @@ return {
       -- Set colorscheme
       vim.cmd.colorscheme "rose-pine"
 
-      -- Background color for floating windows
-      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e1e2e" })
-      vim.api.nvim_set_hl(0, "PMenu", { bg = "#1e1e2e" })
+      -- Background color for special windows
+      vim.api.nvim_set_hl(0, "SpecialWindowBackground", { bg = "#1e1e2e" })
     end
   }
 }
