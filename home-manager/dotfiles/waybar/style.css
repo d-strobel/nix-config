@@ -1,6 +1,8 @@
 * {
     font-family: "JetBrainsMono NF";
     font-size: 14px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 @define-color black #0a0a0f;
@@ -15,7 +17,7 @@
 @define-color iris #c4a7e7;
 
 #waybar {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 /* Custom Nix */
@@ -23,8 +25,10 @@
   padding: 0 5px 0 5px;
   background-color: @black;
   color: #7ebae4;
-  font-size: 22px; 
+  font-size: 20px; 
   border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 6px;
 }
 #custom-nix:hover {
   color: #5277c3;
@@ -35,12 +39,13 @@
     padding: 0 5px;
     background-color: @black;
     color: @text;
+    font-size: 20px;
     border: 1px solid @spacer;
     border-radius: 5px;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @highlight;
 }
 
 #workspaces button.focused {
@@ -63,11 +68,11 @@
 
 /* Right Side */
 #privacy {
-    margin: 4px 0;
+    margin-right: 6px;
     padding: 0 10px;
     background-color: @iris;
     color: @black;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #memory,
@@ -75,13 +80,20 @@
 #disk,
 #network,
 #pulseaudio,
-#backlight,
+#backlight {
+    padding: 0 10px;
+    color: @text;
+    border-radius: 5px;
+    background-color: @black;
+    border: 1px solid @spacer;
+}
 #battery {
     padding: 0 10px;
     color: @text;
     border-radius: 5px;
     background-color: @black;
     border: 1px solid @spacer;
+    margin-right: 2px;
 }
 
 /* Status updates */
