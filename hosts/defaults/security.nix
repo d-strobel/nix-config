@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   # Hardened memory allocator
-  environment.memoryAllocator.provider = "graphene-hardened";
+  # Disabled by now since it caused an issue where some applications do not start
+  # environment.memoryAllocator.provider = "graphene-hardened";
 
   # copied and saved for later use
   # services = {
