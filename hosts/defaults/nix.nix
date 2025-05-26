@@ -21,6 +21,12 @@
       flake-registry = "";
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
+      auto-optimise-store = true;
+      builders-use-substitutes = true;
+      max-jobs = "auto";
+      keep-going = true;
+      warn-dirty = false;
+      http-connections = 0;
     };
 
     # Opinionated: make flake registry and nix path match flake inputs
