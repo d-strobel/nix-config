@@ -11,8 +11,12 @@
         hide_cursor = true;
       };
 
+      animations = {
+        enable = false;
+      };
+
       background = {
-        path = "${config.home.homeDirectory}/.config/wallpapers/bg-02.jpg";
+        path = "${config.home.homeDirectory}/.config/wallpapers/landscape-02.jpg";
         blur_passes = 2;
         blur_size = 7;
       };
