@@ -3,6 +3,7 @@
     ./certificate.nix
     ./hardware.nix
     ./nix.nix
+    ./security.nix
     ./settings.nix
     ./system-packages.nix
     ./user.nix
