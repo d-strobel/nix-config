@@ -5,8 +5,6 @@
     # Desktop apps
     obsidian
     signal-desktop
-    overskride
-    networkmanagerapplet
     pavucontrol
     vlc
     openfortivpn
