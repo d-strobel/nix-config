@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Keymaps
     vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
 
     -- Auto-format on save.
     if not client:supports_method('textDocument/willSaveWaitUntil')
