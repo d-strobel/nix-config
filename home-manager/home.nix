@@ -21,7 +21,6 @@
     ./modules/fzf.nix
     ./modules/git.nix
     ./modules/gtk.nix
-    ./modules/helix.nix
     ./modules/hyprland.nix
     ./modules/hyprpaper.nix
     ./modules/hypridle.nix
