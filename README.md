@@ -55,3 +55,4 @@ sudo nix-collect-garbage -d
 * [youtube.com/@vimjoyer](https://www.youtube.com/@vimjoyer)
 * [nixalted.com/](https://nixalted.com/)
 * [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
+* [github.com/yavko/Dotfiles](https://github.com/yavko/Dotfiles)
