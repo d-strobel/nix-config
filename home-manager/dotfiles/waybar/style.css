@@ -28,7 +28,7 @@
   font-size: 20px; 
   border-radius: 5px;
   margin-left: 2px;
-  margin-right: 6px;
+  margin-right: 10px;
 }
 #custom-nix:hover {
   color: #5277c3;
@@ -68,11 +68,11 @@
 
 /* Right Side */
 #privacy {
-    margin-right: 6px;
+    margin-right: 10px;
     padding: 0 10px;
     background-color: @iris;
     color: @black;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 #memory,
