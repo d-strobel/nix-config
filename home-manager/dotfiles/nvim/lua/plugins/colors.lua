@@ -20,6 +20,8 @@ return {
       -- Set colorscheme
       vim.cmd.colorscheme "rose-pine"
 
+      -- Background color for Popup menus
+      vim.api.nvim_set_hl(0, "PMenu", { bg = "#1e1e2e" })
       -- Background color for special windows
       vim.api.nvim_set_hl(0, "SpecialWindowBackground", { bg = "#1e1e2e" })
     end
