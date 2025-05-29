@@ -47,6 +47,7 @@
       exec-once = [
         "systemctl --user start waybar"
         "systemctl --user start hyprpolkitagent"
+        "systemctl --user start wl-clip-persist"
       ];
 
       env = [
