@@ -9,6 +9,7 @@
     ./modules/bat.nix
     ./modules/btop.nix
     ./modules/chromium.nix
+    ./modules/clipboard.nix
     ./modules/cursor.nix
     ./modules/cosmic.nix
     ./modules/dconf.nix

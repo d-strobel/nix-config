@@ -24,7 +24,6 @@
     unzip
     zip
     wget
-    wl-clipboard
     playerctl
     brightnessctl
     wavemon
