@@ -82,18 +82,35 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1745017323,
-        "narHash": "sha256-/e09FC9G8dpqqxNQTgKyuev0E3Es+FRXeaeJtrDItYk=",
+        "lastModified": 1747769351,
+        "narHash": "sha256-KXkj4maDsCoELlAOEOkwPJpk72GWOTr13WCKCQNnU1A=",
         "owner": "d-strobel",
         "repo": "mage-fish-completions",
-        "rev": "0637792f34bb527aacaf7d631ecf56dcc6773e64",
+        "rev": "7fc312556bee4a6619bfdee717d0db5ffc6c9252",
         "type": "github"
       },
       "original": {
         "owner": "d-strobel",
-        "ref": "v0.1.0",
         "repo": "mage-fish-completions",
         "type": "github"
+      }
+    },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748555086,
+        "narHash": "sha256-VNmc12NDNijToQfk8sjDv9nmikJVrGUlr08sz5xZqx8=",
+        "ref": "main",
+        "rev": "aeaecbb63fa4bf280b73749a4a6f75afc7b1eac2",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/d-strobel/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/d-strobel/nix-secrets.git"
       }
     },
     "nixpkgs": {
@@ -165,7 +182,9 @@
         "home-manager": "home-manager",
         "lasergraph-timecode-importer": "lasergraph-timecode-importer",
         "mage-fish-completions": "mage-fish-completions",
-        "nixpkgs": "nixpkgs_4"
+        "nix-secrets": "nix-secrets",
+        "nixpkgs": "nixpkgs_4",
+        "sops-nix": "sops-nix"
       }
     },
     "rust-overlay": {
@@ -183,6 +202,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747603214,
+        "narHash": "sha256-lAblXm0VwifYCJ/ILPXJwlz0qNY07DDYdLD+9H+Wc8o=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "8d215e1c981be3aa37e47aeabd4e61bb069548fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },

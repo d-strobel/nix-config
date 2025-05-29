@@ -27,7 +27,6 @@
     ./modules/hypridle.nix
     ./modules/hyprlock.nix
     ./modules/hyprsunset.nix
-    ./modules/keychain.nix
     ./modules/kubernetes.nix
     ./modules/mako.nix
     ./modules/neovim.nix
@@ -37,6 +36,8 @@
     ./modules/rofi.nix
     ./modules/starship.nix
     ./modules/spotify.nix
+    ./modules/sops.nix
+    ./modules/ssh.nix
     ./modules/tmux.nix
     ./modules/waybar.nix
     ./modules/wlogout.nix

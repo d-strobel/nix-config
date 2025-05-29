@@ -11,6 +11,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Sops-nix secrets
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Secrets from private repo
+    nix-secrets = {
+      url = "git+ssh://git@github.com/d-strobel/nix-secrets.git?ref=main&shallow=1";
+      flake = false;
+    };
+
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
@@ -32,9 +44,11 @@
       noxus = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
+          nix-secrets = inputs.nix-secrets;
         };
         modules = [
           ./hosts/noxus/configuration.nix
+          inputs.sops-nix.nixosModules.sops
         ];
       };
     };
@@ -48,6 +62,7 @@
           inherit inputs outputs;
           mage-fish-completions = inputs.mage-fish-completions;
           lasergraph-timecode-importer = inputs.lasergraph-timecode-importer;
+          nix-secrets = inputs.nix-secrets;
         };
         modules = [
           ./home-manager/home.nix
