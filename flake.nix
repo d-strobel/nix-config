@@ -13,6 +13,8 @@
 
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
+
+    # Laser-tools
     lasergraph-timecode-importer.url = "github:laser-zentrale-de/lasergraph-timecode-importer";
   };
 
