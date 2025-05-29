@@ -13,6 +13,9 @@
     };
   };
 
+  # Enable xdg-desktop-portal
+  xdg.portal.enable = true;
+
   # Enable Hyprland
   programs.hyprland = {
     enable = true;

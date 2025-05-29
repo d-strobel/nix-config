@@ -6,7 +6,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = with pkgs; hyprland;
+    portalPackage = with pkgs; xdg-desktop-portal-hyprland;
     systemd.enable = false;
+    # Source extra temporary hyprland config for quick tests
     extraConfig = ''
       source = ${config.home.homeDirectory}/.config/hypr/hyprland-extra.conf
     '';
