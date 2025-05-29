@@ -69,6 +69,8 @@
       mkdir -p ${config.home.homeDirectory}/git/github.com/d-strobel
       mkdir -p ${config.home.homeDirectory}/git/github.com/laser-zentrale-de
       mkdir -p ${config.home.homeDirectory}/git/gitlab.com/strobel-iac
+      # Sops-nix / age
+      mkdir -p ${config.home.homeDirectory}/.config/sops/age
     '';
 
   # This value determines the Home Manager release that your configuration is
