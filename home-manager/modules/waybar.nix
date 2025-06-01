@@ -1,4 +1,26 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  vpnConnected =
+    pkgs.writeShellScriptBin
+    /*
+    bash
+    */
+    "vpnConnected" ''
+      # Get vpn interfaces
+      interfaces=$(ip a | grep -oP '^\d+: (wg[0-9]+|ppp[0-9]+):' | awk '{print $2}' | sed 's/://')
+
+      # Error if multiple vpns are active
+      count=$(echo "$interfaces" | wc -l)
+      if [ "$count" -gt 1 ]; then
+          printf '{"text": "%s", "class": "warning"}\n' "$(echo "$interfaces" | paste -sd'|' -)"
+      elif [ "$count" -eq 1 ]; then
+          printf '{"text": "%s", "class": "success"}\n' "$interfaces"
+      fi
+    '';
+in {
   programs.waybar = {
     enable = true;
     package = with pkgs; waybar;
@@ -10,7 +32,7 @@
         height = 30;
         modules-left = ["custom/nix" "hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["privacy" "memory" "cpu" "network" "pulseaudio" "backlight" "battery"];
+        modules-right = ["privacy" "custom/vpn" "memory" "cpu" "network" "pulseaudio" "backlight" "battery"];
 
         # Left side
         "custom/nix" = {
@@ -48,6 +70,15 @@
               tooltip-icon-size = 24;
             }
           ];
+        };
+
+        "custom/vpn" = {
+          format = "󰖂 {text}";
+          tooltip = false;
+          hide-empty-content = true;
+          exec = "${lib.getExe vpnConnected}";
+          return-type = "json";
+          interval = 15;
         };
 
         "memory" = {

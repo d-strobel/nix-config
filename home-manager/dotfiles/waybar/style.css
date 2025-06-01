@@ -76,6 +76,17 @@
     border-radius: 12px;
 }
 
+#custom-vpn {
+    margin-right: 10px;
+    padding: 0 10px;
+    background-color: @yellow;
+    color: @black;
+    border-radius: 12px;
+}
+#custom-vpn.warning {
+  background-color: @red;
+}
+
 #memory,
 #cpu,
 #disk,
