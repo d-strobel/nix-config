@@ -63,3 +63,4 @@ sudo nix-collect-garbage -d
 * [nixalted.com/](https://nixalted.com/)
 * [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
 * [github.com/yavko/Dotfiles](https://github.com/yavko/Dotfiles)
+* [github.com/EmergentMind/nix-config](https://github.com/EmergentMind/nix-config)
