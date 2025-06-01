@@ -19,7 +19,7 @@
 
     # Secrets from private repo
     nix-secrets = {
-      url = "git+https://git@github.com/d-strobel/nix-secrets.git?ref=main&shallow=1";
+      url = "git+https://github.com/d-strobel/nix-secrets.git?ref=main&shallow=1";
       flake = false;
     };
 

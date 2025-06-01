@@ -104,13 +104,13 @@
         "rev": "aeaecbb63fa4bf280b73749a4a6f75afc7b1eac2",
         "shallow": true,
         "type": "git",
-        "url": "https://git@github.com/d-strobel/nix-secrets.git"
+        "url": "https://github.com/d-strobel/nix-secrets.git"
       },
       "original": {
         "ref": "main",
         "shallow": true,
         "type": "git",
-        "url": "https://git@github.com/d-strobel/nix-secrets.git"
+        "url": "https://github.com/d-strobel/nix-secrets.git"
       }
     },
     "nixpkgs": {
