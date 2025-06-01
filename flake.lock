@@ -98,10 +98,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1748555086,
-        "narHash": "sha256-VNmc12NDNijToQfk8sjDv9nmikJVrGUlr08sz5xZqx8=",
+        "lastModified": 1748775263,
+        "narHash": "sha256-5VqfBMSE2hcBHei8aaor1Yl0wH2zWAndeJdybvN3IT8=",
         "ref": "main",
-        "rev": "aeaecbb63fa4bf280b73749a4a6f75afc7b1eac2",
+        "rev": "e196c23f5f843514fe9c29195504fd261c925183",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/d-strobel/nix-secrets.git"
