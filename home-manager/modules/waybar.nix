@@ -75,7 +75,7 @@ in {
         "custom/vpn" = {
           format = "󰖂 {text}";
           tooltip = false;
-          hide-empty-content = true;
+          hide-empty-text = true;
           exec = "${lib.getExe vpnConnected}";
           return-type = "json";
           interval = 15;
