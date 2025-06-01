@@ -1,6 +1,6 @@
 <!-- Logo -->
 <p align="center">
-    <a href="https://nixos.org"><img src="./images/nixos-02.png" height="100"></a>
+    <a href="https://nixos.org"><img src="./images/nixos-02.png" height="200"></a>
 </p>
 
 <!-- Badges -->
