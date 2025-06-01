@@ -1,16 +1,16 @@
 <!-- Logo -->
 <p align="center">
-<a href="https://nixos.org"><img src="./images/nixos-02.png" height="200"></a>
+    <a href="https://nixos.org"><img src="./images/nixos-02.png" height="200"></a>
 </p>
 
 <!-- Badges -->
 <p align="center">
-<a href="https://github.com/d-strobel/nix-config/actions/workflows/test.yml">
-<img src="https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg">
-</a>
-<a href="https://github.com/NixOS/nixpkgs">
-<img src="https://img.shields.io/badge/nixpkgs-nixos--unstable-blue">
-</a>
+    <a href="https://github.com/d-strobel/nix-config/actions/workflows/test.yml">
+        <img src="https://github.com/d-strobel/nix-config/actions/workflows/test.yml/badge.svg">
+    </a>
+    <a href="https://github.com/NixOS/nixpkgs">
+        <img src="https://img.shields.io/badge/nixpkgs-nixos--unstable-blue">
+    </a>
 </p>
 
 <!-- Headline and short description -->
