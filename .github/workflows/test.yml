@@ -10,6 +10,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Set up Git to reach nix-secrets repository
+        run: |
+          git config --global url."https://${{ secrets.NIX_SECRETS_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Install Nix
         uses: cachix/install-nix-action@v17
-      - run: nix flake check --no-build
+
+      - name: Run nix flake check
+        run: nix flake check --no-build
