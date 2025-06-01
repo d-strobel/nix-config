@@ -7,7 +7,13 @@
     "wireguard/wg1" = {};
   };
 
-  # networking.wg-quick.interfaces = {
-  #   wg0.configFile = "wireguard/wg0";
-  # };
+  networking.wg-quick.interfaces = let
+    # Do not start wireguard tunnels automatically
+    autostart = false;
+  in {
+    wg1 = {
+      configFile = "/run/secrets/wireguard/wg1";
+      autostart = autostart;
+    };
+  };
 }
