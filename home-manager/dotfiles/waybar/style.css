@@ -22,7 +22,8 @@
 
 /* Custom Nix */
 #custom-nix {
-  padding: 0 5px 0 5px;
+  padding-left: 10px;
+  padding-right: 6px;
   background-color: @black;
   color: #7ebae4;
   font-size: 20px; 
