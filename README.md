@@ -17,6 +17,11 @@
 <h1 align="center">nix-config</h1>
 <p align="center"><i>Personal NixOS configuration.</i>.</p>
 
+## Screenshots
+
+![deskotp](./images/desktop-01.png)
+![deskotp](./images/desktop-03.png)
+
 ## Installation
 
 > This is the most simple installation method for me right now.
@@ -31,6 +36,8 @@
 1. Create temporary shell: `nix-shell -p vim git home-manager`
 1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
 1. Install system flake: `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
+1. Install home configuration: `home-manager switch --flake .#USER`
+1. Reboot
 
 ## Update
 
