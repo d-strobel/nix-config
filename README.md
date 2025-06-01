@@ -35,7 +35,9 @@
 1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>` OR `nmtui`
 1. Create temporary shell: `nix-shell -p vim git home-manager`
 1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
+1. Create and paste the age keys for sops-nix secrets. `vim ~/.config/sops/age/keys.txt`
 1. Install system flake: `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
+1. Insert username and password for the private github repository when asked.
 1. Install home configuration: `home-manager switch --flake .#USER`
 1. Reboot
 
