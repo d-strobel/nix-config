@@ -45,7 +45,12 @@
   services.logind.lidSwitchDocked = "ignore";
 
   # Firewall
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      53317 # localsend
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
