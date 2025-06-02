@@ -10,6 +10,6 @@
     ./user.nix
     ./virtualisation.nix
     ./window-manager.nix
-    ./wireguard.nix
+    ./vpn.nix
   ];
 }

@@ -21,4 +21,12 @@
       autostart = autostart;
     };
   };
+
+  # Openfortivpn
+  sops.secrets = {
+    "openfortivpn/config" = {
+      path = "/etc/openfortivpn/config";
+      mode = "0600";
+    };
+  };
 }
