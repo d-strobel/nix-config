@@ -5,6 +5,7 @@ in {
   programs.fish.enable = true;
 
   users.users."${username}" = {
+    uid = 1000;
     isNormalUser = true;
     description = "Main user";
     extraGroups = [
