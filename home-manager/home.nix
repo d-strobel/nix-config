@@ -17,6 +17,7 @@
     ./modules/eza.nix
     ./modules/font.nix
     ./modules/fish.nix
+    ./modules/freerdp.nix
     ./modules/laser-tools.nix
     ./modules/librewolf.nix
     ./modules/fzf.nix
