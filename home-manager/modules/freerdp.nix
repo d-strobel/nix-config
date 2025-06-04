@@ -10,6 +10,10 @@ in {
   ];
 
   sops.secrets = {
+    "freerdp/functions/rds" = {
+      path = "${fishFunctionDir}/rdp-rds.fish";
+      mode = "0740";
+    };
     "freerdp/functions/sv0wcon01-p" = {
       path = "${fishFunctionDir}/rdp-sv0wcon01-p.fish";
       mode = "0740";
