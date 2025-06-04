@@ -236,9 +236,14 @@
         # No blur for following applications
         "noblur, class:^lirewolf$"
         "noblur 3,class:^org\.remmina\.Remmina$"
+        "noblur, class:^chromium-browser$"
+        "noblur,class:^.*-winbox64.exe$"
 
         # Start applications in specific workspaces
         "workspace 3,class:^org\.remmina\.Remmina$"
+
+        # Start winbox in tiling mode
+        "tile,class:^.*-winbox64.exe$"
       ];
     };
   };
