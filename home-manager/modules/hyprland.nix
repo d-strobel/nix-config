@@ -187,6 +187,11 @@
         # Enable notifications blur
         "blur, notifications"
         "ignorezero, notifications"
+
+        # Enable waybar blur
+        "blur, waybar"
+        "blurpopups, waybar"
+        "ignorezero, waybar"
       ];
 
       workspace = [
