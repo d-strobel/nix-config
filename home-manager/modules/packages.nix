@@ -8,7 +8,6 @@
     pavucontrol
     vlc
     openfortivpn
-    remmina
     gnome-disk-utility
     gnome-calculator
     winbox

@@ -17,7 +17,6 @@
     ./modules/eza.nix
     ./modules/font.nix
     ./modules/fish.nix
-    ./modules/freerdp.nix
     ./modules/laser-tools.nix
     ./modules/librewolf.nix
     ./modules/fzf.nix
@@ -34,6 +33,7 @@
     ./modules/packages.nix
     ./modules/qt.nix
     ./modules/qutebrowser.nix
+    ./modules/remmina.nix
     ./modules/rofi.nix
     ./modules/starship.nix
     ./modules/spotify.nix
