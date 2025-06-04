@@ -192,6 +192,9 @@
         "blur, waybar"
         "blurpopups, waybar"
         "ignorezero, waybar"
+
+        # Blur logout overlay
+        "blur, logout_dialog"
       ];
 
       workspace = [
