@@ -126,6 +126,7 @@
         "${mainMod} shift, M, exit,"
         "${mainMod} shift, F, fullscreen,"
         "${mainMod} shift, T, togglesplit,"
+        "${mainMod} shift, O, togglefloating,"
         "${mainMod}, SPACE, exec, ${menu}"
         "${mainMod} shift, Return, exec, ${hyprlock}"
 
