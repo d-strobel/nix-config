@@ -235,6 +235,10 @@
 
         # No blur for following applications
         "noblur, class:^lirewolf$"
+        "noblur 3,class:^org\.remmina\.Remmina$"
+
+        # Start applications in specific workspaces
+        "workspace 3,class:^org\.remmina\.Remmina$"
       ];
     };
   };
