@@ -32,7 +32,6 @@
     ./modules/neovim.nix
     ./modules/packages.nix
     ./modules/qt.nix
-    ./modules/qutebrowser.nix
     ./modules/remmina.nix
     ./modules/rofi.nix
     ./modules/starship.nix
