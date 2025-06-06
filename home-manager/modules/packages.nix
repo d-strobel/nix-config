@@ -14,6 +14,7 @@
     localsend
     rustdesk
     sniffnet
+    brave
 
     # CLI tools
     dig
