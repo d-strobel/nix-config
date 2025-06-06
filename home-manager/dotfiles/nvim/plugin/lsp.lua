@@ -7,6 +7,7 @@ vim.lsp.enable({
   "fish_lsp",
   "gopls",
   "jsonls",
+  "just",
   "luals",
   "nixd",
   "pyright",

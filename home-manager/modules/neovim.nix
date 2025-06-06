@@ -142,6 +142,9 @@
       # Go
       gopls
 
+      # Just
+      just-lsp
+
       # Json
       jsonschema
       nodePackages.vscode-json-languageserver
