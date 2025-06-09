@@ -32,7 +32,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "fugitive",
     "qf",
     "preview",
-    "undotree"
+    "undotree",
+    "fzf",
   },
   callback = function()
     vim.wo.winhighlight = "Normal:SpecialWindowBackground"

@@ -11,6 +11,12 @@ return {
         cwd_only = true,
       },
       winopts = {
+        split = "belowright new",
+        backdrop = 0,
+        preview = {
+          border = "single",
+          horizontal = "right:50%",
+        },
         on_create = function()
           vim.keymap.set("t", "<C-j>", "<Down>", { silent = true, buffer = true })
           vim.keymap.set("t", "<C-k>", "<Up>", { silent = true, buffer = true })
