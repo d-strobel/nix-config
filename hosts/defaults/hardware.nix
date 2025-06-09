@@ -41,4 +41,7 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "i965";
   };
+
+  # Enable thunderbolt ports
+  services.hardware.bolt.enable = true;
 }
