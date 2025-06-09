@@ -29,11 +29,6 @@ in {
           path = "${config.home.homeDirectory}/${gitlabPath}/.gitconfig";
         };
       };
-      url = {
-        "ssh://git@gitlab.com" = {
-          insteadOf = "https://gitlab.com";
-        };
-      };
     };
   };
 
