@@ -129,6 +129,7 @@
 
       # Ansible
       ansible-language-server
+      ansible-lint
 
       # Terraform
       terraform-ls
