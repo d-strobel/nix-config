@@ -25,6 +25,14 @@
   # };
 
   security = {
+    # Enable sudo-rs
+    sudo.enable = false;
+    sudo-rs = {
+      enable = true;
+      package = with pkgs; sudo-rs;
+      execWheelOnly = true;
+    };
+
     polkit.enable = true;
     protectKernelImage = true;
     lockKernelModules = false; # breaks virtd, wireguard and iptables

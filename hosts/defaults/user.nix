@@ -18,7 +18,4 @@ in {
     # Managed by home-manager
     shell = with pkgs; fish;
   };
-
-  # Sudo
-  security.sudo.enable = true;
 }
