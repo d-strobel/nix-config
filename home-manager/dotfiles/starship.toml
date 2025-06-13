@@ -55,7 +55,7 @@ description = 'OpenTofu version'
 style = 'fg:#fce307'
 format = 'via [$symbol]($style) [$output]($style bold) '
 detect_folders = ['.tofu']
-shell = '/bin/bash'
+shell = '/bin/sh'
 command = 'echo -n $(tofu version 2>/dev/null | grep OpenTofu | grep -oP "v\K[0-9.]+")'
 
 [custom.ansible]
@@ -64,7 +64,7 @@ description = 'Ansible Core version'
 detect_files = ['ansible.cfg']
 style = 'red'
 format = 'via [$symbol]($style) [$output]($style bold) '
-shell = '/bin/bash'
+shell = '/bin/sh'
 command = 'echo -n $(ansible --version 2>/dev/null | grep -oP "(?<=core )[\d\.]+")'
 
 [nodejs]
