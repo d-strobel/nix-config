@@ -29,7 +29,7 @@ in {
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 34;
         modules-left = ["custom/nix" "hyprland/workspaces"];
         modules-center = ["clock"];
         modules-right = ["privacy" "custom/vpn" "memory" "cpu" "network" "pulseaudio" "backlight" "battery"];
