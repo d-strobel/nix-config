@@ -69,5 +69,33 @@
         ];
       };
     };
+
+    # Dev shell
+    devShells = {
+      x86_64-linux = let
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
+      in {
+        default = with pkgs;
+          mkShell {
+            buildInputs = [
+              pre-commit
+              nodejs
+              nodePackages.npm
+              age
+              sops
+            ];
+
+            shellHook = ''
+              HOOK_PATH=$(git rev-parse --git-path hooks/pre-commit)
+              if [ ! -f "$HOOK_PATH" ]; then
+                echo "Setting up pre-commit hooks..."
+                ${pkgs.pre-commit}/bin/pre-commit install
+              fi
+            '';
+          };
+      };
+    };
   };
 }
