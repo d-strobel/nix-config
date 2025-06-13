@@ -8,10 +8,11 @@ $rust\
 $python\
 ${custom.ansible}\
 $nodejs\
-$nix_shell\
-$line_break\
+$nix_shell
 $character
 """
+
+right_format = "$time"
 
 # Set the timeout for command execution
 command_timeout=2000
@@ -78,6 +79,7 @@ symbol = ''
 style = 'fg:#1e90c9'
 format = 'in [$symbol]($style) [$name]($style bold) '
 
-# User input
-[line_break]
+[time]
 disabled = false
+style = 'green'
+format = '[$time]($style)'
