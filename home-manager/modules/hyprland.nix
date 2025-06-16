@@ -48,6 +48,11 @@
           name = "pixart-dell-ms116-usb-optical-mouse";
           sensitivity = -0.8;
         }
+        {
+          # Change mouse sensitivity
+          name = "benq-zowie-benq-zowie-gaming-mouse";
+          sensitivity = -0.7;
+        }
       ];
 
       exec-once = [
