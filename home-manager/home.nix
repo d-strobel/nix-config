@@ -42,7 +42,6 @@
     ./modules/waybar.nix
     ./modules/wlogout.nix
     ./modules/xdg.nix
-    ./modules/zathura.nix
     ./modules/zoxide.nix
   ];
 
