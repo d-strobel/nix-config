@@ -16,7 +16,7 @@
       };
 
       background = {
-        path = "${config.home.homeDirectory}/.config/wallpapers/landscape-02.jpg";
+        path = "${config.home.homeDirectory}/.config/wallpapers/MilkyWay.png";
         blur_passes = 2;
         blur_size = 7;
       };
