@@ -4,7 +4,7 @@
   ...
 }: {
   services.hyprpaper = let
-    wallpaper = "landscape-02.jpg";
+    wallpaper = "MilkyWay.png";
   in {
     enable = true;
     package = with pkgs; hyprpaper;
