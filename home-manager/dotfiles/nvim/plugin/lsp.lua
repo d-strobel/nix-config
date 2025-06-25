@@ -6,6 +6,7 @@ vim.lsp.enable({
   "dockerls",
   "fish_lsp",
   "gopls",
+  "jdtls",
   "jsonls",
   "just",
   "luals",

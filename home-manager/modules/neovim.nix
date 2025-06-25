@@ -36,6 +36,7 @@
             make
             lua
             latex
+            java
             just
             json
             ini
@@ -142,6 +143,9 @@
 
       # Go
       gopls
+
+      # Java
+      jdt-language-server
 
       # Just
       just-lsp
