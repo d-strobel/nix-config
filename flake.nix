@@ -37,6 +37,12 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    defaultCfg = rec {
+      username = "dstrobel";
+      homeDirectory = "/home/${username}";
+      runtimeRoot = "${homeDirectory}/git/github.com/d-strobel/nix-config";
+      context = self;
+    };
   in {
     # NixOS configuration entrypoint
     # Available through 'sudo nixos-rebuild switch --flake .#noxus'
@@ -60,6 +66,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs;
+          cfg = defaultCfg;
           mage-fish-completions = inputs.mage-fish-completions;
           lasergraph-timecode-importer = inputs.lasergraph-timecode-importer;
           nix-secrets = inputs.nix-secrets;
