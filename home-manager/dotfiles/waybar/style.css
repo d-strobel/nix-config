@@ -5,7 +5,9 @@
     margin-bottom: 1px;
 }
 
-@define-color black #0a0a0f;
+@define-color background rgba(19,16,32,1.0);
+@define-color waybarbackground rgba(19,16,32,0.2);
+@define-color blacktext #0a0a0f;
 @define-color highlight #21202e;
 @define-color spacer #1f1d2e;
 @define-color text #e0def4;
@@ -15,97 +17,113 @@
 @define-color green #31748f;
 @define-color blue #9ccfd8;
 @define-color iris #c4a7e7;
+@define-color nixlogo #7ebae4;
+@define-color nixhover #5277c3;
 
 #waybar {
-  background-color: transparent;
+  background-color: @background;
 }
 
 /* Custom Nix */
 #custom-nix {
   padding-left: 10px;
   padding-right: 6.5px;
-  background-color: @black;
-  color: #7ebae4;
+  margin-left: 4px;
+  background-color: @background;
+  color: @nixlogo;
   font-size: 20px;
-  border-radius: 5px;
-  margin-left: 2px;
-  margin-right: 10px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 #custom-nix:hover {
-  color: #5277c3;
+  color: @nixhover;
 }
 
-/* Workspace Buttons */
+/* Workspace */
+#workspaces {
+  background-color: @background;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
 #workspaces button {
-    padding: 0 5px;
-    background-color: @black;
+    padding: 0 3px;
+    margin-right: 4px;
     color: @text;
-    font-size: 20px;
-    border: 1px solid @spacer;
-    border-radius: 5px;
 }
 
 #workspaces button:hover {
     background: @highlight;
 }
 
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
+/* #workspaces button.focused { */
+/*     background-color: #64727D; */
+/*     box-shadow: inset 0 -3px #ffffff; */
+/* } */
 
 #workspaces button.active {
-    background-color: @highlight;
+    background-color: @nixlogo;
+    color: @background;
+    border-radius: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    /* margin-top: 4px; */
+    /* margin-bottom: 4px; */
 }
 
 /* Center */
 #clock {
     padding: 0 10px;
     color: @text;
-    border: 1px solid @spacer;
-    border-radius: 5px;
-    background-color: @black;
+    /* border: 1px solid @spacer; */
+    border-radius: 12px;
+    background-color: @background;
 }
 
 /* Right Side */
 #privacy {
-    margin-right: 10px;
+    margin-right: 4px;
     padding: 0 10px;
     background-color: @iris;
-    color: @black;
+    color: @blacktext;
     border-radius: 12px;
 }
 
 #custom-vpn {
-    margin-right: 10px;
+    margin-right: 4px;
     padding: 0 10px;
     background-color: @yellow;
-    color: @black;
+    color: @blacktext;
     border-radius: 12px;
 }
 #custom-vpn.warning {
   background-color: @red;
 }
 
-#memory,
+#memory{
+    padding: 0 10px;
+    color: @text;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: @background;
+}
+
 #cpu,
 #disk,
 #network,
 #pulseaudio,
-#backlight {
+#backlight{
     padding: 0 10px;
     color: @text;
-    border-radius: 5px;
-    background-color: @black;
-    border: 1px solid @spacer;
+    background-color: @background;
 }
+
 #battery {
     padding: 0 10px;
     color: @text;
-    border-radius: 5px;
-    background-color: @black;
-    border: 1px solid @spacer;
-    margin-right: 2px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: @background;
+    margin-right: 4px;
 }
 
 /* Status updates */
@@ -135,7 +153,7 @@
     }
 }
 #battery.critical:not(.charging) {
-    background-color: @black;
+    background-color: @background;
     color: @red;
     animation-name: blink;
     animation-duration: 0.5s;

@@ -1,8 +1,18 @@
 {
+  cfg,
+  config,
   pkgs,
   lib,
   ...
 }: let
+  # Custom symlinking
+  mkSymlinkAttrs = import ../../lib/mkSymlinkAttrs.nix {
+    inherit pkgs;
+    inherit (cfg) context runtimeRoot;
+    hm = config.lib; # same as: cfg.context.inputs.home-manager.lib.hm;
+  };
+
+  # Script for VPN detection
   vpnConnected =
     pkgs.writeShellScriptBin
     /*
@@ -21,10 +31,17 @@
       fi
     '';
 in {
+  home.file = mkSymlinkAttrs {
+    ".config/waybar/style.css" = {
+      source = ../dotfiles/waybar/style.css;
+      outOfStoreSymlink = true;
+      recursive = false;
+    };
+  };
+
   programs.waybar = {
     enable = true;
     package = with pkgs; waybar;
-    style = ../dotfiles/waybar/style.css;
     settings = {
       mainBar = {
         layer = "top";
