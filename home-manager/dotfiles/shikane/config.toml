@@ -1,0 +1,51 @@
+# Laptop only configuration
+[[profile]]
+name = "laptop-builtin"
+exec = ["notify-send --app-name shikane --icon ~/.config/icons/hyprland.png 'shikane' 'Applied profile: laptop-builtin'"]
+    [[profile.output]]
+    search = "eDP-1"
+    enable = true
+    mode = "1920x1080@60.01Hz"
+    position = "0,0"
+
+# 3-Monitor home setup
+[[profile]]
+name = "home-3-monitor"
+exec = ["notify-send --app-name shikane --icon ~/.config/icons/hyprland.png 'shikane' 'Applied profile: home-3-monitor'"]
+    [[profile.output]]
+    search = "eDP-1"
+    enable = false
+
+    [[profile.output]]
+    search = ["m=BenQ RL2460H", "s=S2G01438SL0"]
+    enable = true
+    mode = "1920x1080@60Hz"
+    position = "0,0"
+
+    [[profile.output]]
+    search = ["m=XB253Q", "s=TH5EE00B8521"]
+    enable = true
+    mode = "1920x1080@60Hz"
+    position = "1920,0"
+
+    [[profile.output]]
+    search = ["m=BenQ RL2460H", "s=J7F06731SL0"]
+    enable = true
+    mode = "1920x1080@60Hz"
+    position = "3840,0"
+
+# Widescreen
+[[profile]]
+name = "laptop-widescreen"
+exec = ["notify-send --app-name shikane --icon ~/.config/icons/hyprland.png 'shikane' 'Applied profile: laptop-widescreen'"]
+    [[profile.output]]
+    search = "eDP-1"
+    enable = true
+    mode = "1920x1080@60.01Hz"
+    position = "0,0"
+
+    [[profile.output]]
+    search = ["m=DELL C3422WE", "s=97K5S83"]
+    enable = true
+    mode = "3440x1440@59.97Hz"
+    position = "0,1080"

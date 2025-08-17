@@ -29,13 +29,13 @@
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
     in {
-      monitor = [
-        ",preferred,auto,1"
-        # 3 monitor home setup
-        "desc:BNQ BenQ RL2460H S2G01438SL0, 1920x1080@60, 0x0, 1"
-        "desc:Acer Technologies XB253Q TH5EE00B8521, 1920x1080@60, 1920x0, 1"
-        "desc:BNQ BenQ RL2460H J7F06731SL0, 1920x1080@60, 3840x0, 1"
-      ];
+      # monitor = [
+      #   ",preferred,auto,1"
+      #   # 3 monitor home setup
+      #   "desc:BNQ BenQ RL2460H S2G01438SL0, 1920x1080@60, 0x0, 1"
+      #   "desc:Acer Technologies XB253Q TH5EE00B8521, 1920x1080@60, 1920x0, 1"
+      #   "desc:BNQ BenQ RL2460H J7F06731SL0, 1920x1080@60, 3840x0, 1"
+      # ];
 
       device = [
         {

@@ -34,7 +34,7 @@
     ./modules/qt.nix
     ./modules/remmina.nix
     ./modules/rofi.nix
-    ./modules/shikane.nix
+    # ./modules/shikane.nix
     ./modules/starship.nix
     ./modules/spotify.nix
     ./modules/sops.nix
