@@ -29,4 +29,10 @@
     source = ../wallpapers;
     recursive = true;
   };
+
+  home.file.".config/icons" = {
+    enable = true;
+    source = ../icons;
+    recursive = true;
+  };
 }
