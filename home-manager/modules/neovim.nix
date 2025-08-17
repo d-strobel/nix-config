@@ -135,6 +135,9 @@
       # Terraform
       terraform-ls
 
+      # Opentofu
+      tofu-ls
+
       # Bash
       bash-language-server
 

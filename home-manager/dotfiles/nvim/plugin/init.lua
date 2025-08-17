@@ -17,7 +17,7 @@ vim.filetype.add({
   extension = {
     -- Terraform
     tf = "terraform",
-    tfvars = "terraform",
+    tfvars = "hcl",
     tfbackend = "config",
     tfstate = "json",
     -- Systemd
