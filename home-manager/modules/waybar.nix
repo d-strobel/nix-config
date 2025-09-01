@@ -9,7 +9,7 @@
   mkSymlinkAttrs = import ../../lib/mkSymlinkAttrs.nix {
     inherit pkgs;
     inherit (cfg) context runtimeRoot;
-    hm = config.lib; # same as: cfg.context.inputs.home-manager.lib.hm;
+    hm = config.lib;
   };
 
   # Script for VPN detection

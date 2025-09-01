@@ -5,7 +5,7 @@
     margin-bottom: 1px;
 }
 
-@define-color background rgba(19,16,32,1.0);
+@define-color background rgba(0,0,0,1.0);
 @define-color waybarbackground rgba(19,16,32,0.2);
 @define-color blacktext #0a0a0f;
 @define-color highlight #21202e;
@@ -32,8 +32,8 @@
   background-color: @background;
   color: @nixlogo;
   font-size: 20px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
+  /* border-top-left-radius: 12px; */
+  /* border-bottom-left-radius: 12px; */
 }
 #custom-nix:hover {
   color: @nixhover;
@@ -42,8 +42,9 @@
 /* Workspace */
 #workspaces {
   background-color: @background;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-radius: 2px;
+  /* border-top-right-radius: 12px; */
+  /* border-bottom-right-radius: 12px; */
 }
 #workspaces button {
     padding: 0 3px;
@@ -53,19 +54,15 @@
 
 #workspaces button:hover {
     background: @highlight;
+    border-radius: 2px;
 }
-
-/* #workspaces button.focused { */
-/*     background-color: #64727D; */
-/*     box-shadow: inset 0 -3px #ffffff; */
-/* } */
 
 #workspaces button.active {
     background-color: @nixlogo;
     color: @background;
-    border-radius: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
+    border-radius: 2px;
+    /* padding-left: 16px; */
+    /* padding-right: 16px; */
     /* margin-top: 4px; */
     /* margin-bottom: 4px; */
 }
@@ -75,7 +72,7 @@
     padding: 0 10px;
     color: @text;
     /* border: 1px solid @spacer; */
-    border-radius: 12px;
+    border-radius: 2px;
     background-color: @background;
 }
 
@@ -85,7 +82,7 @@
     padding: 0 10px;
     background-color: @iris;
     color: @blacktext;
-    border-radius: 12px;
+    border-radius: 2px;
 }
 
 #custom-vpn {
@@ -93,7 +90,7 @@
     padding: 0 10px;
     background-color: @yellow;
     color: @blacktext;
-    border-radius: 12px;
+    border-radius: 2px;
 }
 #custom-vpn.warning {
   background-color: @red;
@@ -102,8 +99,8 @@
 #memory{
     padding: 0 10px;
     color: @text;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
     background-color: @background;
 }
 
@@ -120,8 +117,8 @@
 #battery {
     padding: 0 10px;
     color: @text;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
     background-color: @background;
     margin-right: 4px;
 }
