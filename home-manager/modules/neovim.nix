@@ -1,8 +1,16 @@
 {
+  cfg,
   config,
   pkgs,
   ...
-}: {
+}: let
+  # Custom symlinking
+  mkSymlinkAttrs = import ../../lib/mkSymlinkAttrs.nix {
+    inherit pkgs;
+    inherit (cfg) context runtimeRoot;
+    hm = config.lib;
+  };
+in {
   programs.neovim = {
     enable = true;
     package = with pkgs; neovim-unwrapped;
@@ -183,31 +191,33 @@
     ];
   };
 
-  # Nvim config
-  home.file."./.config/nvim/plugin" = {
-    enable = true;
-    source = ../dotfiles/nvim/plugin;
-    recursive = true;
-  };
+  home.file = mkSymlinkAttrs {
+    # Nvim config
+    "./.config/nvim/plugin" = {
+      enable = true;
+      source = ../dotfiles/nvim/plugin;
+      recursive = true;
+    };
 
-  # Lua plugins
-  home.file."./.config/nvim/lua" = {
-    enable = true;
-    source = ../dotfiles/nvim/lua;
-    recursive = true;
-  };
+    # Lua plugins
+    "./.config/nvim/lua" = {
+      enable = true;
+      source = ../dotfiles/nvim/lua;
+      recursive = true;
+    };
 
-  # After config
-  home.file."./.config/nvim/after" = {
-    enable = true;
-    source = ../dotfiles/nvim/after;
-    recursive = true;
-  };
+    # After config
+    "./.config/nvim/after" = {
+      enable = true;
+      source = ../dotfiles/nvim/after;
+      recursive = true;
+    };
 
-  # LSP configs
-  home.file."./.config/nvim/lsp" = {
-    enable = true;
-    source = ../dotfiles/nvim/lsp;
-    recursive = true;
+    # LSP configs
+    "./.config/nvim/lsp" = {
+      source = ../dotfiles/nvim/lsp;
+      outOfStoreSymlink = true;
+      recursive = true;
+    };
   };
 }
