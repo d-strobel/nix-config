@@ -17,11 +17,6 @@
 <h1 align="center">nix-config</h1>
 <p align="center"><i>Personal NixOS configuration.</i>.</p>
 
-## Screenshots
-
-![deskotp](./images/desktop-01.png)
-![deskotp](./images/desktop-03.png)
-
 ## Installation
 
 > This is the most simple installation method for me right now.
