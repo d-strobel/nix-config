@@ -16,7 +16,7 @@
       };
 
       background = {
-        path = "${config.home.homeDirectory}/.config/wallpapers/MilkyWay.png";
+        path = "${config.home.homeDirectory}/.config/wallpapers/nixos-02.jpg";
         blur_passes = 2;
         blur_size = 7;
       };
