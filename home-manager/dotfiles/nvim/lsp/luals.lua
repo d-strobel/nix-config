@@ -15,6 +15,13 @@ return {
       runtime = {
         version = "LuaJIT",
       },
+      format = {
+        enable = true,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+        }
+      },
       signatureHelp = { enabled = true },
       telemetry = { enabled = false },
       workspace = {
