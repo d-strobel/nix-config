@@ -11,7 +11,7 @@
         padding.x = 6;
         padding.y = 6;
         dynamic_padding = true;
-        opacity = 0.9;
+        opacity = 1.0;
       };
 
       mouse = {
