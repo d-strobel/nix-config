@@ -28,6 +28,7 @@
     brightnessctl
     wavemon
     openssl
+    ipcalc
 
     # Screenshot tools
     grim
