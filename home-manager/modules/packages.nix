@@ -10,10 +10,10 @@
     openfortivpn
     gnome-disk-utility
     gnome-calculator
+    gnome-system-monitor
     winbox
     localsend
     rustdesk
-    sniffnet
     brave
 
     # CLI tools
