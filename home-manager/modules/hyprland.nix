@@ -142,7 +142,8 @@
         "${mainMod} shift, Return, exec, ${hyprlock}"
 
         # Screenshot
-        "${mainMod}, Print, exec, ${grim} -g \"$(${slurp})\" -t ppm - | ${satty} --filename - --fullscreen --output-filename ${home}/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
+        "${mainMod}, Print, exec, ${grim} -g \"$(${slurp})\" - | wl-copy && notify-send --app-name slurp \"Slurp\" \"Copied to clipboard.\" --hint int:x-hyprnotify-icon:5"
+        "${mainMod} SHIFT, Print, exec, ${grim} -g \"$(${slurp})\" -t ppm - | ${satty} --filename - --fullscreen --output-filename ${home}/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
 
         # Window management
         "${mainMod}, h, movefocus, l"
