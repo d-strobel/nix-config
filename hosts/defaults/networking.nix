@@ -3,6 +3,10 @@
     # Network manager
     networkmanager.enable = true;
 
+    boot.kernel.sysctl = {
+      "net.ipv6.conf.all.disable_ipv6" = 1;
+    };
+
     # Edit hosts file
     extraHosts = ''
       192.168.11.10 vaultwarden.dstrobel.com
