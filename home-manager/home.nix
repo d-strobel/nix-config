@@ -26,7 +26,7 @@
     ./modules/hyprpaper.nix
     ./modules/hypridle.nix
     ./modules/hyprlock.nix
-    ./modules/hyprnotify.nix
+    ./modules/mako.nix
     ./modules/hyprsunset.nix
     ./modules/kubernetes.nix
     ./modules/neovim.nix
