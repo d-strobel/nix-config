@@ -119,10 +119,6 @@
         };
       };
 
-      gestures = {
-        workspace_swipe = false;
-      };
-
       bind = [
         # General keybinds
         "${mainMod} shift, Q, killactive,"
