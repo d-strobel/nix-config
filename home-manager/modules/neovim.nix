@@ -137,7 +137,7 @@ in {
       alejandra
 
       # Ansible
-      ansible-language-server
+      # ansible-language-server
       ansible-lint
 
       # Terraform
