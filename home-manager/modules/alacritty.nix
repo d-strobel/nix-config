@@ -21,7 +21,7 @@
       font = let
         fontName = "JetBrainsMono NF";
       in {
-        size = 16;
+        size = 18;
         normal.family = "${fontName}";
         bold.family = "${fontName}";
         italic.family = "${fontName}";
