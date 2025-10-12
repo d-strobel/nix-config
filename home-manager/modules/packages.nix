@@ -37,7 +37,6 @@
 
     # Window-Manager tools
     hyprpolkitagent
-    libsForQt5.xwaylandvideobridge
     libnotify
   ];
 }
