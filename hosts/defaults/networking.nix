@@ -1,11 +1,12 @@
 {...}: {
+  boot.kernel.sysctl = {
+    # Disable IPv6 on boot
+    "net.ipv6.conf.all.disable_ipv6" = 1;
+  };
+
   networking = {
     # Network manager
     networkmanager.enable = true;
-
-    boot.kernel.sysctl = {
-      "net.ipv6.conf.all.disable_ipv6" = 1;
-    };
 
     # Edit hosts file
     extraHosts = ''
