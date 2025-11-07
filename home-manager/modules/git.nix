@@ -20,6 +20,12 @@ in {
       core = {
         bare = true;
       };
+      diff = {
+        tool = "vimdiff";
+      };
+      merge = {
+        tool = "vimdiff";
+      };
       # Include platform specific configs
       includeIf = {
         "gitdir:~/${githubPath}/" = {
