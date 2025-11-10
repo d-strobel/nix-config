@@ -42,3 +42,6 @@ opt.termguicolors = true
 
 -- Window border for floating windows
 opt.winborder = 'single'
+
+-- Autocompletion
+opt.completeopt = { "menuone", "noselect", "popup" }

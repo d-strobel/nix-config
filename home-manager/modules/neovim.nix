@@ -66,6 +66,17 @@ in {
             bash
             astro
           ]);
+
+      # Custom plugin colortheme Alabaster-nvim
+      alabaster-nvim = pkgs.vimUtils.buildVimPlugin {
+        pname = "alabaster.nvim";
+        version = "main";
+        src = pkgs.fetchgit {
+          url = "https://git.sr.ht/~p00f/alabaster.nvim";
+          rev = "b14f4527bd5d5528cac33599f71ad542c2f38748";
+          sha256 = "sha256-W9F9cWJfBglZ92W9h4uaVe7vENCf0wWDK0vr4U5LePU=";
+        };
+      };
     in
       with pkgs.vimPlugins; [
         # Lazy package manager
@@ -75,20 +86,20 @@ in {
         nvim-treesitter-with-plugins
 
         # Lazy plugins
-        fzf-lua
-        blink-cmp
         nvim-lspconfig
+        fzf-lua
         oil-nvim
         cloak-nvim
-        rose-pine
         harpoon2
         lazydev-nvim
         nvim-web-devicons
         plenary-nvim
         undotree
         vim-fugitive
-        mini-statusline
         friendly-snippets
+
+        # Custom plugins
+        alabaster-nvim
       ];
 
     extraLuaConfig =
@@ -123,6 +134,8 @@ in {
           },
           ui = { border = "single" },
         })
+
+        vim.cmd("colorscheme alabaster")
       '';
 
     extraPackages = with pkgs; [
@@ -169,7 +182,7 @@ in {
       yaml-language-server
 
       # Docker
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
 
       # Astro Web Framework
       astro-language-server
@@ -194,22 +207,22 @@ in {
   home.file = mkSymlinkAttrs {
     # Nvim config
     "./.config/nvim/plugin" = {
-      enable = true;
       source = ../dotfiles/nvim/plugin;
+      outOfStoreSymlink = true;
       recursive = true;
     };
 
     # Lua plugins
     "./.config/nvim/lua" = {
-      enable = true;
       source = ../dotfiles/nvim/lua;
+      outOfStoreSymlink = true;
       recursive = true;
     };
 
     # After config
     "./.config/nvim/after" = {
-      enable = true;
       source = ../dotfiles/nvim/after;
+      outOfStoreSymlink = true;
       recursive = true;
     };
 

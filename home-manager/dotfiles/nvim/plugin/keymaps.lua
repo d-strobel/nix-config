@@ -51,3 +51,41 @@ keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 -- Remap cnext and cprev for quickfix lists
 keymap('n', '<M-n>', '<cmd>cnext<CR>zz')
 keymap('n', '<M-p>', '<cmd>cprev<CR>zz')
+
+-- Navigate drop-down menus
+vim.keymap.set("i", "<C-j>", function()
+  return vim.fn.pumvisible() == 1 and "<C-n>" or "<C-j>"
+end, { expr = true, silent = true })
+
+vim.keymap.set("i", "<C-k>", function()
+  return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
+end, { expr = true, silent = true })
+
+-- Accept completion
+vim.keymap.set("i", "<C-l>", function()
+  return vim.fn.pumvisible() == 1 and "<C-y>" or "<C-l>"
+end, { expr = true, silent = true })
+
+vim.keymap.set("i", "<CR>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<C-y>"
+  else
+    return "<CR>"
+  end
+end, { expr = true, silent = true })
+
+-- Manual autocomplete
+vim.keymap.set("i", "<C-Space>", function()
+  local line = vim.api.nvim_get_current_line()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  local before_cursor = line:sub(1, col)
+
+  -- Look if we are in a filepath
+  if before_cursor:match("[%./~][%w%._%-/]*$") then
+    -- Filepath-Completion
+    return "<C-x><C-f>"
+  else
+    -- Omni-Completion
+    return "<C-x><C-o>"
+  end
+end, { expr = true, silent = true })
