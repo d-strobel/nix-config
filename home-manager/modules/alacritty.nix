@@ -29,18 +29,18 @@
       };
 
       colors.primary = {
-        background = "#131021";
+        background = "#0e1415";
       };
 
       colors.normal = {
-        black = "#26233a";
-        red = "#eb6f92";
-        green = "#31748f";
-        yellow = "#f6c177";
-        blue = "#9ccfd8";
-        magenta = "#c4a7e7";
-        cyan = "#ebbcba";
-        white = "#e0def4";
+        black = "#000000";
+        red = "#d2322d";
+        green = "#6abf40";
+        yellow = "#cd974b";
+        blue = "#217EBC";
+        magenta = "#9B3596";
+        cyan = "#178F79";
+        white = "#cecece";
       };
     };
   };
