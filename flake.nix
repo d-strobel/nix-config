@@ -23,12 +23,6 @@
       flake = false;
     };
 
-    # MangoWC (Wayland compositor)
-    mangowc = {
-      url = "github:DreamMaoMao/mangowc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
@@ -61,7 +55,6 @@
         modules = [
           ./hosts/noxus/configuration.nix
           inputs.sops-nix.nixosModules.sops
-          inputs.mangowc.nixosModules.mango
         ];
       };
     };

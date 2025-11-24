@@ -199,7 +199,7 @@ in {
       fish-lsp
 
       # SQL
-      postgres-lsp
+      postgres-language-server
 
       # Typst
       tinymist

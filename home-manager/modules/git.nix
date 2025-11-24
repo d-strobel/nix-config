@@ -16,7 +16,7 @@ in {
   programs.git = {
     enable = true;
     package = with pkgs; git;
-    extraConfig = {
+    settings = {
       core = {
         bare = true;
       };

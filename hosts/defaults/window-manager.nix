@@ -28,9 +28,6 @@
     hardinfo2
   ];
 
-  # Wayland Compositor - MangoWC
-  programs.mango.enable = true;
-
   # Wayland Compositor - Niri
   programs.niri = {
     enable = true;

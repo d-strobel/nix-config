@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.librewolf = {
     enable = true;
-    package = with pkgs; librewolf-wayland;
+    package = with pkgs; librewolf;
 
     languagePacks = [
       "en-US"
