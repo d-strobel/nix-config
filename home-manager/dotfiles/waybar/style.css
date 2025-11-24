@@ -1,160 +1,55 @@
+/* Global styling */
 * {
-    font-family: "JetBrainsMono NF";
-    font-size: 14px;
-    margin-top: 1px;
-    margin-bottom: 1px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 16px;
+  border-radius: 0px;
 }
 
-@define-color background rgba(0,0,0,1.0);
-@define-color waybarbackground rgba(19,16,32,0.2);
-@define-color blacktext #0a0a0f;
-@define-color highlight #21202e;
-@define-color spacer #1f1d2e;
-@define-color text #e0def4;
-@define-color red #eb6f92;
-@define-color rose #ebbcba;
-@define-color yellow #f6c177;
-@define-color green #31748f;
-@define-color blue #9ccfd8;
-@define-color iris #c4a7e7;
-@define-color nixlogo #7ebae4;
-@define-color nixhover #5277c3;
+/* Define all colors */
+@define-color bg #050707;
+@define-color fg #cd974b;
+@define-color white #cecece;
+@define-color yellow #c9b890;
 
-#waybar {
-  background-color: @background;
+/* Define Waybar window */
+window#waybar {
+  background-color: @bg;
+  color: @fg;
 }
 
-/* Custom Nix */
-#custom-nix {
-  padding-left: 10px;
-  padding-right: 6.5px;
-  margin-left: 4px;
-  background-color: @background;
-  color: @nixlogo;
-  font-size: 20px;
-  /* border-top-left-radius: 12px; */
-  /* border-bottom-left-radius: 12px; */
-}
-#custom-nix:hover {
-  color: @nixhover;
-}
-
-/* Workspace */
-#workspaces {
-  background-color: @background;
-  border-radius: 2px;
-  /* border-top-right-radius: 12px; */
-  /* border-bottom-right-radius: 12px; */
-}
+/* Define Tags (Workspaces) */
 #workspaces button {
-    padding: 0 3px;
-    margin-right: 4px;
-    color: @text;
+    padding: 0 6px;
+    color: @white;
+    background: transparent;
+}
+#workspaces button.focused {
+    background: @yellow;
+    color: @bg;
+}
+#window {
+  background: @yellow;
+}
+#window.layout{
+  padding: 0 6px;
+  background: @bg;
+  color: @white;
+}
+#window.title{
+  padding: 0 6px;
+  background: @yellow;
+  color: @bg;
 }
 
-#workspaces button:hover {
-    background: @highlight;
-    border-radius: 2px;
-}
-
-#workspaces button.active {
-    background-color: @nixlogo;
-    color: @background;
-    border-radius: 2px;
-    /* padding-left: 16px; */
-    /* padding-right: 16px; */
-    /* margin-top: 4px; */
-    /* margin-bottom: 4px; */
-}
-
-/* Center */
-#clock {
-    padding: 0 10px;
-    color: @text;
-    /* border: 1px solid @spacer; */
-    border-radius: 2px;
-    background-color: @background;
-}
-
-/* Right Side */
-#privacy {
-    margin-right: 4px;
-    padding: 0 10px;
-    background-color: @iris;
-    color: @blacktext;
-    border-radius: 2px;
-}
-
-#custom-vpn {
-    margin-right: 4px;
-    padding: 0 10px;
-    background-color: @yellow;
-    color: @blacktext;
-    border-radius: 2px;
-}
-#custom-vpn.warning {
-  background-color: @red;
-}
-
-#memory{
-    padding: 0 10px;
-    color: @text;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-    background-color: @background;
-}
-
+#custom-vpn,
 #cpu,
+#memory,
 #disk,
 #network,
 #pulseaudio,
-#backlight{
-    padding: 0 10px;
-    color: @text;
-    background-color: @background;
-}
-
-#battery {
-    padding: 0 10px;
-    color: @text;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    background-color: @background;
-    margin-right: 4px;
-}
-
-/* Status updates */
-#network.disabled {
-  color: @red;
-}
-#network.disconnected {
-  color: @red;
-}
-
-#pulseaudio.muted {
-  color: @red;
-}
-#pulseaudio.source-muted {
-  color: @red;
-}
-#battery.charging {
-    color: @green;
-}
-#battery.warning:not(.charging) {
-    color: @yellow;
-}
-@keyframes blink {
-    to {
-        background-color: @red;
-        color: #000000;
-    }
-}
-#battery.critical:not(.charging) {
-    background-color: @background;
-    color: @red;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+#battery,
+#backlight,
+#custom-sep,
+#custom-sep-large {
+  color: @white;
 }

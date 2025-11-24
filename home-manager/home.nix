@@ -5,45 +5,19 @@
   ...
 }: {
   imports = [
-    ./modules/alacritty.nix
-    ./modules/bat.nix
-    ./modules/btop.nix
-    ./modules/chromium.nix
-    ./modules/clipboard.nix
-    ./modules/cursor.nix
-    ./modules/cosmic.nix
-    ./modules/dconf.nix
-    ./modules/direnv.nix
-    ./modules/eza.nix
-    ./modules/font.nix
+    ./modules/terminal.nix
+    ./modules/desktop.nix
     ./modules/fish.nix
     ./modules/laser-tools.nix
     ./modules/librewolf.nix
-    ./modules/fzf.nix
     ./modules/git.nix
-    ./modules/gtk.nix
-    ./modules/hyprland.nix
-    ./modules/hyprpaper.nix
-    ./modules/hypridle.nix
-    ./modules/hyprlock.nix
-    ./modules/mako.nix
-    ./modules/hyprsunset.nix
     ./modules/kubernetes.nix
     ./modules/neovim.nix
     ./modules/packages.nix
-    ./modules/qt.nix
     ./modules/remmina.nix
-    ./modules/rofi.nix
-    # ./modules/shikane.nix
-    ./modules/starship.nix
-    ./modules/spotify.nix
     ./modules/sops.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
-    ./modules/waybar.nix
-    ./modules/wlogout.nix
-    ./modules/xdg.nix
-    ./modules/zoxide.nix
   ];
 
   # Enable flakes

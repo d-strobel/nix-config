@@ -1,0 +1,131 @@
+{
+  "layer": "top",
+  // -----------------------
+  // Left Side
+  // -----------------------
+  "modules-left": [
+    "niri/workspaces"
+  ],
+  "niri/workspaces": {
+    "all-outputs": true
+  },
+  // -----------------------
+  // Right Side
+  // -----------------------
+  "modules-right": [
+    "custom/vpn",
+    "memory",
+    "custom/sep-large",
+    "cpu",
+    "custom/sep-large",
+    "network",
+    "custom/sep-large",
+    "pulseaudio",
+    "custom/sep-large",
+    "backlight",
+    "custom/sep-large",
+    "battery"
+  ],
+  "memory": {
+    "interval": 15,
+    "format": "  {percentage}%   {swapPercentage}%"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "{icon} {usage}%",
+    "format-icons": [
+      " "
+    ]
+  },
+  "disk": {
+    "path": "/",
+    "format": "root: {free}",
+    "unit": "GB"
+  },
+  "network": {
+    "on-click": "nm-connection-editor",
+    "format-wifi": "{icon} {signalStrength}%",
+    "format-ethernet": "󰈀 100%",
+    "format-disconnected": "󰤮 down",
+    "format-icons": [
+      "󰤯 ",
+      "󰤟 ",
+      "󰤢 ",
+      "󰤨 "
+    ],
+    "tooltip-format-wifi": "SSID: {essid} ({signalStrength}%)\nInterface: {ifname}\nAddress: {ipaddr}/{cidr}\nGateway: {gwaddr}",
+    "tooltip-format-ethernet": "Interface: {ifname}\nAddress: {ipaddr}/{cidr}\nGateway: {gwaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+  "pulseaudio": {
+    "format": "{format_source} {icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% ",
+    "format-muted": "{format_source}  0%",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 0%",
+    "on-click": "pavucontrol",
+    "format-icons": [
+      "",
+      "",
+      " "
+    ]
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󱩎 ",
+      "󱩏 ",
+      "󱩐 ",
+      "󱩑 ",
+      "󱩒 ",
+      "󱩓 ",
+      "󱩔 ",
+      "󱩕 ",
+      "󱩖 ",
+      "󰛨 "
+    ]
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}% ",
+    "format-charging": " {capacity}% ",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  // -----------------------
+  // Custom
+  // -----------------------
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false,
+    "interval": 0
+  },
+  "custom/sep-large": {
+    "format": " | ",
+    "tooltip": false,
+    "interval": 0
+  },
+  "custom/vpn": {
+    "format": "󰖂 {text} | ",
+    "tooltip": false,
+    "hide-empty-text": true,
+    "exec": "~/.config/waybar/vpn.sh",
+    "return-type": "json",
+    "interval": 15
+  }
+}

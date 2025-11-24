@@ -13,8 +13,8 @@
     gnome-system-monitor
     winbox
     localsend
-    rustdesk
     brave
+    nautilus
 
     # CLI tools
     dig
@@ -36,7 +36,17 @@
     satty
 
     # Window-Manager tools
-    hyprpolkitagent
     libnotify
+    wmenu
+    swaylock
   ];
+
+  programs.btop = {
+    enable = true;
+    package = with pkgs; btop;
+    settings = {
+      color_theme = "Default";
+      theme_background = false;
+    };
+  };
 }

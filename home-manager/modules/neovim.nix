@@ -47,6 +47,7 @@ in {
             java
             just
             json
+            kdl
             ini
             hyprlang
             html
@@ -87,6 +88,7 @@ in {
 
         # Lazy plugins
         nvim-lspconfig
+        blink-cmp
         fzf-lua
         oil-nvim
         cloak-nvim

@@ -1,25 +1,45 @@
 {pkgs, ...}: {
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
-  security.pam.services.hyprlock = {};
-
+  # Login greeter (TUI)
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
       };
     };
   };
 
-  # Enable xdg-desktop-portal
-  xdg.portal.enable = true;
-
-  # Enable Hyprland
-  programs.hyprland = {
+  # xdg-desktop-portal
+  xdg.portal = {
     enable = true;
-    withUWSM = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
   };
+
+  # Extra packages
+  environment.systemPackages = with pkgs; [
+    wayland-utils
+    xwayland-satellite
+    wineWowPackages.waylandFull
+    parted
+    vim
+    hardinfo2
+  ];
+
+  # Wayland Compositor - MangoWC
+  programs.mango.enable = true;
+
+  # Wayland Compositor - Niri
+  programs.niri = {
+    enable = true;
+    package = with pkgs; niri;
+  };
+
+  # Keyrings
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # Automount
   services.devmon.enable = true;

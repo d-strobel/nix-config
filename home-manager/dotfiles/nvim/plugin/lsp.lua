@@ -73,39 +73,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         })
       end
     end
-
-    -- Omni completion
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    end
   end,
 })
 
--- LspDebug
+-- TODO: LSP Functions to start, stop and Info
 local function show_lsp_debug_info()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local bufname = vim.api.nvim_buf_get_name(bufnr)
-
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-  local client_names = {}
-  for _, c in ipairs(clients) do
-    table.insert(client_names, c.name .. (c.supports_method("textDocument/completion") and " ✓completion" or ""))
-  end
-
-  local completion_enabled = false
-  if vim.lsp.completion and vim.lsp.completion.is_enabled then
-    completion_enabled = vim.lsp.completion.is_enabled(bufnr)
-  end
-
-  local omnifunc = vim.api.nvim_buf_get_option(bufnr, "omnifunc")
-  local completeopt = vim.o.completeopt
-
-  print("🧾 LSP Debug Info:")
-  print("  Buffer: " .. bufnr .. " (" .. bufname .. ")")
-  print("  LSP Clients: " .. (#client_names > 0 and table.concat(client_names, ", ") or "none"))
-  print("  LSP Completion enabled: " .. tostring(completion_enabled))
-  print("  omnifunc: " .. omnifunc)
-  print("  completeopt: " .. completeopt)
 end
 
 vim.api.nvim_create_user_command("LspDebug", show_lsp_debug_info, {})

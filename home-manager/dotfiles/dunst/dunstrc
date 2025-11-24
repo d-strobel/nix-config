@@ -1,0 +1,27 @@
+[global]
+follow = mouse
+width = 300
+height = 100
+origin = top-right
+offset = 10x10
+notification_limit = 5
+progress_bar = true
+font = JetBrains Nerd Font Mono 12
+
+[urgency_low]
+background = "#c9b890"
+foreground = "#050707"
+frame_color = "#c9b890"
+timeout = 5
+
+[urgency_normal]
+background = "#c9b890"
+foreground = "#050707"
+frame_color = "#c9b890"
+timeout = 5
+
+[urgency_critical]
+background = "#c9b890"
+foreground = "#050707"
+frame_color = "#c9b890"
+timeout = 5
