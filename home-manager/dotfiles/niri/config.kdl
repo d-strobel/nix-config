@@ -103,7 +103,6 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     // position x=1280 y=0
-
 }
 
 // Set cursor.
@@ -125,6 +124,9 @@ gestures {
 layout {
     // Set gaps around windows in logical pixels.
     gaps 6
+
+    // Set background color.
+    background-color "#0e1415"
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
