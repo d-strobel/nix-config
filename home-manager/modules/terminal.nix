@@ -18,8 +18,8 @@ in {
 
   home.file = mkSymlinkAttrs {
     # Terminal Emulator
-    ".config/alacritty/config.toml" = {
-      source = ../dotfiles/alacritty/config.toml;
+    ".config/alacritty/alacritty.toml" = {
+      source = ../dotfiles/alacritty/alacritty.toml;
       outOfStoreSymlink = true;
       recursive = false;
     };
