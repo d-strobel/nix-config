@@ -7,7 +7,17 @@
     "niri/workspaces"
   ],
   "niri/workspaces": {
-    "all-outputs": true
+    "all-outputs": false,
+    "format": "{name}"
+  },
+  // -----------------------
+  // Center
+  // -----------------------
+  "modules-center": [
+    "clock"
+  ],
+  "clock": {
+    "format": "{:%H%M (%z)}"
   },
   // -----------------------
   // Right Side
@@ -15,38 +25,28 @@
   "modules-right": [
     "custom/vpn",
     "memory",
-    "custom/sep-large",
     "cpu",
-    "custom/sep-large",
     "network",
-    "custom/sep-large",
     "pulseaudio",
-    "custom/sep-large",
     "backlight",
-    "custom/sep-large",
     "battery"
   ],
   "memory": {
     "interval": 15,
-    "format": "  {percentage}%   {swapPercentage}%"
+    "format": "  {percentage}%   {swapPercentage}% | "
   },
   "cpu": {
     "interval": 5,
-    "format": "{icon} {usage}%",
+    "format": "{icon} {usage}% | ",
     "format-icons": [
       " "
     ]
   },
-  "disk": {
-    "path": "/",
-    "format": "root: {free}",
-    "unit": "GB"
-  },
   "network": {
     "on-click": "nm-connection-editor",
-    "format-wifi": "{icon} {signalStrength}%",
-    "format-ethernet": "󰈀 100%",
-    "format-disconnected": "󰤮 down",
+    "format-wifi": "{icon} {signalStrength}% | ",
+    "format-ethernet": "󰈀 100% | ",
+    "format-disconnected": "󰤮 down | ",
     "format-icons": [
       "󰤯 ",
       "󰤟 ",
@@ -59,7 +59,7 @@
     "max-length": 50
   },
   "pulseaudio": {
-    "format": "{format_source} {icon} {volume}%",
+    "format": "{format_source} {icon} {volume}% | ",
     "format-bluetooth": "{icon} {volume}% ",
     "format-muted": "{format_source}  0%",
     "format-source": "󰍬 {volume}%",
@@ -72,7 +72,7 @@
     ]
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon} {percent}% | ",
     "format-icons": [
       "󱩎 ",
       "󱩏 ",
@@ -110,16 +110,6 @@
   // -----------------------
   // Custom
   // -----------------------
-  "custom/sep": {
-    "format": "|",
-    "tooltip": false,
-    "interval": 0
-  },
-  "custom/sep-large": {
-    "format": " | ",
-    "tooltip": false,
-    "interval": 0
-  },
   "custom/vpn": {
     "format": "󰖂 {text} | ",
     "tooltip": false,

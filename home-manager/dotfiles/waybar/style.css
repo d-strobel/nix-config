@@ -17,7 +17,7 @@ window#waybar {
   color: @fg;
 }
 
-/* Define Tags (Workspaces) */
+/* Define Workspaces */
 #workspaces button {
     padding: 0 6px;
     color: @white;
@@ -27,6 +27,18 @@ window#waybar {
     background: @yellow;
     color: @bg;
 }
+
+/* Remove dynamic workspace */
+#workspaces button#niri-workspace-10,
+#workspaces button#niri-workspace-10 label {
+  background: None;
+  border: None;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
 #window {
   background: @yellow;
 }
@@ -39,6 +51,10 @@ window#waybar {
   padding: 0 6px;
   background: @yellow;
   color: @bg;
+}
+
+#clock {
+  color: @yellow;
 }
 
 #custom-vpn,
