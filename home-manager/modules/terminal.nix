@@ -14,12 +14,22 @@ in {
   home.packages = with pkgs; [
     # Terminal Emulator
     alacritty
+
+    # Terminal Multiplexer
+    zellij
   ];
 
   home.file = mkSymlinkAttrs {
     # Terminal Emulator
     ".config/alacritty/alacritty.toml" = {
       source = ../dotfiles/alacritty/alacritty.toml;
+      outOfStoreSymlink = true;
+      recursive = false;
+    };
+
+    # Terminal Emulator
+    ".config/zellij/config.kdl" = {
+      source = ../dotfiles/zellij/config.kdl;
       outOfStoreSymlink = true;
       recursive = false;
     };
