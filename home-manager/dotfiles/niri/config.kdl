@@ -117,29 +117,18 @@ layout {
         proportion 0.66667
     }
 
-
-    // You can change the default width of the new windows.
-    default-column-width { proportion 1.0; }
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
-
-    // By default focus ring and border are rendered as a solid background rectangle
-    // behind windows. That is, they will show up through semitransparent windows.
-    // This is because windows using client-side decorations can have an arbitrary shape.
-    //
-    // If you don't like that, you should uncomment `prefer-no-csd` below.
-    // Niri will draw focus ring and border *around* windows that agree to omit their
-    // client-side decorations.
-    //
-    // Alternatively, you can override it with a window rule called
-    // `draw-border-with-background`.
+    // Let the application decide the column width by default.
+    default-column-width {}
 
     // Disable borders of any kind.
     focus-ring {
       off
     }
     border {
-      off
+      width 1
+      active-color "#505050"
+      inactive-color "#505050"
+      urgent-color "#9b0000"
     }
     shadow {}
     struts {}
@@ -170,13 +159,18 @@ window-rule {
     match app-id=r#"librewolf"# title="^Picture-in-Picture$"
     open-floating true
     default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+    border {
+      active-color "#05ebfc"
+    }
 }
 
 // Development of the lasergraph-show-control.
 window-rule {
-    match title="lasergraph-show-control"
+    match app-id="lasergraph-show-control"
     open-floating true
     default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
 }
 
 // ---------------------------
@@ -210,7 +204,14 @@ binds {
     }
 
     // Screen lock
-    Super+Shift+Return hotkey-overlay-title="Lock Screen: swaylock" { spawn "swaylock"; }
+    Super+Shift+Return hotkey-overlay-title="Lock Screen: swaylock" {
+      spawn "swaylock" "-c" "#0e1415" "--font" "JetBrainsMono Nerd Font";
+    }
+
+    // Screen lock + suspend
+    Super+Shift+Alt+Return hotkey-overlay-title="Lock and Suspend" {
+      spawn-sh "swaylock -c \"#0e1415\" --font \"JetBrainsMono Nerd Font\" & systemctl suspend";
+    }
 
     // Audio
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
@@ -290,6 +291,7 @@ binds {
     Mod+Shift+9 { move-column-to-workspace "9"; }
 
 
+    // Resize columns.
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
