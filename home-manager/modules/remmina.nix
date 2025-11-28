@@ -12,11 +12,15 @@ in {
 
   sops.secrets = {
     "remmina/connections/rds" = {
-      path = "${remminaConfigDir}/sdk_rdp_rds-sdk-local_rds-sdk-local.remmina";
+      path = "${remminaConfigDir}/sdk_rdp_rds.remmina";
       mode = "0644";
     };
-    "remmina/connections/sv0wcon01-p" = {
-      path = "${remminaConfigDir}/sdk_rdp_domaincontroller_sv0wcon01-p-sdk-local.remmina";
+    "remmina/connections/domaincontroller" = {
+      path = "${remminaConfigDir}/sdk_rdp_domaincontroller.remmina";
+      mode = "0644";
+    };
+    "remmina/connections/adfs" = {
+      path = "${remminaConfigDir}/sdk_rdp_adfs.remmina";
       mode = "0644";
     };
   };
