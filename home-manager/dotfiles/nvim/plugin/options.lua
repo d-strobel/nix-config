@@ -45,3 +45,18 @@ opt.winborder = 'single'
 
 -- Autocompletion
 opt.completeopt = { "menuone", "noselect", "popup" }
+
+-- Statusline
+local statusline = require("statusline_hx")
+local active, inactive = statusline.statuslines()
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  callback = function()
+    vim.wo.statusline = active
+  end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  callback = function()
+    vim.wo.statusline = inactive
+  end,
+})
