@@ -3,7 +3,7 @@
   lasergraph-timecode-importer,
   ...
 }: let
-  lasergraphTimecodeImporter = lasergraph-timecode-importer.packages.${pkgs.system}.default;
+  lasergraphTimecodeImporter = lasergraph-timecode-importer.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
   home.packages = [
     lasergraphTimecodeImporter

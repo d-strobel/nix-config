@@ -61,3 +61,4 @@ sudo nix-collect-garbage -d
 * [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
 * [github.com/yavko/Dotfiles](https://github.com/yavko/Dotfiles)
 * [github.com/EmergentMind/nix-config](https://github.com/EmergentMind/nix-config)
+* [gist.github.com/queeup](https://gist.github.com/queeup/1666bc0a5558464817494037d612f094#add-nix--unstable-channel)

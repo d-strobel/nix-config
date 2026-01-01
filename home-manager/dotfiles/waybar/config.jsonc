@@ -1,121 +1,79 @@
+// -*- mode: jsonc -*-
 {
-  "layer": "top",
-  // -----------------------
-  // Left Side
-  // -----------------------
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 30, // Waybar height (to be removed for auto height)
+  "spacing": 4, // Gaps between modules (4px)
+  // Choose the order of the modules
   "modules-left": [
-    "niri/workspaces"
+    "sway/workspaces"
   ],
-  "niri/workspaces": {
-    "all-outputs": false,
-    "format": "{name}"
-  },
-  // -----------------------
-  // Center
-  // -----------------------
-  "modules-center": [
-    "clock"
-  ],
-  "clock": {
-    "format": "{:%H%M (%z)}"
-  },
-  // -----------------------
-  // Right Side
-  // -----------------------
   "modules-right": [
-    "custom/vpn",
-    "memory",
-    "cpu",
-    "network",
     "pulseaudio",
-    "backlight",
-    "battery"
+    "cpu",
+    "memory",
+    "battery",
+    "clock",
+    "tray"
   ],
-  "memory": {
-    "interval": 15,
-    "format": "  {percentage}%   {swapPercentage}% | "
+  "tray": {
+    "spacing": 10
+    // "icons": {
+    //   "blueman": "bluetooth",
+    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+  "clock": {
+    "format": "{:%d.%m.%Y - %H:%M}",
+    "tooltip": false
   },
   "cpu": {
-    "interval": 5,
-    "format": "{icon} {usage}% | ",
-    "format-icons": [
-      " "
-    ]
+    "format": " {usage}%",
+    "tooltip": false
   },
-  "network": {
-    "on-click": "nm-connection-editor",
-    "format-wifi": "{icon} {signalStrength}% | ",
-    "format-ethernet": "󰈀 100% | ",
-    "format-disconnected": "󰤮 down | ",
-    "format-icons": [
-      "󰤯 ",
-      "󰤟 ",
-      "󰤢 ",
-      "󰤨 "
-    ],
-    "tooltip-format-wifi": "SSID: {essid} ({signalStrength}%)\nInterface: {ifname}\nAddress: {ipaddr}/{cidr}\nGateway: {gwaddr}",
-    "tooltip-format-ethernet": "Interface: {ifname}\nAddress: {ipaddr}/{cidr}\nGateway: {gwaddr}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
-  },
-  "pulseaudio": {
-    "format": "{format_source} {icon} {volume}% | ",
-    "format-bluetooth": "{icon} {volume}% ",
-    "format-muted": "{format_source}  0%",
-    "format-source": "󰍬 {volume}%",
-    "format-source-muted": "󰍭 0%",
-    "on-click": "pavucontrol",
-    "format-icons": [
-      "",
-      "",
-      " "
-    ]
-  },
-  "backlight": {
-    "format": "{icon} {percent}% | ",
-    "format-icons": [
-      "󱩎 ",
-      "󱩏 ",
-      "󱩐 ",
-      "󱩑 ",
-      "󱩒 ",
-      "󱩓 ",
-      "󱩔 ",
-      "󱩕 ",
-      "󱩖 ",
-      "󰛨 "
-    ]
+  "memory": {
+    "format": " {}%",
+    "tooltip": false
   },
   "battery": {
     "states": {
       "warning": 20,
       "critical": 10
     },
-    "format": "{icon} {capacity}% ",
-    "format-charging": " {capacity}% ",
+    "format": "{icon} {capacity}%",
     "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ]
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": false
   },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
+    "tooltip": false
+  }
   // -----------------------
   // Custom
   // -----------------------
-  "custom/vpn": {
-    "format": "󰖂 {text} | ",
-    "tooltip": false,
-    "hide-empty-text": true,
-    "exec": "~/.config/waybar/vpn.sh",
-    "return-type": "json",
-    "interval": 15
-  }
+  // "custom/vpn": {
+  //   "format": "󰖂 {text} | ",
+  //   "tooltip": false,
+  //   "hide-empty-text": true,
+  //   "exec": "~/.config/waybar/vpn.sh",
+  //   "return-type": "json",
+  //   "interval": 15
+  // }
 }

@@ -3,50 +3,37 @@
 
   home.packages = with pkgs; [
     # Desktop apps
-    obsidian
-    signal-desktop
-    pavucontrol
     vlc
-    openfortivpn
-    gnome-disk-utility
-    gnome-calculator
-    gnome-system-monitor
+    # openfortivpn
+    # gnome-disk-utility
+    # gnome-calculator
+    # gnome-system-monitor
     winbox
-    localsend
     brave
-    nautilus
+
+    # Fonts
+    jetbrains-mono
+    nerd-fonts.jetbrains-mono
 
     # CLI tools
-    dig
-    ffmpeg
+    btop
     ripgrep
     fd
-    unzip
-    zip
-    wget
-    playerctl
-    brightnessctl
     wavemon
     openssl
-    ipcalc
 
     # Screenshot tools
-    grim
-    slurp
-    satty
+    # grim
+    # slurp
+    # satty
 
-    # Window-Manager tools
-    libnotify
-    wmenu
-    swaylock
+    # Kubernetes tools
+    k9s
+    kind
+    kubectl
+    kubectx
+    talosctl
+    kubelogin
+    kubelogin-oidc
   ];
-
-  programs.btop = {
-    enable = true;
-    package = with pkgs; btop;
-    settings = {
-      color_theme = "Default";
-      theme_background = false;
-    };
-  };
 }

@@ -1,33 +1,58 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.librewolf = {
     enable = true;
-    package = with pkgs; librewolf;
+    package = config.lib.nixGL.wrap pkgs.librewolf;
 
     languagePacks = [
       "en-US"
       "de"
     ];
 
+    # Enable WebGL, cookies and history
+    settings = {
+      "webgl.disabled" = false;
+      # "privacy.resistFingerprinting" = true;
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+    };
+
     policies = {
-      Extensions = {
-        Locked = [
-          # Dark theme
-          "firefox-compact-dark@mozilla.org"
-          # uBlock Origin
-          "uBlock0@raymondhill.net"
-          # Bitwarden
-          "446900e4-71c2-419f-a6a7-df9c091e268b"
-          # Dark reader
-          "addon@darkreader.org"
-          # SimpleLogin
-          "addon@simplelogin"
-          # Return YouTube dislike
-          "762f9885-5a13-4abd-9c77-433dcd38b8fd"
-          # Hide YouTube shorts
-          "88ebde3a-4581-4c6b-8019-2a05a9e3e938"
-        ];
+      ExtensionSettings = {
+        # "*".installation_mode = "blocked";
+
+        "uBlock0@raymondhill.net" = {
+          default_area = "menupanel";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
+
+    # Extensions = {
+    #   Locked = [
+    #     # uBlock Origin
+    #     "uBlock0@raymondhill.net"
+    #     # Bitwarden
+    #     "446900e4-71c2-419f-a6a7-df9c091e268b"
+    #     # Dark reader
+    #     "addon@darkreader.org"
+    #     # SimpleLogin
+    #     "addon@simplelogin"
+    #     # Return YouTube dislike
+    #     "762f9885-5a13-4abd-9c77-433dcd38b8fd"
+    #     # Hide YouTube shorts
+    #     "88ebde3a-4581-4c6b-8019-2a05a9e3e938"
+    #   ];
+    # };
 
     profiles = {
       default = {
@@ -86,6 +111,23 @@
             bing.metaData.hidden = true;
             google.metaData.hidden = true;
           };
+        };
+
+        bookmarks = {
+          force = true;
+          settings = [
+            {
+              name = "Toolbar";
+              toolbar = true;
+              bookmarks = [
+                # Define Toolbar bookmarks here
+                {
+                  name = "Tuta Mail";
+                  url = "https://app.tuta.com/login";
+                }
+              ];
+            }
+          ];
         };
       };
     };

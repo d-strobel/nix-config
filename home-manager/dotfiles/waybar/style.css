@@ -1,71 +1,68 @@
 /* Global styling */
 * {
-  font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 16px;
-  border-radius: 0px;
+    font-family: 'JetBrainsMono Nerd Font', 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 15px;
 }
 
-/* Define all colors */
-@define-color bg #050707;
-@define-color fg #cd974b;
-@define-color white #cecece;
-@define-color yellow #c9b890;
+/* TODO: Implement colors */
+/* Color definition */
+@define-color bg #2b303b;
+/* @define-color fg #cd974b; */
+/* @define-color white #cecece; */
+/* @define-color yellow #c9b890; */
 
-/* Define Waybar window */
 window#waybar {
-  background-color: @bg;
-  color: @fg;
+    background-color: @bg;
+    color: #ffffff;
 }
 
-/* Define Workspaces */
+button {
+    border: none;
+    border-radius: 0;
+}
+
 #workspaces button {
-    padding: 0 6px;
-    color: @white;
-    background: transparent;
+    padding: 0 5px;
+    color: #ffffff;
 }
+
 #workspaces button.focused {
-    background: @yellow;
-    color: @bg;
+    background-color: #64727D;
 }
 
-/* Remove dynamic workspace */
-#workspaces button#niri-workspace-10,
-#workspaces button#niri-workspace-10 label {
-  background: None;
-  border: None;
-  font-size: 0;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
+#workspaces button.urgent {
+    background-color: #eb4d4b;
 }
 
-#window {
-  background: @yellow;
-}
-#window.layout{
-  padding: 0 6px;
-  background: @bg;
-  color: @white;
-}
-#window.title{
-  padding: 0 6px;
-  background: @yellow;
-  color: @bg;
-}
-
-#clock {
-  color: @yellow;
-}
-
-#custom-vpn,
+#clock,
+#battery,
 #cpu,
 #memory,
 #disk,
+#temperature,
+#backlight,
 #network,
 #pulseaudio,
-#battery,
-#backlight,
-#custom-sep,
-#custom-sep-large {
-  color: @white;
+#wireplumber,
+#tray {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#battery.charging, #battery.plugged {
+    color: #00ff00;
+}
+#battery.warning {
+    color: #ff9900;
+}
+#battery.critical {
+    color: #ff0000;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#pulseaudio.muted {
+    color: #ff0000;
 }

@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: let
   # Github
@@ -13,6 +14,19 @@
   gitlabEmail = "gitlab.e0ueb@slmails.com";
   gitlabName = "d-strobel";
 in {
+  # Create git directories
+  home.activation.createGitDirs =
+    lib.hm.dag.entryAfter ["writeBoundary"]
+    /*
+    bash
+    */
+    ''
+      # Git
+      mkdir -p ${config.home.homeDirectory}/git/github.com/d-strobel
+      mkdir -p ${config.home.homeDirectory}/git/github.com/laser-zentrale-de
+      mkdir -p ${config.home.homeDirectory}/git/gitlab.com/strobel-iac
+    '';
+
   programs.git = {
     enable = true;
     package = with pkgs; git;

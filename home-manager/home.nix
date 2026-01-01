@@ -1,17 +1,12 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./modules/terminal.nix
     ./modules/desktop.nix
     ./modules/fish.nix
     ./modules/laser-tools.nix
-    ./modules/librewolf.nix
+    ./modules/firefox.nix
+    # ./modules/librewolf.nix
     ./modules/git.nix
-    ./modules/kubernetes.nix
     ./modules/neovim.nix
     ./modules/packages.nix
     ./modules/remmina.nix
@@ -30,21 +25,6 @@
   # manage.
   home.username = "dstrobel";
   home.homeDirectory = "/home/dstrobel";
-
-  # Create directories here that home-manager modules depend on
-  home.activation.createDirs =
-    lib.hm.dag.entryAfter ["writeBoundary"]
-    /*
-    bash
-    */
-    ''
-      # Cosmic
-      mkdir -p ${config.home.homeDirectory}/.config/cosmic
-      # Git
-      mkdir -p ${config.home.homeDirectory}/git/github.com/d-strobel
-      mkdir -p ${config.home.homeDirectory}/git/github.com/laser-zentrale-de
-      mkdir -p ${config.home.homeDirectory}/git/gitlab.com/strobel-iac
-    '';
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

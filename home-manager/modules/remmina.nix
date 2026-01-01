@@ -5,10 +5,9 @@
 }: let
   remminaConfigDir = "${config.home.homeDirectory}/.local/share/remmina";
 in {
-  services.remmina = {
-    enable = true;
-    package = with pkgs; remmina;
-  };
+  home.packages = with pkgs; [
+    remmina
+  ];
 
   sops.secrets = {
     "remmina/connections/rds" = {

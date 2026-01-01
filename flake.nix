@@ -11,6 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # NixGL
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Sops-nix secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -22,6 +28,9 @@
       url = "git+https://github.com/d-strobel/nix-secrets.git?ref=main&shallow=1";
       flake = false;
     };
+
+    # Betterfox
+    betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
@@ -44,21 +53,6 @@
       context = self;
     };
   in {
-    # NixOS configuration entrypoint
-    # Available through 'sudo nixos-rebuild switch --flake .#noxus'
-    nixosConfigurations = {
-      noxus = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          nix-secrets = inputs.nix-secrets;
-        };
-        modules = [
-          ./hosts/noxus/configuration.nix
-          inputs.sops-nix.nixosModules.sops
-        ];
-      };
-    };
-
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager switch --flake .#dstrobel'
     homeConfigurations = {
@@ -70,6 +64,7 @@
           mage-fish-completions = inputs.mage-fish-completions;
           lasergraph-timecode-importer = inputs.lasergraph-timecode-importer;
           nix-secrets = inputs.nix-secrets;
+          betterfox = inputs.betterfox;
         };
         modules = [
           ./home-manager/home.nix

@@ -35,6 +35,7 @@ in {
             ssh_config
             rust
             regex
+            rasi
             python
             promql
             nix

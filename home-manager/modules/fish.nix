@@ -4,7 +4,7 @@
   mage-fish-completions,
   ...
 }: let
-  mageFishCompletions = mage-fish-completions.packages.${pkgs.system}.default;
+  mageFishCompletions = mage-fish-completions.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
   programs.fish = {
     enable = true;
@@ -42,13 +42,13 @@ in {
     };
 
     functions = let
-      openfortivpn = "${pkgs.openfortivpn}/bin/openfortivpn";
+      # openfortivpn = "${pkgs.openfortivpn}/bin/openfortivpn";
       fzf = "${pkgs.fzf}/bin/fzf";
-      git = "${pkgs.git}/bin/git";
+      git = "git";
     in {
-      vpn-connect = "sudo ${openfortivpn}";
-      ipv6-disable = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1";
-      ipv6-enable = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0";
+      # vpn-connect = "sudo ${openfortivpn}";
+      # ipv6-disable = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1";
+      # ipv6-enable = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0";
       git-branch-worktree-switch =
         /*
         fish
