@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     # Desktop apps
     vlc
-    # openfortivpn
     # gnome-disk-utility
     # gnome-calculator
     # gnome-system-monitor
