@@ -20,6 +20,9 @@ set $rofi_cmd rofi \
 # Menu
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+# Calculator command
+set $calc rofi -show calc -modi calc -no-show-match -no-sort -no-bold
+
 # -------------------------------
 # Output configuration
 # -------------------------------
@@ -68,6 +71,9 @@ bindsym $mod+Shift+q kill
 
 # Start your app launcher
 bindsym $mod+space exec $menu
+
+# Start calculator
+bindsym $mod+Shift+Space exec $calc
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
