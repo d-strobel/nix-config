@@ -43,6 +43,7 @@ output * bg /usr/share/backgrounds/default-dark.jxl fill
 
 input "type:keyboard" {
     xkb_layout de
+    xkb_options ctrl:nocaps
 }
 
 input "1739:0:Synaptics_TM3276-022" {
