@@ -138,6 +138,12 @@ bindsym $mod+e layout toggle split
 # Make the current focus fullscreen
 bindsym $mod+Shift+f fullscreen
 
+# Screenshot and clipboard
+bindsym $mod+Print exec grimshot --notify copy area
+
+# Screenshot and annotation
+bindsym $mod+Shift+Print exec grimshot save area - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png
+
 # Toggle the current focus between tiling and floating mode
 # bindsym $mod+Shift+space floating toggle
 

@@ -18,11 +18,6 @@
     wavemon
     openssl
 
-    # Screenshot tools
-    # grim
-    # slurp
-    # satty
-
     # Kubernetes tools
     k9s
     kind
