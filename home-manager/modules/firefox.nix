@@ -148,6 +148,13 @@ in {
           private_browsing = false;
           default_area = "menupanel";
         };
+        # Youtube SponsorBlock
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorBlocker@ajay.app/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = false;
+          default_area = "menupanel";
+        };
       };
     };
 
