@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: let
+  # Path inside the home directory to the kagi logo
+  kagiLogoHomePath = ".local/share/icons/kagi.svg";
+
+  # Helper variables for firefox preferences
   lockFalse = {
     Value = false;
     Status = "locked";
@@ -206,7 +210,7 @@ in {
       };
 
       search = {
-        default = "ddg";
+        default = "Kagi";
         privateDefault = "ddg";
         force = true;
 
@@ -236,6 +240,12 @@ in {
             urls = [{template = "https://wiki.nixos.org/index.php?search={searchTerms}";}];
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = ["@nw"];
+          };
+
+          "Kagi" = {
+            urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
+            icon = "${config.home.homeDirectory}/${kagiLogoHomePath}";
+            definedAliases = ["@ka" "@kagi"];
           };
 
           bing.metaData.hidden = true;
@@ -275,6 +285,14 @@ in {
           }
         ];
       };
+    };
+  };
+
+  # Place kagi logo
+  home.file = {
+    "${kagiLogoHomePath}" = {
+      enable = true;
+      source = ../../images/kagi.svg;
     };
   };
 }
