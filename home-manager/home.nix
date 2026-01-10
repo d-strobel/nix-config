@@ -5,7 +5,6 @@
     ./modules/fish.nix
     ./modules/laser-tools.nix
     ./modules/firefox.nix
-    # ./modules/librewolf.nix
     ./modules/git.nix
     ./modules/neovim.nix
     ./modules/packages.nix
