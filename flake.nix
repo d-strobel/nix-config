@@ -29,6 +29,12 @@
       flake = false;
     };
 
+    # Helium Browser
+    helium = {
+      url = "github:AlvaroParker/helium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Betterfox
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
@@ -64,6 +70,7 @@
           mage-fish-completions = inputs.mage-fish-completions;
           lasergraph-timecode-importer = inputs.lasergraph-timecode-importer;
           nix-secrets = inputs.nix-secrets;
+          helium = inputs.helium;
           betterfox = inputs.betterfox;
         };
         modules = [

@@ -22,6 +22,7 @@ in {
     (config.lib.nixGL.wrap pkgs.signal-desktop)
     (config.lib.nixGL.wrap pkgs.obsidian)
     (config.lib.nixGL.wrap pkgs.localsend)
+    (config.lib.nixGL.wrap inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default)
   ];
 
   home.file = mkSymlinkAttrs {
