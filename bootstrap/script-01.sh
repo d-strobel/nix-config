@@ -19,7 +19,7 @@ gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 # an issue where I can't use fish as the main shell
 # in the foot terminal.
 # Install libvirt system-wide.
-rpm-ostree install --idempotent fish libvirt
+rpm-ostree install --idempotent fish libvirt virt-manager
 
 # Set transient rootfs
 # This lets us create the /nix directory
