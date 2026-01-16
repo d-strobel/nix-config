@@ -39,6 +39,7 @@ in {
     in {
       t = "${lib.getExe tmuxOpen}";
       gbws = "git-branch-worktree-switch";
+      lla = "ls -la";
     };
 
     functions = let
