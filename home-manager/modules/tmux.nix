@@ -13,7 +13,7 @@
     historyLimit = 5000;
     terminal = "screen-256color";
     mouse = true;
-    shortcut = "a";
+    shortcut = "b";
 
     extraConfig = let
       # Search path for tmux sessionizer
@@ -87,11 +87,6 @@
     in ''
       # Set true color
       set -ga terminal-overrides ",xterm-256color*:Tc"
-
-      # Remap ctrl+b to ctrl+a
-      unbind C-b
-      set-option -g prefix C-a
-      bind-key C-a send-prefix
 
       set -sg escape-time 0
 
