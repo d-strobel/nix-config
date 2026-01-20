@@ -11,7 +11,7 @@
     ./modules/remmina.nix
     ./modules/sops.nix
     ./modules/ssh.nix
-    ./modules/tmux.nix
+    # ./modules/tmux.nix
   ];
 
   # Enable flakes

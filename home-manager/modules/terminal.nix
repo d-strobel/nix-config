@@ -11,10 +11,31 @@
     hm = config.lib;
   };
 in {
+  home.packages = with pkgs; [
+    tmux
+  ];
+
   home.file = mkSymlinkAttrs {
     # Terminal Emulator
     ".config/foot/foot.ini" = {
       source = ../dotfiles/foot/foot.ini;
+      outOfStoreSymlink = true;
+      recursive = false;
+    };
+
+    # Terminal Multiplexer
+    ".config/tmux/tmux.conf" = {
+      source = ../dotfiles/tmux/tmux.conf;
+      outOfStoreSymlink = true;
+      recursive = false;
+    };
+    ".local/bin/tmux-sessions.sh" = {
+      source = ../dotfiles/tmux/tmux-sessions.sh;
+      outOfStoreSymlink = true;
+      recursive = false;
+    };
+    ".local/bin/tmux-sessionizer.sh" = {
+      source = ../dotfiles/tmux/tmux-sessionizer.sh;
       outOfStoreSymlink = true;
       recursive = false;
     };
