@@ -8,20 +8,18 @@
   "modules-left": [
     "sway/workspaces"
   ],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "pulseaudio",
     "cpu",
     "memory",
     "battery",
-    "clock",
     "tray"
   ],
   "tray": {
     "spacing": 10
-    // "icons": {
-    //   "blueman": "bluetooth",
-    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    // }
   },
   "clock": {
     "format": "{:%d.%m.%Y - %H:%M}",
@@ -66,15 +64,4 @@
     "on-click": "pavucontrol",
     "tooltip": false
   }
-  // -----------------------
-  // Custom
-  // -----------------------
-  // "custom/vpn": {
-  //   "format": "󰖂 {text} | ",
-  //   "tooltip": false,
-  //   "hide-empty-text": true,
-  //   "exec": "~/.config/waybar/vpn.sh",
-  //   "return-type": "json",
-  //   "interval": 15
-  // }
 }
