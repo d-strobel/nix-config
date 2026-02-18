@@ -2,10 +2,12 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # Include all default settings
-    ../defaults
-    # Include optional settings
-    ../options/laptop.nix
+
+    # Include the default system configuration
+    ../modules/system.nix
+
+    # Include special thinkpad T14 settings
+    ../modules/lenovo-thinkpad-t14.nix
   ];
 
   # Bootloader.

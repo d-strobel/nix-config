@@ -165,6 +165,13 @@ window-rule {
     }
 }
 
+// Move screen sharing popup to unused workspace []=
+window-rule {
+    match title=r#"is sharing your screen\.$"#
+    open-focused false
+    open-on-workspace "[]="
+}
+
 // Development of the lasergraph-show-control.
 window-rule {
     match app-id="lasergraph-show-control"
@@ -187,6 +194,9 @@ workspace "6"
 workspace "7"
 workspace "8"
 workspace "9"
+
+// Scratch workspace
+workspace "[]="
 
 // ---------------------------
 // Keybinds

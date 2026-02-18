@@ -1,1 +1,1 @@
-vim.opt.shiftwidth = 4
+/home/dstrobel/.local/share/chezmoi/private_dot_config/nvim/after/ftplugin/just.lua

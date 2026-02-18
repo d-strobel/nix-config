@@ -1,0 +1,20 @@
+[core]
+        bare = true
+
+[diff]
+        tool = "vimdiff"
+
+[gpg]
+        format = "openpgp"
+
+[gpg "openpgp"]
+        program = "gpg"
+
+[includeIf "gitdir:~/git/github.com/"]
+        path = "/home/dstrobel/git/github.com/.gitconfig"
+
+[includeIf "gitdir:~/git/gitlab.com/"]
+        path = "/home/dstrobel/git/gitlab.com/.gitconfig"
+
+[merge]
+        tool = "vimdiff"

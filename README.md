@@ -30,7 +30,7 @@
 1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>` OR `nmtui`
 1. Create temporary shell: `nix-shell -p vim git home-manager`
 1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
-1. Create and paste the age keys for sops-nix secrets. `vim ~/.config/sops/age/keys.txt`
+1. Create and paste the age keys for sops secrets. For home `~/.config/sops/age/keys.txt` (user only mode 0600), for system  `/var/lib/sops/age/keys.txt` (root only mode 0600).
 1. Install system flake: `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
 1. Insert username and password for the private github repository when asked.
 1. Install home configuration: `home-manager switch --flake .#USER`
@@ -38,7 +38,9 @@
 
 ## Update
 
-In order to update a system run the following commands.
+### Full system update
+
+In order to update the whole system run the following commands.
 
 ```bash
 # 1. Update the nix flake
@@ -52,6 +54,21 @@ home-manager switch --flake .#USER
 
 # 4. Optional: Gargabe collection
 sudo nix-collect-garbage -d
+```
+
+### Update secrets
+
+After pushing new secrets to the secrets input run the following commands.
+
+```shell
+# 1. Update the nix flake input
+nix flake update nix-secrets
+
+# 2. Rebuild the system
+sudo nixos-rebuild switch --flake .#HOST
+
+# 3. Rebuild the Home-Manager
+home-manager switch --flake .#USER
 ```
 
 ## Inspirations
