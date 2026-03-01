@@ -108,6 +108,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.pack.add({
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/rafamadriz/friendly-snippets" },
+  { src = "https://github.com/saghen/blink.download" },
 })
 
 -----------------------------
@@ -207,6 +208,14 @@ for i = 1, #prefixes do
     vim.keymap.set({ "n", "v" }, prefix .. lower_letter, action_prefix .. upper_letter)
   end
 end
+
+-----------------------------
+--: Auto-Pairs
+-----------------------------
+vim.pack.add({
+  { src = "https://github.com/saghen/blink.pairs", version = vim.version.range('0') },
+})
+require('blink.pairs').setup({})
 
 -----------------------------
 --: Git
