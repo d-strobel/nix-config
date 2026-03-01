@@ -1,1 +1,1 @@
-vim.opt_local.commentstring = "# %s"
+/home/dstrobel/.local/share/chezmoi/private_dot_config/nvim/after/ftplugin/ansible.lua

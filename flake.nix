@@ -23,6 +23,18 @@
       flake = false;
     };
 
+    # Neovim nightly overlay
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Helium browser
+    helium-browser = {
+      url = "github:AlvaroParker/helium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
@@ -44,32 +56,27 @@
       context = self;
     };
   in {
-    # NixOS configuration entrypoint
-    # Available through 'sudo nixos-rebuild switch --flake .#noxus'
+    # NixOS system configuration
     nixosConfigurations = {
+      # Use with: sudo nixos-rebuild switch --flake .#noxus
       noxus = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
-          nix-secrets = inputs.nix-secrets;
         };
         modules = [
           ./hosts/noxus/configuration.nix
-          inputs.sops-nix.nixosModules.sops
         ];
       };
     };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager switch --flake .#dstrobel'
+    # Standalone home-manager configuration
     homeConfigurations = {
+      # Use with: home-manager switch --flake .#dstrobel
       "dstrobel" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs;
           cfg = defaultCfg;
-          mage-fish-completions = inputs.mage-fish-completions;
-          lasergraph-timecode-importer = inputs.lasergraph-timecode-importer;
-          nix-secrets = inputs.nix-secrets;
         };
         modules = [
           ./home-manager/home.nix

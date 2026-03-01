@@ -1,2 +1,1 @@
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+/home/dstrobel/.local/share/chezmoi/private_dot_config/nvim/after/ftplugin/lua.lua

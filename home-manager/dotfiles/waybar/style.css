@@ -1,71 +1,62 @@
-/* Global styling */
 * {
-  font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 16px;
-  border-radius: 0px;
+    font-family: 'JetBrainsMono NerdFont';
+    font-size: 15px;
 }
 
-/* Define all colors */
-@define-color bg #050707;
-@define-color fg #cd974b;
-@define-color white #cecece;
-@define-color yellow #c9b890;
-
-/* Define Waybar window */
 window#waybar {
-  background-color: @bg;
-  color: @fg;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
-/* Define Workspaces */
+button {
+    border: none;
+    border-radius: 0;
+}
+
 #workspaces button {
-    padding: 0 6px;
-    color: @white;
-    background: transparent;
+    padding: 0 5px;
+    color: rgb(255, 255, 255);
+    border-bottom: 3px solid rgb(0, 0, 0);
 }
+
 #workspaces button.focused {
-    background: @yellow;
-    color: @bg;
+    background-color: rgb(61, 71, 78);
+    border-bottom: 3px solid rgb(100, 114, 125);
 }
 
-/* Remove dynamic workspace */
-#workspaces button#niri-workspace-10,
-#workspaces button#niri-workspace-10 label {
-  background: None;
-  border: None;
-  font-size: 0;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
+#workspaces button.urgent {
+    background-color: rgb(235, 77, 75);
 }
 
-#window {
-  background: @yellow;
-}
-#window.layout{
-  padding: 0 6px;
-  background: @bg;
-  color: @white;
-}
-#window.title{
-  padding: 0 6px;
-  background: @yellow;
-  color: @bg;
-}
-
-#clock {
-  color: @yellow;
-}
-
-#custom-vpn,
+#clock,
+#battery,
 #cpu,
 #memory,
 #disk,
+#temperature,
+#backlight,
 #network,
 #pulseaudio,
-#battery,
-#backlight,
-#custom-sep,
-#custom-sep-large {
-  color: @white;
+#wireplumber,
+#tray {
+    padding: 0 10px;
+    color: rgb(255, 255, 255);
+}
+
+#battery.charging, #battery.plugged {
+    color: rgb(0, 255, 0);
+}
+#battery.warning {
+    color: rgb(255, 125, 0);
+}
+#battery.critical {
+    color: rgb(255, 0, 0);
+}
+
+label:focus {
+    background-color: rgb(0, 0, 0);
+}
+
+#pulseaudio.muted {
+    color: rgb(255, 0, 0);
 }

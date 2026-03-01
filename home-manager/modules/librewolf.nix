@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: let
+  # Path inside the home directory to the kagi logo
+  kagiLogoHomePath = ".local/share/icons/kagi.svg";
+in {
   programs.librewolf = {
     enable = true;
     package = with pkgs; librewolf;
@@ -46,16 +53,28 @@
             id = 2;
             name = "Google";
             color = "yellow";
-            icon = "chill";
+            icon = "circle";
+          };
+          vault = {
+            id = 3;
+            name = "Vault";
+            color = "red";
+            icon = "circle";
           };
         };
 
         search = {
-          default = "ddg";
+          default = "Kagi";
           privateDefault = "ddg";
           force = true;
 
           engines = {
+            "Kagi" = {
+              urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
+              icon = "${config.home.homeDirectory}/${kagiLogoHomePath}";
+              definedAliases = ["@k" "@K"];
+            };
+
             "Nix Packages" = {
               urls = [
                 {
@@ -88,6 +107,14 @@
           };
         };
       };
+    };
+  };
+
+  # Place kagi logo
+  home.file = {
+    "${kagiLogoHomePath}" = {
+      enable = true;
+      source = ../icons/kagi.svg;
     };
   };
 }
