@@ -253,8 +253,9 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -----------------------------
 --: Completion
 -----------------------------
+local blink_cmp_version = 'v1.9.1'
 vim.pack.add({
-  { src = "https://github.com/Saghen/blink.cmp", version = "1.*" },
+  { src = "https://github.com/Saghen/blink.cmp", version = blink_cmp_version },
 })
 require("blink.cmp").setup({
   keymap = {
@@ -276,6 +277,7 @@ require("blink.cmp").setup({
     menu = { border = 'none' },
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
   },
+  fuzzy = { prebuilt_binaries = { force_version = blink_cmp_version } }
 })
 
 -----------------------------
