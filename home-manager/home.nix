@@ -69,6 +69,7 @@ in {
     localsend
     brave
     remmina
+    ledger-live-desktop
     glib
     gsettings-desktop-schemas
     adwaita-icon-theme
