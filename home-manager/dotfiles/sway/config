@@ -142,15 +142,13 @@ bindsym $mod+Shift+f fullscreen
 bindsym $mod+Print exec grimshot --notify copy area
 
 # Brightness control
-set $brightness_notification_cmd  command -v notify-send >/dev/null && \
-        VALUE=$(brightnessctl --percentage get) && \
+set $brightness_notification_cmd command -v notify-send >/dev/null && \
+        VALUE=$(brightnessctl info | grep -oP '\(\K[0-9]+(?=%)') && \
         notify-send -e -h string:x-canonical-private-synchronous:brightness \
             -h "int:value:$VALUE" -t 800 "Brightness: ${VALUE}%"
 bindsym {
-  XF86MonBrightnessDown exec \
-        'STEP="$brightness_step" && brightnessctl -q set ${STEP:-5}%- && $brightness_notification_cmd'
-  XF86MonBrightnessUp exec \
-        'STEP="$brightness_step" && brightnessctl -q set +${STEP:-5}% && $brightness_notification_cmd'
+  XF86MonBrightnessDown exec brightnessctl --class=backlight set 10%- && $brightness_notification_cmd
+  XF86MonBrightnessUp   exec brightnessctl --class=backlight set +10% && $brightness_notification_cmd
 }
 
 # Audio control
@@ -169,10 +167,10 @@ bindsym {
 
 # Volume control
 bindsym --locked {
-    XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
-    XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
-    XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
-    XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@   0.05+
+    XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@   0.05-
+    XF86AudioMute        exec wpctl set-mute   @DEFAULT_AUDIO_SINK@   toggle
+    XF86AudioMicMute     exec wpctl set-mute   @DEFAULT_AUDIO_SOURCE@ toggle
 }
 
 # -------------------------------
