@@ -38,6 +38,10 @@ input "type:touchpad" {
     pointer_accel 0.0
 }
 
+input "type:touch" {
+    events disabled
+}
+
 input "1189:32769:BenQ_ZOWIE_BenQ_ZOWIE_Gaming_Mouse" {
     natural_scroll disabled
     accel_profile "flat"
