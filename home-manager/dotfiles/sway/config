@@ -42,13 +42,7 @@ input "type:touch" {
     events disabled
 }
 
-input "1189:32769:BenQ_ZOWIE_BenQ_ZOWIE_Gaming_Mouse" {
-    natural_scroll disabled
-    accel_profile "flat"
-    pointer_accel -0.3
-}
-
-input "1133:45081:Logitech_Wireless_Mouse_MX_Master_2S" {
+input "type:pointer" {
     natural_scroll disabled
     accel_profile "flat"
     pointer_accel -0.3
