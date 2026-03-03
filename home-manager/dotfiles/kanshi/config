@@ -31,6 +31,13 @@ output "Dell Inc. DELL U3425WE 971Q3Z3" {
   alias $KUEKI_1
 }
 
+output "Dell Inc. DELL C3422WE HKBJS83" {
+  mode 3440x1440@59.973
+  position 0,0
+  scale 1
+  alias $WORK_1
+}
+
 profile notebook {
   output $NOTEBOOK enable
 }
@@ -57,14 +64,12 @@ profile kueki {
   output $NOTEBOOK disable
   output $KUEKI_1 enable
 
-  exec swaymsg workspace 1,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 2,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 3,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 4,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 5,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 6,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 7,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 8,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 9,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
-  exec swaymsg workspace 10, move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
+  exec swaymsg workspace *,  move workspace to output '"Dell Inc. DELL U3425WE 971Q3Z3"'
+}
+
+profile work_1 {
+  output $NOTEBOOK disable
+  output $WORK_1 enable
+
+  exec swaymsg workspace *,  move workspace to output '"Dell Inc. DELL C3422WE HKBJS83"'
 }
