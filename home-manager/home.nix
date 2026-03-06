@@ -310,6 +310,14 @@ in {
         path = "${home}/.ssh/id_ed25519_vault-prod.pub";
         mode = "0644";
       };
+      "ssh/keys/id_ed25519_sdk/private" = {
+        path = "${home}/.ssh/id_ed25519_sdk";
+        mode = "0600";
+      };
+      "ssh/keys/id_ed25519_sdk/public" = {
+        path = "${home}/.ssh/id_ed25519_sdk.pub";
+        mode = "0644";
+      };
 
       # Remmina
       "remmina/connections/rds" = {
