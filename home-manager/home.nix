@@ -81,6 +81,7 @@ in {
     openssl
     ipcalc
     imagemagick
+    imv
     devpod
     devbox
 
@@ -370,8 +371,8 @@ in {
     mimeApps = {
       enable = true;
       defaultApplications = {
-        # "image/jpeg" = "org.gnome.Loupe.desktop";
-        # "image/png" = "org.gnome.Loupe.desktop";
+        "image/jpeg" = "imv.desktop";
+        "image/png" = "imv.desktop";
         "text/plain" = "org.gnome.TextEditor.desktop";
         "text/html" = "org.gnome.TextEditor.desktop";
         "text/csv" = "org.gnome.TextEditor.desktop";
