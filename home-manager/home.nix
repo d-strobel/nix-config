@@ -73,6 +73,7 @@ in {
     glib
     gsettings-desktop-schemas
     adwaita-icon-theme
+    sioyek
 
     # CLI tools
     ffmpeg
@@ -243,6 +244,13 @@ in {
       outOfStoreSymlink = true;
       recursive = true;
     };
+
+    # Sioyek
+    ".config/sioyek" = {
+      source = ./dotfiles/sioyek;
+      outOfStoreSymlink = true;
+      recursive = true;
+    };
   };
 
   # --------------------
@@ -370,7 +378,7 @@ in {
         "text/plain" = "org.gnome.TextEditor.desktop";
         "text/html" = "org.gnome.TextEditor.desktop";
         "text/csv" = "org.gnome.TextEditor.desktop";
-        "application/pdf" = ["librewolf.desktop"];
+        "application/pdf" = ["sioyek.desktop"];
         # "application/zip" = "org.gnome.FileRoller.desktop";
         # "application/x-tar" = "org.gnome.FileRoller.desktop";
         # "application/x-bzip2" = "org.gnome.FileRoller.desktop";
