@@ -59,9 +59,6 @@ in {
     obsidian
     signal-desktop
     pavucontrol
-    thunar
-    thunar-volman
-    thunar-archive-plugin
     vlc
     gnome-disk-utility
     gnome-calculator
@@ -379,10 +376,10 @@ in {
         "text/html" = "org.gnome.TextEditor.desktop";
         "text/csv" = "org.gnome.TextEditor.desktop";
         "application/pdf" = ["sioyek.desktop"];
-        # "application/zip" = "org.gnome.FileRoller.desktop";
-        # "application/x-tar" = "org.gnome.FileRoller.desktop";
-        # "application/x-bzip2" = "org.gnome.FileRoller.desktop";
-        # "application/x-gzip" = "org.gnome.FileRoller.desktop";
+        "application/zip" = "engrampa.desktop";
+        "application/x-tar" = "engrampa.desktop";
+        "application/x-bzip2" = "engrampa.desktop";
+        "application/x-gzip" = "engrampa.desktop";
         "x-scheme-handler/http" = ["librewolf.desktop" "chromium-browser.desktop"];
         "x-scheme-handler/https" = ["librewolf.desktop" "chromium-browser.desktop"];
         "x-scheme-handler/about" = ["librewolf.desktop" "chromium-browser.desktop"];

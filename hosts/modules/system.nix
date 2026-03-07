@@ -86,11 +86,12 @@ in {
     dive
     virt-manager
 
-    # Netwrking
+    # Networking
     networkmanagerapplet
 
     # Misc
     hardinfo2
+    engrampa
   ];
 
   # Shells
@@ -165,6 +166,15 @@ in {
     packages = with pkgs; [dconf];
   };
   programs.dconf.enable = true;
+
+  # File manager
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
 
   # --------------------
   # Virtualisation
