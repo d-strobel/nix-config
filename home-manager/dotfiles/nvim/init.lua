@@ -192,6 +192,12 @@ vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind current 
 -----------------------------
 --: Marks
 -----------------------------
+vim.pack.add({
+  { src = "https://github.com/mohseenrm/marko.nvim" }
+})
+require('marko').setup({})
+
+-- Always do uppercase and backtick marks
 local prefixes = "m'"
 local letters = "abcdefghijklmnopqrstuvwxyz"
 for i = 1, #prefixes do
