@@ -51,7 +51,7 @@ input "type:pointer" {
 # -------------------------------
 # Look & Feel
 # -------------------------------
-default_border pixel 3
+default_border pixel 2
 smart_borders on
 
 # Background
