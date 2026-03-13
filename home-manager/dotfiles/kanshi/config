@@ -43,6 +43,12 @@ output "Dell Inc. DELL C3422WE GYLNP83" {
   scale 1
   alias $WORK_2
 }
+output "Dell Inc. DELL C3422WE 97K5S83" {
+  mode 3440x1440@59.973
+  position 0,0
+  scale 1
+  alias $WORK_3
+}
 
 profile notebook {
   output $NOTEBOOK enable
@@ -84,4 +90,10 @@ profile work_2 {
   output $WORK_2 enable
 
   exec swaymsg workspace *,  move workspace to output '"Dell Inc. DELL C3422WE GYLNP83"'
+}
+profile work_3 {
+  output $NOTEBOOK disable
+  output $WORK_3 enable
+
+  exec swaymsg workspace *,  move workspace to output '"Dell Inc. DELL C3422WE 97K5S83"'
 }
