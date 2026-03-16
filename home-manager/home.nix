@@ -316,12 +316,20 @@ in {
         path = "${home}/.ssh/id_ed25519_vault-prod.pub";
         mode = "0644";
       };
-      "ssh/keys/id_ed25519_sdk/private" = {
-        path = "${home}/.ssh/id_ed25519_sdk";
+      "ssh/keys/id_ed25519_sk_01/private" = {
+        path = "${home}/.ssh/id_ed25519_sk_01";
         mode = "0600";
       };
-      "ssh/keys/id_ed25519_sdk/public" = {
-        path = "${home}/.ssh/id_ed25519_sdk.pub";
+      "ssh/keys/id_ed25519_sk_01/public" = {
+        path = "${home}/.ssh/id_ed25519_sk_01.pub";
+        mode = "0644";
+      };
+      "ssh/keys/id_ed25519_sk_02/private" = {
+        path = "${home}/.ssh/id_ed25519_sk_02";
+        mode = "0600";
+      };
+      "ssh/keys/id_ed25519_sk_02/public" = {
+        path = "${home}/.ssh/id_ed25519_sk_02.pub";
         mode = "0644";
       };
 

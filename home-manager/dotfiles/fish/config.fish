@@ -15,7 +15,7 @@ if status is-interactive
     zoxide init fish --cmd cd | source
 
     # Keychain integration
-    SHELL=fish eval (keychain --eval --timeout 540 --quiet id_ed25519 id_ed25519_vault-prod id_ed25519_sdk)
+    SHELL=fish eval (keychain --eval --timeout 720 --quiet id_ed25519 id_ed25519_vault-prod)
 
     # Direnv integration
     direnv hook fish | source
