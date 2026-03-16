@@ -268,7 +268,7 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -----------------------------
 --: Completion
 -----------------------------
-local blink_cmp_version = 'v1.9.1'
+local blink_cmp_version = 'v1.10.1'
 vim.pack.add({
   { src = "https://github.com/Saghen/blink.cmp", version = blink_cmp_version },
 })
