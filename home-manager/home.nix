@@ -39,95 +39,96 @@ in {
   # --------------------
   # Packages
   # --------------------
-  home.packages = [
-    # Neovim
-    inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
+  home.packages =
+    [
+      # Neovim
+      inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-    # Helium Browser
-    inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ] ++ (with pkgs; [
-    # Terminal
-    foot
-    tmux
-    zoxide
-    fzf
-    direnv
-    nix-direnv
-    keychain
+      # Helium Browser
+      inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ]
+    ++ (with pkgs; [
+      # Terminal
+      foot
+      tmux
+      zoxide
+      fzf
+      direnv
+      nix-direnv
+      keychain
 
-    # Desktop applications
-    obsidian
-    signal-desktop
-    pavucontrol
-    vlc
-    gnome-disk-utility
-    gnome-calculator
-    winbox4
-    localsend
-    brave
-    remmina
-    ledger-live-desktop
-    glib
-    gsettings-desktop-schemas
-    adwaita-icon-theme
-    sioyek
+      # Desktop applications
+      obsidian
+      signal-desktop
+      pavucontrol
+      vlc
+      gnome-disk-utility
+      gnome-calculator
+      winbox4
+      localsend
+      brave
+      remmina
+      ledger-live-desktop
+      glib
+      gsettings-desktop-schemas
+      adwaita-icon-theme
+      sioyek
 
-    # CLI tools
-    ffmpeg
-    ripgrep
-    fd
-    playerctl
-    brightnessctl
-    openssl
-    ipcalc
-    imagemagick
-    imv
-    devpod
-    devbox
+      # CLI tools
+      ffmpeg
+      ripgrep
+      fd
+      playerctl
+      brightnessctl
+      openssl
+      ipcalc
+      imagemagick
+      imv
+      devbox
 
-    # Screenshot tools
-    satty
+      # Screenshot tools
+      satty
 
-    # Notifications
-    dunst
+      # Notifications
+      dunst
 
-    # Status Bar
-    waybar
+      # Status Bar
+      waybar
 
-    # Fonts
-    font-awesome
-    jetbrains-mono
-    nerd-fonts.jetbrains-mono
+      # Fonts
+      font-awesome
+      jetbrains-mono
+      nerd-fonts.jetbrains-mono
 
-    # Clipboard
-    wl-clipboard-rs
-    wl-clip-persist
+      # Clipboard
+      wl-clipboard-rs
+      wl-clip-persist
 
-    # Window-Manager tools
-    libnotify
-    rofi
+      # Window-Manager tools
+      libnotify
+      rofi
 
-    # Neovim devtools
-    tree-sitter
-    gcc
-    lua-language-server
-    nixd
-    alejandra
-    ansible-lint
-    terraform-ls
-    tofu-ls
-    bash-language-server
-    rust-analyzer
-    gopls
-    just-lsp
-    jsonschema
-    nodePackages.vscode-json-languageserver
-    yaml-language-server
-    dockerfile-language-server
-    basedpyright
-    fish-lsp
-    tinymist
-  ]);
+      # Neovim devtools
+      tree-sitter
+      gcc
+      lua-language-server
+      nixd
+      alejandra
+      ansible-lint
+      terraform-ls
+      tofu-ls
+      bash-language-server
+      rust-analyzer
+      gopls
+      just-lsp
+      jsonschema
+      nodePackages.vscode-json-languageserver
+      yaml-language-server
+      dockerfile-language-server
+      basedpyright
+      fish-lsp
+      tinymist
+    ]);
 
   # --------------------
   # Dotfiles
