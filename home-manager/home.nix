@@ -15,6 +15,28 @@
 
   # Sops secrets path
   secretsPath = toString inputs.nix-secrets;
+
+  # Devpod (fork)
+  devpod = pkgs.stdenv.mkDerivation rec {
+    pname = "devpod";
+    version = "0.16.2";
+
+    src = pkgs.fetchurl {
+      url = "https://github.com/skevetter/devpod/releases/download/v${version}/devpod-linux-amd64";
+      sha256 = "sha256-YNoZEHIamCSVBGBbsMAM9/D4/MRr1b9CgOF/Nr7W1Hg=";
+    };
+
+    phases = [ "installPhase" "postInstall"];
+    installPhase = ''
+      mkdir -p $out/bin
+      cp ${src} $out/bin/devpod
+      chmod +x $out/bin/devpod
+    '';
+    postInstall = ''
+      mkdir -p $out/share/fish/vendor_completions.d
+      $out/bin/devpod completion fish > $out/share/fish/vendor_completions.d/devpod.fish
+    '';
+  };
 in {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
@@ -46,6 +68,9 @@ in {
 
       # Helium Browser
       inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+      # Devpod (fork)
+      devpod
     ]
     ++ (with pkgs; [
       # Terminal
