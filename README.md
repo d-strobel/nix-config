@@ -27,11 +27,15 @@
 1. Activate LUKS encryption
 1. Boot into the system
 1. Login with the user
-1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>` OR `nmtui`
+1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>` OR
+   `nmtui`
 1. Create temporary shell: `nix-shell -p vim git home-manager`
 1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
-1. Create and paste the age keys for sops secrets. For home `~/.config/sops/age/keys.txt` (user only mode 0600), for system  `/var/lib/sops/age/keys.txt` (root only mode 0600).
-1. Install system flake: `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
+1. Create and paste the age keys for sops secrets. For home
+   `~/.config/sops/age/keys.txt` (user only mode 0600), for system
+   `/var/lib/sops/age/keys.txt` (root only mode 0600).
+1. Install system flake:
+   `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
 1. Insert username and password for the private github repository when asked.
 1. Install home configuration: `home-manager switch --flake .#USER`
 1. Reboot
@@ -73,8 +77,8 @@ home-manager switch --flake .#USER
 
 ## Inspirations
 
-* [youtube.com/@vimjoyer](https://www.youtube.com/@vimjoyer)
-* [nixalted.com/](https://nixalted.com/)
-* [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
-* [github.com/yavko/Dotfiles](https://github.com/yavko/Dotfiles)
-* [github.com/EmergentMind/nix-config](https://github.com/EmergentMind/nix-config)
+- [youtube.com/@vimjoyer](https://www.youtube.com/@vimjoyer)
+- [nixalted.com/](https://nixalted.com/)
+- [github.com/Andrey0189/nixos-config-reborn](https://github.com/Andrey0189/nixos-config-reborn/tree/master)
+- [github.com/yavko/Dotfiles](https://github.com/yavko/Dotfiles)
+- [github.com/EmergentMind/nix-config](https://github.com/EmergentMind/nix-config)
