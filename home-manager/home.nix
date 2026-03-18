@@ -26,7 +26,7 @@
       sha256 = "sha256-YNoZEHIamCSVBGBbsMAM9/D4/MRr1b9CgOF/Nr7W1Hg=";
     };
 
-    phases = [ "installPhase" "postInstall"];
+    phases = ["installPhase" "postInstall"];
     installPhase = ''
       mkdir -p $out/bin
       cp ${src} $out/bin/devpod
