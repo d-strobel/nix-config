@@ -298,16 +298,36 @@ require("blink.cmp").setup({
 -----------------------------
 --: LSP
 -----------------------------
+local lsp_servers = {
+  "ansiblels",
+  "basedpyright",
+  "bashls",
+  "docker_language_server",
+  "fish_lsp",
+  "gopls",
+  "java_language_server",
+  "just",
+  "lua_ls",
+  "md_lsp",
+  "nixd",
+  "postgres_lsp",
+  "rust_analyzer",
+  "sqls",
+  "tinymist",
+  "tofu_ls",
+  "yamlls"
+}
+
 vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig.git" },
 })
 
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("nixd")
-vim.lsp.enable("gopls")
-vim.lsp.enable("tinymist")
-vim.lsp.enable("rust_analyzer")
+-- Enable LSP servers
+for _, server in ipairs(lsp_servers) do
+  vim.lsp.enable(server)
+end
 
+-- Autocommands
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
   callback = function(args)
@@ -362,6 +382,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- Special LSP configs
+vim.lsp.config("docker_language_server", {
+  cmd = { 'docker-langserver', 'start', '--stdio' }
+})
+
+vim.lsp.config("md_lsp", {
+  cmd = { "md-lsp" },
+  filetypes = { "markdown" },
+  root_markers = { ".git" },
+  single_file_support = true,
+})
+
+vim.lsp.config("nixd", {
+  settings = { nixd = { formatting = { command = { "alejandra" } } } }
+})
+
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -387,3 +423,77 @@ vim.lsp.config("lua_ls", {
     },
   },
 })
+
+vim.lsp.config("tofu_ls", {
+  filetypes = { "opentofu", "opentofu-vars" },
+  root_markers = { ".tofu", ".git" },
+})
+
+vim.lsp.config("yamlls", {
+  settings = {
+    yaml = {
+      schemas = {
+        -- Kubernetes
+        kubernetes = "*.manifest.{yml,yaml}",
+        ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+        ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+        ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] =
+        "*flow*.{yml,yaml}",
+
+        -- Github
+        ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+        ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+        ["https://json.schemastore.org/dependabot-2.0"] = ".github/dependabot.{yml,yaml}",
+
+        -- Gitlab
+        ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] =
+        "*gitlab-ci*.{yml,yaml}",
+
+        -- Azure
+        ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] =
+        "azure-pipelines*.{yml,yaml}",
+
+        -- Ansible
+        ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks"] =
+        "tasks/*.{yml,yaml}",
+        ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] =
+        "*{play,site}*.{yml,yaml}",
+
+        -- OpenAPI
+        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] =
+        "*api*.{yml,yaml}",
+
+        -- Docker
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+        "*docker-compose*.{yml,yaml}",
+
+        -- Go
+        ["https://golangci-lint.run/jsonschema/golangci.jsonschema.json"] = ".golangci.{yml,yaml}",
+        ["https://goreleaser.com/static/schema.json"] = ".goreleaser.{yml,yaml}",
+
+        -- Prometheus
+        ["https://json.schemastore.org/prometheus.json"] = "prometheus.{yml.yaml}",
+        ["https://json.schemastore.org/prometheus.rules.json"] = "*.rules.{yml,yaml}",
+        ["https://json.schemastore.org/prometheus.rules.test.json"] = "*.tests.{yml,yaml}",
+      },
+      redhat = { telemetry = { enabled = false } },
+    },
+  },
+})
+
+-----------------------------
+--: Extra configuration
+-----------------------------
+local hostname = vim.loop.os_gethostname()
+local nixnames = { "noxus", "piltover" }
+
+if not vim.tbl_contains(nixnames, hostname) then
+  -- Process non-nix configuration
+  vim.pack.add({
+    { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+  })
+
+  require("mason").setup()
+  require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
+end

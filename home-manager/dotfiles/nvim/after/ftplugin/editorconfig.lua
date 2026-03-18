@@ -1,1 +1,1 @@
-/home/dstrobel/.local/share/chezmoi/private_dot_config/nvim/after/ftplugin/editorconfig.lua
+vim.opt_local.commentstring = "# %s"

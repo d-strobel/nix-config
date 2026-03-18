@@ -133,26 +133,31 @@ in {
       libnotify
       rofi
 
-      # Neovim devtools
-      tree-sitter
+      # Neovim dependencies
       gcc
-      lua-language-server
-      nixd
+      tree-sitter
+
+      # Neovim LSPs
       alejandra
       ansible-lint
-      terraform-ls
-      tofu-ls
+      ansible-language-server
+      basedpyright
       bash-language-server
-      rust-analyzer
+      dockerfile-language-server
+      fish-lsp
       gopls
+      lua-language-server
       just-lsp
       jsonschema
+      md-lsp
+      nixd
       nodePackages.vscode-json-languageserver
-      yaml-language-server
-      dockerfile-language-server
-      basedpyright
-      fish-lsp
+      rust-analyzer
+      sqls
+      terraform-ls
       tinymist
+      tofu-ls
+      yaml-language-server
     ]);
 
   # --------------------
@@ -272,6 +277,13 @@ in {
     # Sioyek
     ".config/sioyek" = {
       source = ./dotfiles/sioyek;
+      outOfStoreSymlink = true;
+      recursive = true;
+    };
+
+    # Devpod
+    ".config/devpod" = {
+      source = ./dotfiles/devpod;
       outOfStoreSymlink = true;
       recursive = true;
     };
