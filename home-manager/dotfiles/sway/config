@@ -55,7 +55,7 @@ default_border pixel 2
 smart_borders on
 
 # Background
-output * bg /home/dstrobel/.config/wallpaper/nixos-01.jpg fill
+output * bg /home/dstrobel/.config/wallpaper/nixos-04.png fill
 
 # -------------------------------
 # Key bindings
