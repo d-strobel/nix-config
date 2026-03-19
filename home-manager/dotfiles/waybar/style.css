@@ -16,12 +16,18 @@ button {
 #workspaces button {
     padding: 0 5px;
     color: rgb(255, 255, 255);
-    border-bottom: 3px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+#workspaces button:hover {
+    padding: 0 5px;
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(100, 114, 125);
 }
 
 #workspaces button.focused {
     background-color: rgb(61, 71, 78);
-    border-bottom: 3px solid rgb(100, 114, 125);
+    border-bottom: 2px solid rgb(201, 184, 144);
 }
 
 #workspaces button.urgent {

@@ -8,7 +8,7 @@
 # offset = 10x10
 # notification_limit = 5
 # progress_bar = true
-# font = JetBrains Nerd Font Mono 12
+font = JetBrains Nerd Font Mono 12
 #
 # [urgency_low]
 # background = "#c9b890"
@@ -77,7 +77,7 @@
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 20
+    notification_limit = 5
 
     ### Progress bar ###
 
@@ -138,10 +138,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#c9b890"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -374,14 +374,14 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#3d474e"
+    foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with low urgency
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#285577"
+    background = "#3d474e"
     foreground = "#ffffff"
     timeout = 10
     override_pause_level = 30
@@ -389,7 +389,7 @@
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#900000"
+    background = "#3d474e"
     foreground = "#ffffff"
     frame_color = "#ff0000"
     timeout = 0
