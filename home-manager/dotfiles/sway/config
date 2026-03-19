@@ -228,6 +228,12 @@ for_window [title="Authentication Required"] {
     move position center
 }
 
+# Thunar renaming
+for_window [app_id="thunar" title="Rename"] {
+    floating enable
+    move position center
+}
+
 # -------------------------------
 # Includes
 # -------------------------------
