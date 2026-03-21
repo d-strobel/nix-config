@@ -55,7 +55,7 @@ default_border pixel 2
 smart_borders on
 
 # Adjust focused border color
-client.focused #c9b890 #c9b890 #ffffff
+client.focused #c9b890 #c9b890 #111315
 
 # Background
 output * bg /home/dstrobel/.config/wallpaper/nixos-04.png fill
