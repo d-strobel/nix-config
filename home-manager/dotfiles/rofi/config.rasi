@@ -138,6 +138,4 @@ configuration {
   }
 }
 
-//@theme "/usr/share/rofi/themes/android_notification.rasi"
-
-@theme "/nix/store/f5wmwybzmkbzhpj9k21nvm2k66cisrd7-rofi-2.0.0/share/rofi/themes/android_notification.rasi"
+@theme "/home/dstrobel/.config/rofi/theme.rasi"
