@@ -294,6 +294,43 @@ in {
         pkgs.networkmanager-openvpn
         pkgs.networkmanager-fortisslvpn
       ];
+
+      dispatcherScripts = [
+        {
+          # Captive-Portal script
+          source =
+            pkgs.writeText "captivePortal"
+            /*
+            bash
+            */
+            ''
+              logger="logger -s -t captive-portal"
+
+              open_captive() {
+              	captive_url=http://$(ip --oneline route get 1.1.1.1 | awk '{print $3}')
+              	sudo -u "$1" DISPLAY=":0" \
+              		DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$(id -u "$1")"/bus \
+              		xdg-open "$captive_url"
+              }
+
+              case "$2" in
+              	connectivity-change)
+              		$logger "dispatcher script triggered on connectivity change: $CONNECTIVITY_STATE"
+
+              		if [ "$CONNECTIVITY_STATE" = "PORTAL" ]; then
+              			user=$(who | head -n1 | cut -d' ' -f 1)
+
+              			$logger "Running browser as '$user' to login in captive portal"
+
+              			open_captive "$user" || $logger "Failed for user: '$user'"
+              		fi
+              		;;
+              	*) exit 0 ;;
+              esac
+            '';
+          type = "basic";
+        }
+      ];
     };
 
     # Enable Wireguard
