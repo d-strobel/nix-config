@@ -385,6 +385,38 @@ in {
         path = "${remminaConfigDir}/sdk_rdp_adfs.remmina";
         mode = "0640";
       };
+
+      # GPG
+      "dot_gnupg/trustdb.gpg" = {
+        sopsFile = "${secretsPath}/dot_gnupg/trustdb.gpg";
+        format = "binary";
+        path = "${home}/.gnupg/trustdb.gpg";
+        mode = "0600";
+      };
+      "dot_gnupg/pubring.kbx" = {
+        sopsFile = "${secretsPath}/dot_gnupg/pubring.kbx";
+        format = "binary";
+        path = "${home}/.gnupg/pubring.kbx";
+        mode = "0644";
+      };
+      "dot_gnupg/openpgp-revocs.d/268A15DFB1343D1BB2C0C86C687AB1C780B9DC43.rev" = {
+        sopsFile = "${secretsPath}/dot_gnupg/openpgp-revocs.d/268A15DFB1343D1BB2C0C86C687AB1C780B9DC43.rev";
+        format = "binary";
+        path = "${home}/.gnupg/openpgp-revocs.d/268A15DFB1343D1BB2C0C86C687AB1C780B9DC43.rev";
+        mode = "0600";
+      };
+      "dot_gnupg/private-keys-v1.d/ACFAF84F63CC38CB371CFB5FDE8B648A43492937.key" = {
+        sopsFile = "${secretsPath}/dot_gnupg/private-keys-v1.d/ACFAF84F63CC38CB371CFB5FDE8B648A43492937.key";
+        format = "binary";
+        path = "${home}/.gnupg/private-keys-v1.d/ACFAF84F63CC38CB371CFB5FDE8B648A43492937.key";
+        mode = "0600";
+      };
+      "dot_gnupg/private-keys-v1.d/FCC33CBD2D0876B8245020D404C698275267909B.key" = {
+        sopsFile = "${secretsPath}/dot_gnupg/private-keys-v1.d/FCC33CBD2D0876B8245020D404C698275267909B.key";
+        format = "binary";
+        path = "${home}/.gnupg/private-keys-v1.d/FCC33CBD2D0876B8245020D404C698275267909B.key";
+        mode = "0600";
+      };
     };
   };
 
