@@ -19,13 +19,14 @@
   # Devpod (fork)
   devpod = pkgs.stdenv.mkDerivation rec {
     pname = "devpod";
-    version = "0.16.2";
+    version = "0.17.0";
 
     src = pkgs.fetchurl {
       url = "https://github.com/skevetter/devpod/releases/download/v${version}/devpod-linux-amd64";
-      sha256 = "sha256-YNoZEHIamCSVBGBbsMAM9/D4/MRr1b9CgOF/Nr7W1Hg=";
+      sha256 = "sha256-WFnOCOom/7Dh5DJqGXnTG4EB5TANayPmOvqieUBDimU=";
     };
 
+    dontUnpack = true;
     phases = ["installPhase" "postInstall"];
     installPhase = ''
       mkdir -p $out/bin
