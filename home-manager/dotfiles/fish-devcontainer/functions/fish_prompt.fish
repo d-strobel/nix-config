@@ -88,15 +88,15 @@ function fish_prompt
         end
     end
 
-    echo -n -s $cwd $repo_info $normal
+    echo -n -s "devcontainer " $cwd $repo_info $normal
 
     # Second line: Astronaut-style prompt
     set -l status_color (set_color brgreen)
 
     # Color the prompt differently when we're root
-    set -l suffix 'devcontainer ❯'
+    set -l suffix '❯'
     if functions -q fish_is_root_user; and fish_is_root_user
-        set suffix 'devcontainer #'
+        set suffix '#'
     end
 
     # Color the prompt in red on error
