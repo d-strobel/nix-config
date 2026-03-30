@@ -251,7 +251,7 @@ bar {
 # -------------------------------
 
 # Swayidle
-exec LT="$lock_timeout" ST="$screen_timeout" LT=${LT:-1200} ST=${ST:-300} && \
+exec LT="$lock_timeout" ST="$screen_timeout" LT=${LT:-2400} ST=${ST:-600} && \
     swayidle -w \
         timeout $LT 'swaylock -f' \
         timeout $((LT + ST)) 'swaymsg "output * power off"' \
