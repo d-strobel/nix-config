@@ -8,6 +8,7 @@ if status is-interactive
 
     # Interactive shell initialisation
     fzf --fish | source
+    zoxide init fish --cmd cd | source
 
     # Direnv integration
     direnv hook fish | source
