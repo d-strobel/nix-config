@@ -27,6 +27,6 @@ echo "Set user shell to fish"
 sudo chsh vscode --shell "$(which fish)"
 
 echo "Install applications via mise"
-mise install
+"$HOME/.local/bin/mise" install
 
 echo "Finished devcontainer setup"
