@@ -1,0 +1,6 @@
+[tools]
+neovim = 'latest'
+fzf = 'latest'
+direnv = 'latest'
+zoxide = 'latest'
+ripgrep = 'latest'

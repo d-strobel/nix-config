@@ -1,4 +1,7 @@
 if status is-interactive
+    # Mise activation
+    ~/.local/bin/mise activate fish | source
+
     # Aliases
     alias lla 'ls -la'
     alias la 'ls -la'

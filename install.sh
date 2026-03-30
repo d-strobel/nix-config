@@ -9,18 +9,19 @@ DOTFILES_TARGET_PATH="$HOME/.config"
 
 echo "Start devcontainer setup"
 
-echo "Install devcontainer dependencies"
-sudo apt-get install -y \
-  fish \
-  fzf \
-  direnv \
-  zoxide \
-  ripgrep \
-  fd-find
+# Check if fish is installed
+if ! command -v fish >/dev/null 2>&1; then
+  echo "fish is not installed - abort setup"
+  exit 1
+fi
+
+echo "Install mise"
+curl https://mise.run | sh
 
 echo "Copy devcontainer dotfiles"
 cp -R "$DOTFILES_SOURCE_PATH/fish-devcontainer" "$DOTFILES_TARGET_PATH/fish"
 cp -R "$DOTFILES_SOURCE_PATH/nvim" "$DOTFILES_TARGET_PATH/nvim"
+cp -R "$DOTFILES_SOURCE_PATH/mise" "$DOTFILES_TARGET_PATH/mise"
 
 echo "Set user shell to fish"
 sudo chsh vscode --shell "$(which fish)"
