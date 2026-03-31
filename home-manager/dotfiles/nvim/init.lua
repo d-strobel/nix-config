@@ -498,6 +498,8 @@ local nixnames = { "noxus", "piltover" }
 
 if not vim.tbl_contains(nixnames, hostname) then
   -- Process non-nix configuration
+  vim.g.clipboard = "osc52"
+
   vim.pack.add({
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
