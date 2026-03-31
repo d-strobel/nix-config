@@ -148,15 +148,12 @@ in {
       fish-lsp
       gopls
       lua-language-server
-      just-lsp
       jsonschema
       md-lsp
       nixd
       nodePackages.vscode-json-languageserver
       rust-analyzer
       sqls
-      terraform-ls
-      tinymist
       tofu-ls
       yaml-language-server
     ]);

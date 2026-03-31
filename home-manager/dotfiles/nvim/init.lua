@@ -299,7 +299,7 @@ require("blink.cmp").setup({
 -----------------------------
 --: LSP
 -----------------------------
-local lsp_servers = {
+local nix_lsp_servers = {
   "ansiblels",
   "basedpyright",
   "bashls",
@@ -307,14 +307,27 @@ local lsp_servers = {
   "fish_lsp",
   "gopls",
   "java_language_server",
-  "just",
+  "jsonls",
   "lua_ls",
   "md_lsp",
   "nixd",
-  "postgres_lsp",
   "rust_analyzer",
   "sqls",
-  "tinymist",
+  "tofu_ls",
+  "yamlls"
+}
+
+local lsp_servers = {
+  "ansiblels",
+  "basedpyright",
+  "bashls",
+  "docker_language_server",
+  "gopls",
+  "java_language_server",
+  "jsonls",
+  "lua_ls",
+  "rust_analyzer",
+  "sqls",
   "tofu_ls",
   "yamlls"
 }
@@ -322,11 +335,6 @@ local lsp_servers = {
 vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig.git" },
 })
-
--- Enable LSP servers
-for _, server in ipairs(lsp_servers) do
-  vim.lsp.enable(server)
-end
 
 -- Autocommands
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -426,7 +434,7 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("tofu_ls", {
-  filetypes = { "opentofu", "opentofu-vars" },
+  filetypes = { "terraform", "terraform-vars", "opentofu", "opentofu-vars" },
   root_markers = { ".tofu", ".git" },
 })
 
@@ -494,7 +502,11 @@ if not vim.tbl_contains(nixnames, hostname) then
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
   })
-
   require("mason").setup()
   require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
+else
+  -- Process nix-specific configuration
+  for _, server in ipairs(nix_lsp_servers) do
+    vim.lsp.enable(server)
+  end
 end
