@@ -18,6 +18,11 @@ fi
 echo "Install mise"
 curl https://mise.run | sh
 
+echo "Remove old dotfiles"
+rm -rf "$DOTFILES_TARGET_PATH/fish"
+rm -rf "$DOTFILES_TARGET_PATH/nvim"
+rm -rf "$DOTFILES_TARGET_PATH/mise"
+
 echo "Copy devcontainer dotfiles"
 cp -R "$DOTFILES_SOURCE_PATH/fish-devcontainer" "$DOTFILES_TARGET_PATH/fish"
 cp -R "$DOTFILES_SOURCE_PATH/nvim" "$DOTFILES_TARGET_PATH/nvim"
