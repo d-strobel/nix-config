@@ -88,7 +88,7 @@ function fish_prompt
         end
     end
 
-    echo -n -s "devcontainer " $cwd $repo_info $normal
+    echo -n -s "DEVCONTAINER " $cwd $repo_info $normal
 
     # Second line: Astronaut-style prompt
     set -l status_color (set_color brgreen)
