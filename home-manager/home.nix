@@ -222,6 +222,11 @@ in {
       outOfStoreSymlink = true;
       recursive = true;
     };
+    ".config/fish/themes" = {
+      source = ./dotfiles/fish/themes;
+      outOfStoreSymlink = true;
+      recursive = true;
+    };
 
     # Tmux
     ".config/tmux" = {

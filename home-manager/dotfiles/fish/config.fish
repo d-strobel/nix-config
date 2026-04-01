@@ -10,6 +10,9 @@ if status is-interactive
     alias vim="nvim"
     alias vi="nvim"
 
+    # Theme
+    fish_config theme choose alabaster_dark
+
     # Interactive shell initialisation
     fzf --fish | source
     zoxide init fish --cmd cd | source
