@@ -1,15 +1,30 @@
 -----------------------------
---: Leader
+--: Plugins
 -----------------------------
-vim.g.mapleader = " "
+vim.pack.add({
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/neovim/nvim-lspconfig.git" },
+  { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/dchinmay2/alabaster.nvim" },
+  { src = "https://github.com/tpope/vim-fugitive" },
+  { src = "https://github.com/laytan/cloak.nvim" },
+  { src = "https://github.com/mohseenrm/marko.nvim" },
+  { src = "https://github.com/ibhagwan/fzf-lua" },
+})
+vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd('nvim.difftool')
 
 -----------------------------
 --: Options
 -----------------------------
-vim.opt.nu = true
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.cursorline = true
+vim.opt.signcolumn = "yes:1"
+vim.opt.confirm = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -20,70 +35,76 @@ vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 20
-vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.winborder = 'single'
-vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.opt.path:append('**')
+vim.opt.wildoptions:append { 'fuzzy' }
+vim.opt.complete = 'o,.,w,b,u'
+vim.opt.completeopt = 'menuone,popup,noinsert,noselect,fuzzy'
+vim.opt.autocomplete = true
+vim.opt.grepprg = 'rg --vimgrep --no-messages --smart-case'
+
+-- Non-Local systems
+if not vim.tbl_contains({ 'noxus', 'piltover' }, vim.loop.os_gethostname()) then
+  vim.global.clipboard = "osc52"
+end
 
 -----------------------------
 --: Keymaps
 -----------------------------
-vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<cr>')             -- Remove highlight search
-vim.keymap.set("n", "<Space>", "<Nop>")                         -- Disable space in normal mode
-vim.keymap.set("v", "<", "<gv")                                 -- keep visual selection when (de)indenting
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true }) -- Move multilines in visual mode
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
-vim.keymap.set("n", "<C-d>", "<C-d>zz")                         -- Centralize while going page up and down
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("x", "<leader>p", [["_dP]])                      -- Void registry pasting
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])              -- Copy to system clipboard
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])              -- Paste from system clipboard
-vim.keymap.set("n", "<leader>P", [["+P]])
-vim.keymap.set("v", "p", '"_dP')                                -- Paste over currently selected text without yanking it
-vim.keymap.set("v", "P", '"_dP')
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])              -- Delete to void registry
-vim.keymap.set("n", "<leader>sr", ":%s/")                       -- Search and replace in current file
-vim.keymap.set("v", "<leader>sr", "y:%s/<C-r>\"", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>qr", ":cdo :%s/")                  -- Quickfix search and replace
-vim.keymap.set("n", "<leader>qR", ":cfdo :%s/")                 -- Quickfix search and replace
-vim.keymap.set("n", "<leader>qq", "<cmd>copen<CR>")             -- Quickfix list open
-vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>")            -- Quickfix list open
-vim.keymap.set('n', '<M-n>', '<cmd>cnext<CR>zz')                -- Quickfix next
-vim.keymap.set('n', '<M-p>', '<cmd>cprev<CR>zz')                -- Quickfix next
-
------------------------------
---: Statusline
------------------------------
-vim.o.statusline = '%= %<%t %h%w%m%r %= [%l,%c] %{&fileencoding} %{&filetype}'
+vim.keymap.set('i', '<C-j>', '<Down>', { silent = true })              -- Map Down to CTRL-J
+vim.keymap.set('i', '<C-k>', '<Up>', { silent = true })                -- Map Up to CTRL-K
+vim.keymap.set('i', '<C-l>', '<C-y>', { silent = true })               -- Map Accept to CTRL-L
+vim.keymap.set('i', '<C-l>', '<C-y>', { silent = true })               -- Map Accept to CTRL-L
+vim.keymap.set('c', '<C-j>', '<C-n>', { silent = true })               -- Map Down to CTRL-J
+vim.keymap.set('c', '<C-k>', '<C-p>', { silent = true })               -- Map Up to CTRL-K
+vim.keymap.set('c', '<C-l>', '<CR>', { silent = true })                -- Map Accept to CTRL-L
+vim.keymap.set('n', '<ESC>', '<CMD>nohlsearch<CR>', { silent = true }) -- Remove highlight search
+vim.keymap.set("n", "<Space>", "<Nop>")                                -- Disable space in normal mode
+vim.keymap.set("v", "<", "<gv")                                        -- keep visual selection when (de)indenting
+vim.keymap.set("v", ">", ">gv")                                        -- keep visual selection when (de)indenting
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })        -- Move multilines in visual mode
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })        -- Move multilines in visual mode
+vim.keymap.set("n", "<C-d>", "<C-d>zz")                                -- Centralize while going page up and down
+vim.keymap.set("n", "<C-u>", "<C-u>zz")                                -- Centralize while going page up and down
+vim.keymap.set("x", "<leader>p", [["_dP]])                             -- Void registry pasting
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])                     -- Copy to system clipboard
+vim.keymap.set("n", "<leader>Y", [["+Y]])                              -- Copy to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])                     -- Paste from system clipboard
+vim.keymap.set("n", "<leader>P", [["+P]])                              -- Paste from system clipboard
+vim.keymap.set("v", "p", '"_dp')                                       -- Paste over selected text without yanking it
+vim.keymap.set("v", "P", '"_dP')                                       -- Paste over selected text without yanking it
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])                     -- Delete to void registry
+vim.keymap.set("n", "<leader>sr", ":%s/")                              -- Search and replace in current file (n)
+vim.keymap.set("v", "<leader>sr", "y:%s/<C-r>\"")                      -- Search and replace in current file (v)
+vim.keymap.set("n", "<leader>qr", ":cdo s/")                           -- Quickfix search and replace
+vim.keymap.set("n", "<leader>qq", "<cmd>copen<CR>")                    -- Quickfix list open
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>")                   -- Quickfix list open
+vim.keymap.set('n', '<M-n>', '<cmd>cnext<CR>zz')                       -- Quickfix next
+vim.keymap.set('n', '<M-p>', '<cmd>cprev<CR>zz')                       -- Quickfix next
+vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)                     -- Toggle Undotree
+vim.keymap.set("n", "<leader>gs", "<CMD>Git<CR>")                      -- Git Status
+vim.keymap.set("n", "<leader>gc", "<CMD>Git commit<CR>")               -- Git Commit
+vim.keymap.set("n", "<leader>gp", "<CMD>Git push<CR>")                 -- Git Push
 
 -----------------------------
 --: Colorscheme
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/p00f/alabaster.nvim", name = "alabaster" },
-})
 vim.cmd.colorscheme "alabaster"
-
------------------------------
---: Diagnostics
------------------------------
-vim.diagnostic.config({
-  virtual_text = true,
-})
 
 -----------------------------
 --: Filetypes
 -----------------------------
 vim.filetype.add({
   extension = {
-    -- Terraform
+    -- OpenTofu
     tf = "terraform",
     tfvars = "terraform-vars",
+    tofu = "terraform",
+    tofuvars = "terraform-vars",
     tfbackend = "config",
     tfstate = "json",
     -- Systemd
@@ -93,38 +114,13 @@ vim.filetype.add({
 })
 
 -----------------------------
---: General autocmds
------------------------------
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
-
------------------------------
---: Dependency packages
------------------------------
-vim.pack.add({
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
-  { src = "https://github.com/rafamadriz/friendly-snippets" },
-  { src = "https://github.com/saghen/blink.download" },
-})
-
------------------------------
 --: Treesitter
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-})
-
 require('nvim-treesitter.config').setup {
   ensure_installed = { "python", "c", "lua", "vim", "vimdoc", "yaml", "xml", "typst", "typescript", "toml", "tmux", "terraform", "ssh_config", "rust", "regex", "python", "promql", "nix", "nginx", "markdown-inline", "markdown", "make", "lua", "latex", "java", "just", "json", "kdl", "ini", "hyprlang", "html", "helm", "hcl", "gosum", "gomod", "go", "gitignore", "gitcommit", "fish", "editorconfig", "dockerfile", "csv", "css", "c", "bash", "astro" },
   install_dir = vim.fn.stdpath('data') .. '/site',
   sync_install = false,
   auto_install = true,
-  ignore_install = {},
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -132,70 +128,47 @@ require('nvim-treesitter.config').setup {
 }
 
 -----------------------------
---: Explorer
+--: Oil Explorer
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/stevearc/oil.nvim" },
-})
 require("oil").setup({
+  default_file_explorer = true,
   use_default_keymaps = false,
   keymaps = {
     ["<CR>"] = "actions.select",
     ["<C-l>"] = "actions.select",
-    ["\""] = { "actions.select", opts = { horizontal = true } },
-    ["%"] = { "actions.select", opts = { vertical = true } },
     ["<Esc>"] = { "actions.close", mode = "n" },
     ["<leader>e"] = { "actions.parent", mode = "n" },
   },
-  columns = { "icon" },
+  columns = { "mtime" },
   view_options = { show_hidden = true },
+  skip_confirm_for_simple_edits = true,
 })
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
 
 -----------------------------
---: Picker
+--: Fzf
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
-})
-
-local builtin = require("telescope.builtin")
-local actions = require("telescope.actions")
-
-require("telescope").setup({
-  defaults = {
-    path_display = { "truncate " },
-    mappings = {
-      i = {
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-l>"] = actions.select_default,
-      },
-      n = {
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-l>"] = actions.select_default,
-        ["%"] = actions.select_vertical,
-        ["\""] = actions.select_horizontal,
-      },
+require('fzf-lua').setup({
+  winopts = { preview = { horizontal = "right:40%" } },
+  files = { cwd_prompt = false },
+  marks = { marks = "[A-Z]", actions = { ["ctrl-l"] = FzfLua.actions.goto_mark } },
+  fzf_colors = true,
+  actions = {
+    files = {
+      ["enter"]  = FzfLua.actions.file_edit_or_qf,
+      ["ctrl-l"] = FzfLua.actions.file_edit_or_qf,
+      ["alt-q"]  = FzfLua.actions.file_sel_to_qf,
     },
   },
 })
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
-vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "[F]ind [P]roject (Git) files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind [G]rep (live)" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind [B]uffers" })
-vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "[F]ind [M]arks" })
-vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "[F]ind [J]umps" })
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
-vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind current [W]ord" })
+vim.keymap.set("n", "<leader>ff", FzfLua.files)
+vim.keymap.set("n", "<leader>fg", FzfLua.live_grep)
+vim.keymap.set("n", "<leader>fb", FzfLua.buffers)
+vim.keymap.set("n", "<leader>fm", FzfLua.marks)
 
 -----------------------------
 --: Marks
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/mohseenrm/marko.nvim" }
-})
 require('marko').setup({})
 
 -- Always do uppercase and backtick marks
@@ -217,33 +190,8 @@ for i = 1, #prefixes do
 end
 
 -----------------------------
---: Auto-Pairs
------------------------------
-vim.pack.add({
-  { src = "https://github.com/saghen/blink.pairs", version = vim.version.range('0') },
-})
-require('blink.pairs').setup({})
-
------------------------------
---: Git
------------------------------
-vim.pack.add({
-  { src = "https://github.com/tpope/vim-fugitive" },
-})
-vim.keymap.set("n", "<leader>gs", "<CMD>Git<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gc", "<CMD>Git commit<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gp", "<CMD>Git push<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gd", "<CMD>Git diff<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gD", "<CMD>Telescope git_status<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gl", "<CMD>Git log<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gL", "<CMD>Telescope git_commits<CR>", { noremap = true, silent = true })
-
------------------------------
 --: Cloak
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/laytan/cloak.nvim" },
-})
 require("cloak").setup({
   enabled = true,
   cloak_character = "*",
@@ -259,86 +207,33 @@ require("cloak").setup({
 })
 
 -----------------------------
---: Undotree
+--: Auotcommands
 -----------------------------
-vim.pack.add({
-  { src = "https://github.com/mbbill/undotree" },
-})
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
------------------------------
---: Completion
------------------------------
-local blink_cmp_version = 'v1.10.1'
-vim.pack.add({
-  { src = "https://github.com/Saghen/blink.cmp", version = blink_cmp_version },
+-- Statusline
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  callback = function()
+    vim.wo.statusline = '[%{toupper(mode())}] %= %<%t %h%w%m%r %= [%l,%c] %{&fileencoding} | %{&filetype}'
+  end,
 })
-require("blink.cmp").setup({
-  keymap = {
-    preset = 'none',
-    ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-    ['<C-l>'] = { 'select_and_accept' },
-    ['<C-k>'] = { 'select_prev', 'fallback' },
-    ['<C-j>'] = { 'select_next', 'fallback' },
-    ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
-    ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
-    ['<Tab>'] = { 'snippet_forward', 'fallback' },
-    ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-  },
-  appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = 'mono' },
-  cmdline = { enabled = false },
-  sources = { default = { 'lsp', 'path', 'buffer' } },
-  signature = { enabled = true },
-  completion = {
-    menu = { border = 'none' },
-    documentation = { auto_show = true, auto_show_delay_ms = 500 },
-  },
-  fuzzy = { prebuilt_binaries = { force_version = blink_cmp_version } }
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  callback = function()
+    vim.wo.statusline = '%= %<%t %h%w%m%r %='
+  end,
 })
 
------------------------------
---: LSP
------------------------------
-local nix_lsp_servers = {
-  "ansiblels",
-  "basedpyright",
-  "bashls",
-  "docker_language_server",
-  "fish_lsp",
-  "gopls",
-  "java_language_server",
-  "jsonls",
-  "lua_ls",
-  "md_lsp",
-  "nixd",
-  "rust_analyzer",
-  "sqls",
-  "tofu_ls",
-  "yamlls"
-}
-
-local lsp_servers = {
-  "ansiblels",
-  "basedpyright",
-  "bashls",
-  "docker_language_server",
-  "gopls",
-  "java_language_server",
-  "jsonls",
-  "lua_ls",
-  "rust_analyzer",
-  "sqls",
-  "tofu_ls",
-  "yamlls"
-}
-
-vim.pack.add({
-  { src = "https://github.com/neovim/nvim-lspconfig.git" },
+-- Highlight yanking
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
 })
 
--- Autocommands
+-- LSP Configuration
+local autocmd_group_lsp = 'my.lsp'
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  group = vim.api.nvim_create_augroup(autocmd_group_lsp, {}),
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
@@ -346,11 +241,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
 
+    -- Completion
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, args.buf)
+    end
+
+    -- Document Color
+    if client:supports_method('textDocument/documentColor') then
+      vim.lsp.document_color.enable(true, nil, { style = 'virtual' })
+    end
+
     -- Auto-format on save.
     if not client:supports_method('textDocument/willSaveWaitUntil')
         and client:supports_method('textDocument/formatting') then
       vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        group = autocmd_group_lsp,
         buffer = args.buf,
         callback = function()
           vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
@@ -374,6 +279,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- Auto organize imports for all go code
       if vim.bo.filetype == "go" then
         vim.api.nvim_create_autocmd("BufWritePre", {
+          group = autocmd_group_lsp,
           buffer = args.buf,
           callback = function()
             vim.lsp.buf.code_action {
@@ -391,16 +297,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Special LSP configs
-vim.lsp.config("docker_language_server", {
-  cmd = { 'docker-langserver', 'start', '--stdio' }
-})
-
+-- LSP configs
 vim.lsp.config("md_lsp", {
   cmd = { "md-lsp" },
   filetypes = { "markdown" },
   root_markers = { ".git" },
   single_file_support = true,
+})
+
+vim.lsp.config("tofu_ls", {
+  settings = {
+    filetypes = { 'terraform', 'terraform-vars' },
+    root_markers = { '.terraform', '.tofu', '.git' },
+  }
 })
 
 vim.lsp.config("nixd", {
@@ -431,11 +340,6 @@ vim.lsp.config("lua_ls", {
       },
     },
   },
-})
-
-vim.lsp.config("tofu_ls", {
-  filetypes = { "terraform", "terraform-vars", "opentofu", "opentofu-vars" },
-  root_markers = { ".tofu", ".git" },
 })
 
 vim.lsp.config("yamlls", {
@@ -489,26 +393,3 @@ vim.lsp.config("yamlls", {
     },
   },
 })
-
------------------------------
---: Extra configuration
------------------------------
-local hostname = vim.loop.os_gethostname()
-local nixnames = { "noxus", "piltover" }
-
-if not vim.tbl_contains(nixnames, hostname) then
-  -- Process non-nix configuration
-  vim.g.clipboard = "osc52"
-
-  vim.pack.add({
-    { src = "https://github.com/mason-org/mason.nvim" },
-    { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  })
-  require("mason").setup()
-  require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
-else
-  -- Process nix-specific configuration
-  for _, server in ipairs(nix_lsp_servers) do
-    vim.lsp.enable(server)
-  end
-end
