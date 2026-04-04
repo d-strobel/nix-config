@@ -19,11 +19,11 @@
   # Devpod (fork)
   devpod = pkgs.stdenv.mkDerivation rec {
     pname = "devpod";
-    version = "0.17.0";
+    version = "0.18.0";
 
     src = pkgs.fetchurl {
       url = "https://github.com/skevetter/devpod/releases/download/v${version}/devpod-linux-amd64";
-      sha256 = "sha256-WFnOCOom/7Dh5DJqGXnTG4EB5TANayPmOvqieUBDimU=";
+      sha256 = "sha256-BE8vnQk0rnFeXfMV7RsH8hvfWJous2XQWUmpFtaGIZg=";
     };
 
     dontUnpack = true;
@@ -151,7 +151,6 @@ in {
       jsonschema
       md-lsp
       nixd
-      nodePackages.vscode-json-languageserver
       rust-analyzer
       sqls
       tofu-ls
@@ -446,6 +445,7 @@ in {
     userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = true;
     };
 
     mime.enable = true;

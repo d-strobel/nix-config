@@ -96,7 +96,6 @@
             buildInputs = [
               pre-commit
               nodejs
-              nodePackages.npm
               age
               sops
             ];
