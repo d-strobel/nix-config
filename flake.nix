@@ -104,7 +104,7 @@
               HOOK_PATH=$(git rev-parse --git-path hooks/pre-commit)
               if [ ! -f "$HOOK_PATH" ]; then
                 echo "Setting up pre-commit hooks..."
-                ${pkgs.pre-commit}/bin/pre-commit install
+                pre-commit install
               fi
             '';
           };
