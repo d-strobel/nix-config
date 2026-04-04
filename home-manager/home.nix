@@ -144,7 +144,7 @@ in {
       ansible-language-server
       basedpyright
       bash-language-server
-      dockerfile-language-server
+      docker-language-server
       fish-lsp
       gopls
       lua-language-server
@@ -154,6 +154,8 @@ in {
       rust-analyzer
       sqls
       tofu-ls
+      # vscode-css-languageserver
+      vscode-json-languageserver
       yaml-language-server
     ]);
 
