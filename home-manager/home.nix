@@ -110,7 +110,6 @@ in {
       ipcalc
       imagemagick
       imv
-      devbox
 
       # Screenshot tools
       satty
