@@ -110,14 +110,10 @@ in {
   # Window-Manager
   # --------------------
 
-  # Login manager
-  services.greetd = {
+  # Display manager
+  services.displayManager.ly = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
-      };
-    };
+    package = with pkgs; ly;
   };
 
   # xdg-desktop-portal
