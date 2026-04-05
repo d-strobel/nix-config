@@ -16,11 +16,8 @@ set $right l
 # Terminal Emulator
 set $term foot
 
-# Application launcher
-set $rofi_cmd rofi -terminal '$term'
-
 # Menu
-set $menu $rofi_cmd -show drun
+set $menu fuzzel
 
 # -------------------------------
 # Input configuration

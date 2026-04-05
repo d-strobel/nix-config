@@ -132,7 +132,7 @@ in {
 
       # Window-Manager tools
       libnotify
-      rofi
+      fuzzel
 
       # Neovim dependencies
       gcc
@@ -154,7 +154,6 @@ in {
       rust-analyzer
       sqls
       tofu-ls
-      # vscode-css-languageserver
       vscode-json-languageserver
       yaml-language-server
     ]);
@@ -257,9 +256,9 @@ in {
       recursive = true;
     };
 
-    # Rofi
-    ".config/rofi" = {
-      source = ./dotfiles/rofi;
+    # Fuzzel
+    ".config/fuzzel" = {
+      source = ./dotfiles/fuzzel;
       outOfStoreSymlink = true;
       recursive = true;
     };
