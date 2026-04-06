@@ -201,6 +201,7 @@ require("cloak").setup({
       file_pattern = {
         ".env*",
         "envrc",
+        "secrets.yaml",
       },
       cloak_pattern = "=.+"
     },
