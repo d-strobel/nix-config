@@ -200,6 +200,7 @@ require("cloak").setup({
     {
       file_pattern = {
         ".env*",
+        "envrc",
       },
       cloak_pattern = "=.+"
     },
