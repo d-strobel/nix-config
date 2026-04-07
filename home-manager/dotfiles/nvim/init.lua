@@ -173,6 +173,7 @@ vim.keymap.set("n", "<leader>ff", FzfLua.files)
 vim.keymap.set("n", "<leader>fg", FzfLua.live_grep)
 vim.keymap.set("n", "<leader>fb", FzfLua.buffers)
 vim.keymap.set("n", "<leader>fm", FzfLua.marks)
+vim.keymap.set("n", "<leader>fh", FzfLua.helptags)
 
 -----------------------------
 --: Marks
