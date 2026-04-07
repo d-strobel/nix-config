@@ -1,14 +1,16 @@
--- Check if file is an ansible file.
+-- Check if yaml file is an ansible file.
 local function is_ansible()
   -- Filenames that indicate an Ansible filetype.
   local ansibleFilenames = {
     "site.ya?ml",
     "playbook.ya?ml",
+    "vault.ya?ml",
   }
 
   -- Filepaths that indicate an Ansible filetype.
   local ansiblePaths = {
     "./tasks/.*%.ya?ml",
+    "./roles/.*%.ya?ml",
   }
 
   -- Check filenames.
@@ -31,5 +33,5 @@ local function is_ansible()
 end
 
 if is_ansible() then
-  vim.bo.filetype = "ansible"
+  vim.bo.filetype = "yaml.ansible"
 end
