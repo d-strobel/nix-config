@@ -157,7 +157,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
 -----------------------------
 require('fzf-lua').setup({
   winopts = { preview = { horizontal = "right:40%" } },
-  files = { cwd_prompt = false },
+  files = { previewer = false, cwd_prompt = false },
+  buffers = { previewer = false },
   marks = { marks = "[A-Z]", actions = { ["ctrl-l"] = FzfLua.actions.goto_mark } },
   fzf_colors = true,
   actions = {
