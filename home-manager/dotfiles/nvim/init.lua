@@ -238,12 +238,15 @@ require("cloak").setup({
 -----------------------------
 
 -- Statusline
+vim.api.nvim_create_augroup('my-statusline', { clear = true })
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  group = 'my-statusline',
   callback = function()
     vim.wo.statusline = '[%{toupper(mode())}] %= %<%t %h%w%m%r %= [%l,%c] %{&fileencoding} | %{&filetype}'
   end,
 })
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  group = 'my-statusline',
   callback = function()
     vim.wo.statusline = '%= %<%t %h%w%m%r %='
   end,
