@@ -121,18 +121,11 @@ vim.filetype.add({
 --: Treesitter
 -----------------------------
 local treesitter_filetypes = { "python", "c", "lua", "vim", "vimdoc", "yaml", "xml", "typst", "typescript", "toml",
-  "tmux", "terraform", "ssh_config", "rust", "regex", "python", "promql", "nix", "nginx", "markdown-inline", "markdown",
+  "tmux", "terraform", "ssh_config", "rust", "regex", "python", "promql", "nix", "nginx", "markdown",
   "make", "lua", "latex", "java", "just", "json", "kdl", "ini", "hyprlang", "html", "helm", "hcl", "gosum", "gomod", "go",
   "gitignore", "gitcommit", "fish", "editorconfig", "dockerfile", "csv", "css", "bash", "astro" }
-require('nvim-treesitter.config').setup {
-  ensure_installed = treesitter_filetypes,
-  install_dir = vim.fn.stdpath('data') .. '/site',
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-}
+
+require('nvim-treesitter').install(treesitter_filetypes)
 
 -----------------------------
 --: Oil Explorer
