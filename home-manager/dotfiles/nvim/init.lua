@@ -271,9 +271,9 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- LSP Configuration
-local autocmd_group_lsp = 'my.lsp'
+local autocmd_group_lsp = 'my-lsp'
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup(autocmd_group_lsp, {}),
+  group = vim.api.nvim_create_augroup(autocmd_group_lsp, { clear = true }),
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
