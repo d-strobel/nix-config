@@ -147,6 +147,7 @@ in {
       fish-lsp
       gopls
       lua-language-server
+      jinja-lsp
       jsonschema
       md-lsp
       nixd

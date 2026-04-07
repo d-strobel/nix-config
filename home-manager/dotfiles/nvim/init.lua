@@ -107,6 +107,10 @@ vim.filetype.add({
     tofuvars = "terraform-vars",
     tfbackend = "config",
     tfstate = "json",
+    -- Jinja
+    jinja = 'jinja',
+    jinja2 = 'jinja',
+    j2 = 'jinja',
     -- Systemd
     service = "systemd",
     timer = "systemd",
@@ -321,6 +325,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- LSP configs
+vim.lsp.config("jinja_lsp", {
+  filetypes = { "jinja", "python", "yaml.ansible" }
+})
+
 vim.lsp.config("md_lsp", {
   cmd = { "md-lsp" },
   filetypes = { "markdown" },
