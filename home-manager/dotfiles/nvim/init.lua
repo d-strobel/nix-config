@@ -120,10 +120,13 @@ vim.filetype.add({
 -----------------------------
 --: Treesitter
 -----------------------------
+local treesitter_filetypes = { "python", "c", "lua", "vim", "vimdoc", "yaml", "xml", "typst", "typescript", "toml",
+  "tmux", "terraform", "ssh_config", "rust", "regex", "python", "promql", "nix", "nginx", "markdown-inline", "markdown",
+  "make", "lua", "latex", "java", "just", "json", "kdl", "ini", "hyprlang", "html", "helm", "hcl", "gosum", "gomod", "go",
+  "gitignore", "gitcommit", "fish", "editorconfig", "dockerfile", "csv", "css", "bash", "astro" }
 require('nvim-treesitter.config').setup {
-  ensure_installed = { "python", "c", "lua", "vim", "vimdoc", "yaml", "xml", "typst", "typescript", "toml", "tmux", "terraform", "ssh_config", "rust", "regex", "python", "promql", "nix", "nginx", "markdown-inline", "markdown", "make", "lua", "latex", "java", "just", "json", "kdl", "ini", "hyprlang", "html", "helm", "hcl", "gosum", "gomod", "go", "gitignore", "gitcommit", "fish", "editorconfig", "dockerfile", "csv", "css", "c", "bash", "astro" },
+  ensure_installed = treesitter_filetypes,
   install_dir = vim.fn.stdpath('data') .. '/site',
-  sync_install = false,
   auto_install = true,
   highlight = {
     enable = true,
@@ -258,6 +261,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.hl.on_yank()
   end,
+})
+
+-- Treesitter
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter', { clear = true }),
+  pattern = treesitter_filetypes,
+  callback = function() vim.treesitter.start() end,
 })
 
 -- LSP Configuration
