@@ -193,17 +193,38 @@ end
 --: Cloak
 -----------------------------
 require("cloak").setup({
-  enabled = true,
-  cloak_character = "*",
-  highlight_group = "Comment",
+  highlight_group = "String",
+  cloak_telescope = false,
   patterns = {
     {
+      -- Env secrets
       file_pattern = {
         ".env*",
         "envrc",
-        "secrets.yaml",
       },
       cloak_pattern = "=.+"
+    },
+    {
+      -- Ansible vaults
+      file_pattern = {
+        "vault.yaml",
+        "vault.yml",
+      },
+      cloak_pattern = {
+        ":%s*[^|>%s].+",
+        "^%s+.+"
+      },
+    },
+    {
+      -- Sops secrets
+      file_pattern = {
+        "secrets.yaml",
+      },
+      cloak_pattern = {
+        ":%s*[^|>%s].+",
+        "^%s+[^:#%s][^:]*$",
+        "^%s+[^#%s].-:%S.*",
+      },
     },
   }
 })
