@@ -14,7 +14,7 @@ set $up k
 set $right l
 
 # Terminal Emulator
-set $term foot
+set $term footclient
 
 # Menu
 set $menu fuzzel
@@ -267,6 +267,9 @@ exec_always nm-applet --indicator
 
 # Activate blueman applet
 exec systemctl --user start blueman-applet.service
+
+# Activate foot-terminal server
+exec foot --server
 
 # Activate kanshi daemon after X seconds
 exec_always sleep 3 && systemctl --user restart kanshi.service
