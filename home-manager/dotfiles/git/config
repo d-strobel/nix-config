@@ -16,5 +16,8 @@
 [includeIf "gitdir:~/git/gitlab.com/"]
         path = "/home/dstrobel/git/gitlab.com/.gitconfig"
 
+[includeIf "gitdir:~/git/codeberg.org/"]
+        path = "/home/dstrobel/git/codeberg.org/.gitconfig"
+
 [merge]
         tool = "vimdiff"

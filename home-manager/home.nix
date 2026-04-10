@@ -333,6 +333,10 @@ in {
         path = "${home}/git/gitlab.com/.gitconfig";
         mode = "0640";
       };
+      "git/codeberg.org/config" = {
+        path = "${home}/git/codeberg.org/.gitconfig";
+        mode = "0640";
+      };
 
       # SSH config
       "ssh/config" = {
@@ -491,6 +495,7 @@ in {
       mkdir -p ${config.home.homeDirectory}/git/github.com/d-strobel
       mkdir -p ${config.home.homeDirectory}/git/github.com/laser-zentrale-de
       mkdir -p ${config.home.homeDirectory}/git/gitlab.com/strobel-iac
+      mkdir -p ${config.home.homeDirectory}/git/codeberg.org/d-strobel
     '';
 
   # --------------------
