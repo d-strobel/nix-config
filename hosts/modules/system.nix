@@ -335,7 +335,7 @@ in {
     # Edit hosts file
     extraHosts = ''
       192.168.11.10 vaultwarden.dstrobel.com
-      192.168.178.240 vault.dstrobel.com
+      192.168.178.240 bao.dstrobel.com
     '';
 
     # Firewall settings
