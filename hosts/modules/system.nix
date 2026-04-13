@@ -81,6 +81,7 @@ in {
     # Wayland utils
     wayland-utils
     lxqt.lxqt-policykit
+    libnotify
 
     # VM-Management
     dive
@@ -201,7 +202,8 @@ in {
     description = "kanshi daemon";
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi'';
+      ExecStart = "${pkgs.kanshi}/bin/kanshi";
+      Environment = "PATH=${config.system.path}/bin";
     };
   };
 

@@ -130,7 +130,6 @@ in {
       wl-clip-persist
 
       # Window-Manager tools
-      libnotify
       fuzzel
 
       # Neovim dependencies
