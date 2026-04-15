@@ -129,7 +129,7 @@ in {
       wl-clipboard-rs
       wl-clip-persist
 
-      # Window-Manager tools
+      # Application launcher
       fuzzel
 
       # Neovim dependencies
