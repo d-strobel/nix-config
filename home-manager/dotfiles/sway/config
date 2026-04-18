@@ -146,6 +146,7 @@ bindsym $mod+Shift+f fullscreen
 
 # Screenshot and clipboard
 bindsym $mod+Print exec grimshot --notify copy area
+bindsym $mod+Shift+p exec grimshot --notify copy area
 
 # Brightness control
 set $brightness_notification_cmd command -v notify-send >/dev/null && \
