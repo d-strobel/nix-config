@@ -49,7 +49,7 @@ vim.opt.grepprg = 'rg --vimgrep --no-messages --smart-case'
 
 -- Non-Local systems
 if not vim.tbl_contains({ 'noxus', 'piltover' }, vim.loop.os_gethostname()) then
-  vim.global.clipboard = "osc52"
+  vim.g.clipboard = "osc52"
 end
 
 -----------------------------
