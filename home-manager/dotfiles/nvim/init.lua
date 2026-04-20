@@ -115,8 +115,11 @@ vim.filetype.add({
     service = "systemd",
     timer = "systemd",
     -- Env
-    envrc = "env",
-  }
+    envrc = "dotenv",
+  },
+  filename = {
+    ["envrc"] = "dotenv",
+  },
 })
 
 -----------------------------
