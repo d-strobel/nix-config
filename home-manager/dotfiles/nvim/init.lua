@@ -93,6 +93,7 @@ vim.keymap.set("n", "<leader>gp", "<CMD>Git push<CR>")                 -- Git Pu
 -----------------------------
 --: Colorscheme
 -----------------------------
+vim.g.alabaster_dim_comments = true
 vim.cmd.colorscheme "alabaster"
 
 -----------------------------
