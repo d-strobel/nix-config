@@ -99,6 +99,7 @@ in {
       gsettings-desktop-schemas
       adwaita-icon-theme
       sioyek
+      librepods
 
       # CLI tools
       ffmpeg
