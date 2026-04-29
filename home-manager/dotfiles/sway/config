@@ -227,7 +227,7 @@ for_window [title="Authentication Required"] {
 }
 
 # Thunar renaming
-for_window [app_id="thunar" title="Rename"] {
+for_window [app_id="Thunar" title="Rename"] {
     floating enable
     move position center
 }
