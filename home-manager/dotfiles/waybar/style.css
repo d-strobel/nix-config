@@ -31,7 +31,7 @@ button {
 }
 
 #workspaces button.urgent {
-    background-color: rgb(235, 77, 75);
+    border-bottom: 2px solid rgb(235, 77, 75);
 }
 
 #clock,
