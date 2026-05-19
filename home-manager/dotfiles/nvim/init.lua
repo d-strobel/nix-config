@@ -42,8 +42,9 @@ vim.opt.termguicolors = true
 vim.opt.winborder = 'single'
 vim.opt.path:append('**')
 vim.opt.wildoptions:append { 'fuzzy' }
-vim.opt.complete = 'o,.,w,b,u'
-vim.opt.completeopt = 'menuone,popup,noinsert,noselect,fuzzy'
+vim.opt.complete = '.,w,b,u,o'
+vim.opt.completeopt = 'menuone,popup,noselect,fuzzy'
+vim.opt.pumheight = 10
 vim.opt.autocomplete = true
 vim.opt.grepprg = 'rg --vimgrep --no-messages --smart-case'
 
