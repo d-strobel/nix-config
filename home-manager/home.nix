@@ -100,6 +100,7 @@ in {
       adwaita-icon-theme
       sioyek
       librepods
+      keepassxc
 
       # CLI tools
       ffmpeg
