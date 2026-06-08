@@ -24,7 +24,7 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  services.xserver.videoDrivers = ["modesetting" "nvidia"];
+  services.xserver.videoDrivers = ["modesetting"];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -52,7 +52,7 @@
     nvidiaSettings = true;
 
     # Kernel package
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
 
     # For hybrid cpu/gpu
     prime = {
