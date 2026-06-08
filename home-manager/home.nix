@@ -96,6 +96,7 @@ in {
       sioyek
       librepods
       keepassxc
+      tutanota-desktop
 
       # CLI tools
       ffmpeg
