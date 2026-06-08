@@ -159,6 +159,7 @@ in {
   # Dotfiles
   # --------------------
   home.file = {
+    # dot_config
     ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sway";
     ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/swaylock";
     ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/kanshi";
@@ -175,6 +176,7 @@ in {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
     ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sioyek";
     ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/devpod";
+    # dot_local
     ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local_bin";
     ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpaper";
     ".local/icons".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/icons";
