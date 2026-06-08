@@ -100,13 +100,17 @@
               sops
             ];
 
-            shellHook = ''
-              HOOK_PATH=$(git rev-parse --git-path hooks/pre-commit)
-              if [ ! -f "$HOOK_PATH" ]; then
-                echo "Setting up pre-commit hooks..."
-                pre-commit install
-              fi
-            '';
+            shellHook =
+              /*
+              bash
+              */
+              ''
+                HOOK_PATH=$(git rev-parse --git-path hooks/pre-commit)
+                if [ ! -f "$HOOK_PATH" ]; then
+                  echo "Setting up pre-commit hooks..."
+                  pre-commit install
+                fi
+              '';
           };
       };
     };
