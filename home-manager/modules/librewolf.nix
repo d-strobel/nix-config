@@ -114,7 +114,7 @@ in {
   home.file = {
     "${kagiLogoHomePath}" = {
       enable = true;
-      source = ../icons/kagi.svg;
+      source = ../dotfiles/icons/kagi.svg;
     };
   };
 }

@@ -1,17 +1,12 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
   inputs,
   ...
 }: let
-  # Custom symlinking
-  mkSymlinkAttrs = import ../lib/mkSymlinkAttrs.nix {
-    inherit pkgs;
-    inherit (cfg) context runtimeRoot;
-    hm = config.lib;
-  };
+  # Dotfiles path
+  dotfiles = "${config.home.homeDirectory}/git/github.com/d-strobel/nix-config/home-manager/dotfiles";
 
   # Sops secrets path
   secretsPath = toString inputs.nix-secrets;
@@ -162,135 +157,27 @@ in {
   # --------------------
   # Dotfiles
   # --------------------
-  home.file = mkSymlinkAttrs {
-    # Window manager
-    ".config/sway" = {
-      source = ./dotfiles/sway;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Screenlock
-    ".config/swaylock" = {
-      source = ./dotfiles/swaylock;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Display setup
-    ".config/kanshi" = {
-      source = ./dotfiles/kanshi;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Notifications
-    ".config/dunst" = {
-      source = ./dotfiles/dunst;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Status Bar
-    ".config/waybar" = {
-      source = ./dotfiles/waybar;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Status Bar
-    ".local/share/themes/Adwaita-dark" = {
-      source = ./dotfiles/Adwaita-dark;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Terminal Emulator
-    ".config/foot" = {
-      source = ./dotfiles/foot;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Fish
-    ".config/fish/config.fish" = {
-      source = ./dotfiles/fish/config.fish;
-      outOfStoreSymlink = true;
-      recursive = false;
-    };
-    ".config/fish/functions" = {
-      source = ./dotfiles/fish/functions;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-    ".config/fish/themes" = {
-      source = ./dotfiles/fish/themes;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Tmux
-    ".config/tmux" = {
-      source = ./dotfiles/tmux;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Git
-    ".config/git" = {
-      source = ./dotfiles/git;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Scripts
-    ".local/bin" = {
-      source = ./dotfiles/dot_local_bin;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Btop
-    ".config/btop" = {
-      source = ./dotfiles/btop;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Fuzzel
-    ".config/fuzzel" = {
-      source = ./dotfiles/fuzzel;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Neovim
-    ".config/nvim" = {
-      source = ./dotfiles/nvim;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Wallpaper
-    ".config/wallpaper" = {
-      source = ./wallpaper;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Sioyek
-    ".config/sioyek" = {
-      source = ./dotfiles/sioyek;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
-
-    # Devpod
-    ".config/devpod" = {
-      source = ./dotfiles/devpod;
-      outOfStoreSymlink = true;
-      recursive = true;
-    };
+  home.file = {
+    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sway";
+    ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/swaylock";
+    ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/kanshi";
+    ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dunst";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/waybar";
+    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/foot";
+    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/config.fish";
+    ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/functions";
+    ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/themes";
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/tmux";
+    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/git";
+    ".config/btop".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/btop";
+    ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fuzzel";
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
+    ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sioyek";
+    ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/devpod";
+    ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local_bin";
+    ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpaper";
+    ".local/icons".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/icons";
+    ".local/share/themes/Adwaita-dark".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/Adwaita-dark";
   };
 
   # --------------------

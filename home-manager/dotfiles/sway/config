@@ -55,7 +55,7 @@ smart_borders on
 client.focused #c9b890 #c9b890 #111315
 
 # Background
-output * bg /home/dstrobel/.config/wallpaper/framework-01.png fill
+output * bg /home/dstrobel/.local/wallpaper/framework-01.png fill
 
 # -------------------------------
 # Key bindings
