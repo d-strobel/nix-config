@@ -67,6 +67,12 @@ output "Dell Inc. DELL C3422WE G2L5S83" {
   scale 1
   alias $WORK_5
 }
+output "Dell Inc. DELL P3424WEB 7WQ1N04" {
+  mode 3440x1440@59.973
+  position 0,0
+  scale 1
+  alias $WORK_6
+}
 
 # -----------------
 # Private profiles
@@ -119,4 +125,9 @@ profile work_5 {
   output $NOTEBOOK disable
   output $WORK_5 enable
   exec notify-send --app-name shikane 'Kanshi' 'Applied profile: work_5'
+}
+profile work_6 {
+  output $NOTEBOOK disable
+  output $WORK_6 enable
+  exec notify-send --app-name shikane 'Kanshi' 'Applied profile: work_6'
 }
