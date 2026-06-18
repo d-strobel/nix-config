@@ -115,6 +115,9 @@ in {
       # Notifications
       dunst
 
+      # Time-based dark/light theme
+      darkman
+
       # Status Bar
       waybar
 
@@ -176,11 +179,13 @@ in {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
     ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sioyek";
     ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/devpod";
+    ".config/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/darkman";
     # dot_local
     ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local_bin";
     ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpaper";
     ".local/icons".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/icons";
     ".local/share/themes/Adwaita-dark".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/Adwaita-dark";
+    ".local/share/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/share/darkman";
   };
 
   # --------------------
@@ -326,12 +331,6 @@ in {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];
     };
-
-    # Desktop dark appearance
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-theme = "Adwaita-dark";
-    };
   };
 
   # --------------------
@@ -406,6 +405,23 @@ in {
       ExecStart = "${wlClipPersist} --clipboard regular";
       Type = "simple";
       Restart = "always";
+
+    # Auto dark/light theme
+    darkman = {
+      Unit = {
+        Description = "A framework for dark-mode and light-mode transitions on Unix-like desktops.";
+        Documentation = ["https://gitlab.com/WhyNotHugo/darkman"];
+        After = ["graphical-session.target"];
+        Wants = ["graphical-session.target"];
+      };
+      Service = {
+        ExecStart = "${pkgs.darkman}/bin/darkman run";
+        Type = "simple";
+        Restart = "always";
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
     };
   };
 
