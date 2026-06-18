@@ -391,20 +391,24 @@ in {
   # --------------------
   # Systemd services
   # --------------------
-
-  # Clipboard service
-  systemd.user.services.wl-clip-persist = let
-    wlClipPersist = "${pkgs.wl-clip-persist}/bin/wl-clip-persist";
-  in {
-    Unit = {
-      Description = "Persistent clipboard for Wayland";
-      Documentation = "https://github.com/Linus789/wl-clip-persist";
-      Requires = ["graphical-session.target"];
+  systemd.user.services = {
+    # Clipboard service
+    wl-clip-persist = {
+      Unit = {
+        Description = "Persistent clipboard for Wayland";
+        Documentation = ["https://github.com/Linus789/wl-clip-persist"];
+        After = ["graphical-session.target"];
+        Wants = ["graphical-session.target"];
+      };
+      Service = {
+        ExecStart = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard regular";
+        Type = "simple";
+        Restart = "always";
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
     };
-    Service = {
-      ExecStart = "${wlClipPersist} --clipboard regular";
-      Type = "simple";
-      Restart = "always";
 
     # Auto dark/light theme
     darkman = {
