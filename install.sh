@@ -24,9 +24,9 @@ rm -rf "$DOTFILES_TARGET_PATH/nvim"
 rm -rf "$DOTFILES_TARGET_PATH/mise"
 
 echo "Copy devcontainer dotfiles"
-ln -s "$DOTFILES_SOURCE_PATH/fish-devcontainer" "$DOTFILES_TARGET_PATH/fish"
-ln -s "$DOTFILES_SOURCE_PATH/nvim" "$DOTFILES_TARGET_PATH/nvim"
-ln -s "$DOTFILES_SOURCE_PATH/mise" "$DOTFILES_TARGET_PATH/mise"
+ln -s "$DOTFILES_SOURCE_PATH/devcontainer/fish" "$DOTFILES_TARGET_PATH/fish"
+ln -s "$DOTFILES_SOURCE_PATH/devcontainer/mise" "$DOTFILES_TARGET_PATH/mise"
+ln -s "$DOTFILES_SOURCE_PATH/dot_config/nvim" "$DOTFILES_TARGET_PATH/nvim"
 
 echo "Set user shell to fish"
 sudo chsh vscode --shell "$(which fish)"

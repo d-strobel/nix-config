@@ -163,28 +163,28 @@ in {
   # --------------------
   home.file = {
     # dot_config
-    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sway";
-    ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/swaylock";
-    ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/kanshi";
-    ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dunst";
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/waybar";
-    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/foot";
-    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/config.fish";
-    ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/functions";
-    ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/themes";
-    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/tmux";
-    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/git";
-    ".config/btop".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/btop";
-    ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fuzzel";
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
-    ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/sioyek";
-    ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/devpod";
+    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/sway";
+    ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/swaylock";
+    ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/kanshi";
+    ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/dunst";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/waybar";
+    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/foot";
+    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fish/config.fish";
+    ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fish/functions";
+    ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fish/themes";
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/tmux";
+    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/git";
+    ".config/btop".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/btop";
+    ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fuzzel";
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/nvim";
+    ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/sioyek";
+    ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/devpod";
     ".config/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/darkman";
     # dot_local
-    ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local_bin";
+    ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/bin";
     ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpaper";
     ".local/icons".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/icons";
-    ".local/share/themes/Adwaita-dark".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/Adwaita-dark";
+    ".local/share/themes/Adwaita-dark".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/share/Adwaita-dark";
     ".local/share/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/share/darkman";
   };
 
