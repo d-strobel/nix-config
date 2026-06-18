@@ -35,6 +35,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Betterfox
+    betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
+
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
