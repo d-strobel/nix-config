@@ -319,6 +319,15 @@ in {
         path = "${home}/.gnupg/private-keys-v1.d/FCC33CBD2D0876B8245020D404C698275267909B.key";
         mode = "0600";
       };
+
+      # Browser extension config
+      "browser/extensions/dark_reader.json" = {
+        path = "${home}/.config/dark_reader_config.json";
+        mode = "0640";
+      };
+    };
+  };
+
   # --------------------
   # Firefox
   # --------------------
