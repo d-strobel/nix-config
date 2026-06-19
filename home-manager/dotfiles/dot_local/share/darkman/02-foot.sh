@@ -15,5 +15,11 @@ light)
 default) exit 1 ;;
 esac
 
-mkdir -p ~/.local/state/foot/
-echo "initial-color-theme=$1" > ~/.local/state/foot/colorscheme.ini
+# Helper variables
+OUT_DIR="$HOME/.local/state/foot"
+
+# Create the directory first
+mkdir -p "$OUT_DIR"
+
+# Write settings to config file
+echo "initial-color-theme=$1" > "$OUT_DIR/colorscheme.ini"

@@ -1,5 +1,6 @@
 #!/bin/sh
-# Switch the GTK Theme.
+
+# Switch the GTK Theme and preffered color-scheme.
 
 case "$1" in
 dark)
