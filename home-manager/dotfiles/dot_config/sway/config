@@ -54,9 +54,6 @@ smart_borders on
 # Adjust focused border color
 client.focused #c9b890 #c9b890 #111315
 
-# Background
-output * bg /home/dstrobel/.local/wallpaper/framework-01.png fill
-
 # -------------------------------
 # Key bindings
 # -------------------------------
@@ -236,6 +233,7 @@ for_window [app_id="Thunar" title="Rename"] {
 # Includes
 # -------------------------------
 include /etc/sway/config.d/*
+include ~/.local/state/sway/*
 
 # -------------------------------
 # Statusbar
