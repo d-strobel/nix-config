@@ -5,8 +5,9 @@
   inputs,
   ...
 }: let
-  # Dotfiles path
-  dotfiles = "${config.home.homeDirectory}/git/github.com/d-strobel/nix-config/home-manager/dotfiles";
+  # Symlink paths
+  hmPath = "${config.home.homeDirectory}/git/github.com/d-strobel/nix-config/home-manager";
+  dotfilesPath = "${config.home.homeDirectory}/git/github.com/d-strobel/dotfiles";
 
   # Sops secrets path
   secretsPath = toString inputs.nix-secrets;
@@ -163,29 +164,29 @@ in {
   # --------------------
   home.file = {
     # dot_config
-    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/sway";
-    ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/swaylock";
-    ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/kanshi";
-    ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/dunst";
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/waybar";
-    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/foot";
-    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fish/config.fish";
-    ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fish/functions";
-    ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fish/themes";
-    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/tmux";
-    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/git";
-    ".config/btop".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/btop";
-    ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/fuzzel";
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/nvim";
-    ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/sioyek";
-    ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/devpod";
-    ".config/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_config/darkman";
+    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/sway";
+    ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/swaylock";
+    ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/kanshi";
+    ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/dunst";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/waybar";
+    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/foot";
+    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/config.fish";
+    ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/functions";
+    ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/themes";
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/tmux";
+    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/git";
+    ".config/btop".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/btop";
+    ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fuzzel";
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/nvim";
+    ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/sioyek";
+    ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/devpod";
+    ".config/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/darkman";
     # dot_local
-    ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/bin";
-    ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpaper";
-    ".local/icons".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/icons";
-    ".local/share/themes/Adwaita-dark".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/share/Adwaita-dark";
-    ".local/share/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/dot_local/share/darkman";
+    ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_local/bin";
+    ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${hmPath}/wallpaper";
+    ".local/icons".source = config.lib.file.mkOutOfStoreSymlink "${hmPath}/icons";
+    ".local/share/themes/Adwaita-dark".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_local/share/Adwaita-dark";
+    ".local/share/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_local/share/darkman";
   };
 
   # --------------------
@@ -667,13 +668,11 @@ in {
         "x-scheme-handler/https" = ["librewolf.desktop" "chromium-browser.desktop"];
         "x-scheme-handler/about" = ["librewolf.desktop" "chromium-browser.desktop"];
         "x-scheme-handler/unknown" = ["librewolf.desktop" "chromium-browser.desktop"];
-        # "x-scheme-handler/mailto" = [""];
         "audio/mp3" = "vlc.desktop";
         "audio/x-matroska" = "vlc.desktop";
         "video/webm" = "vlc.desktop";
         "video/mp4" = "vlc.desktop";
         "video/x-matroska" = "vlc.desktop";
-        # "inode/directory" = "pcmanfm.desktop";
       };
     };
   };
@@ -692,6 +691,15 @@ in {
       mkdir -p ${config.home.homeDirectory}/git/github.com/laser-zentrale-de
       mkdir -p ${config.home.homeDirectory}/git/gitlab.com/strobel-iac
       mkdir -p ${config.home.homeDirectory}/git/codeberg.org/d-strobel
+
+      # Dotfiles repository
+      DOTFILES_DIR=${dotfilesPath}
+      DOTFILES_REPO="https://github.com/d-strobel/dotfiles.git"
+
+      if [ ! -d "$DOTFILES_DIR/.git" ]; then
+        echo "Cloning dotfiles repository..."
+          ${pkgs.git}/bin/git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+      fi
     '';
 
   # --------------------
