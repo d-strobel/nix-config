@@ -208,6 +208,10 @@ in {
       };
 
       # Git envrc files
+      "git/envrc" = {
+        path = "${home}/git/.envrc";
+        mode = "0600";
+      };
       "git/gitlab.com/envrc" = {
         path = "${home}/git/gitlab.com/.envrc";
         mode = "0600";
