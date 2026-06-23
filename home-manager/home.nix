@@ -537,6 +537,12 @@ in {
             color = "blue";
             icon = "circle";
           };
+          discord = {
+            id = 5;
+            name = "Discord";
+            color = "purple";
+            icon = "circle";
+          };
         };
 
         search = {
