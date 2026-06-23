@@ -61,7 +61,7 @@ in {
   home.packages =
     [
       # Neovim
-      inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # Helium Browser
       inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -135,6 +135,7 @@ in {
       fuzzel
 
       # Neovim dependencies
+      neovim
       gcc
       tree-sitter
 
