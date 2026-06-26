@@ -66,6 +66,9 @@ in {
       # Helium Browser
       inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+      # Zen Notes
+      inputs.zennotes.packages.${pkgs.stdenv.hostPlatform.system}.zennotes-desktop
+
       # Devpod (fork)
       devpod
     ]

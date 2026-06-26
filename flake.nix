@@ -35,6 +35,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Zen Notes
+    zennotes.url = "github:ZenNotes/zennotes";
+
     # Betterfox
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
