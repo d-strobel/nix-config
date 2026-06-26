@@ -30,10 +30,7 @@
     };
 
     # Helium browser
-    helium-browser = {
-      url = "github:AlvaroParker/helium-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    helium-browser.url = "github:AlvaroParker/helium-nix";
 
     # Zen Notes
     zennotes.url = "github:ZenNotes/zennotes";
