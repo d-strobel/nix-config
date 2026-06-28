@@ -140,11 +140,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1781787357,
-        "narHash": "sha256-sljwn0P8uZLmBPXnhP/upg0JpBArhoL521vkQEE8gMc=",
+        "lastModified": 1782472279,
+        "narHash": "sha256-y8FjnKvdaMWq7MeQ+vIb+baVu7PmWGMl/r7zTZnGi8A=",
         "owner": "AlvaroParker",
         "repo": "helium-nix",
-        "rev": "3d667eeed4a83eee35f7aa01e9ec67f5d8e8719c",
+        "rev": "46dbd8424ea62f65a22358b83788e6d764611529",
         "type": "github"
       },
       "original": {
@@ -268,10 +268,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1782063433,
-        "narHash": "sha256-6bnnfj/fsPH5HldjoPQ44m0gXFap3SDqeLVHo2lUYN8=",
+        "lastModified": 1782662088,
+        "narHash": "sha256-Zxf0WY09tsV+UzDfNI9Xxuxd0rZfGvoAxYjufTGQbe0=",
         "ref": "main",
-        "rev": "332ba25d76764d57647ce911f2db8130f1172744",
+        "rev": "65f254e3f5d99f41b066c33a343b70eae45ca717",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/d-strobel/nix-secrets.git"
@@ -301,11 +301,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "lastModified": 1760878510,
+        "narHash": "sha256-K5Osef2qexezUfs0alLvZ7nQFTGS9DL2oTVsIXsqLgs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "rev": "5e2a59a5b1a82f89f2c7e598302a9cacebb72a67",
         "type": "github"
       },
       "original": {
