@@ -185,6 +185,7 @@ in {
     ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/sioyek";
     ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/devpod";
     ".config/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/darkman";
+    ".config/zennotes".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/zennotes";
     # dot_local
     ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_local/bin";
     ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${hmPath}/wallpaper";
