@@ -32,9 +32,6 @@
     # Helium browser
     helium-browser.url = "github:AlvaroParker/helium-nix";
 
-    # Zen Notes
-    zennotes.url = "github:ZenNotes/zennotes";
-
     # Betterfox
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
