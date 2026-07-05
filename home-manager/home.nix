@@ -241,6 +241,10 @@ in {
         path = "${home}/git/codeberg.org/.gitconfig";
         mode = "0640";
       };
+      "git/work/config" = {
+        path = "${home}/git/work/.gitconfig";
+        mode = "0640";
+      };
 
       # SSH config
       "ssh/config" = {
@@ -704,6 +708,7 @@ in {
       mkdir -p ${config.home.homeDirectory}/git/github.com/laser-zentrale-de
       mkdir -p ${config.home.homeDirectory}/git/gitlab.com/strobel-iac
       mkdir -p ${config.home.homeDirectory}/git/codeberg.org/d-strobel
+      mkdir -p ${config.home.homeDirectory}/git/work
 
       # Dotfiles repository
       DOTFILES_DIR=${dotfilesPath}
