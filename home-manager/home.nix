@@ -220,35 +220,65 @@ in {
         path = "${home}/git/.envrc";
         mode = "0600";
       };
+
+      # Gitlab
+      "git/gitlab.com/config" = {
+        path = "${home}/git/gitlab.com/.gitconfig";
+        mode = "0640";
+      };
       "git/gitlab.com/envrc" = {
         path = "${home}/git/gitlab.com/.envrc";
+        mode = "0600";
+      };
+      "git/gitlab.com/devpod.env" = {
+        path = "${home}/git/gitlab.com/.devpod.env";
         mode = "0600";
       };
       "git/gitlab.com/strobel-iac/envrc" = {
         path = "${home}/git/gitlab.com/strobel-iac/.envrc";
         mode = "0600";
       };
-      "git/github.com/envrc" = {
-        path = "${home}/git/github.com/.envrc";
-        mode = "0600";
-      };
 
-      # Git config files
+      # Github
       "git/github.com/config" = {
         path = "${home}/git/github.com/.gitconfig";
         mode = "0640";
       };
-      "git/gitlab.com/config" = {
-        path = "${home}/git/gitlab.com/.gitconfig";
-        mode = "0640";
+      "git/github.com/envrc" = {
+        path = "${home}/git/github.com/.envrc";
+        mode = "0600";
       };
+      "git/github.com/devpod.env" = {
+        path = "${home}/git/github.com/.devpod.env";
+        mode = "0600";
+      };
+
+      # Codeberg
       "git/codeberg.org/config" = {
         path = "${home}/git/codeberg.org/.gitconfig";
         mode = "0640";
       };
+      "git/codeberg.org/envrc" = {
+        path = "${home}/git/codeberg.org/.envrc";
+        mode = "0600";
+      };
+      "git/codeberg.org/devpod.env" = {
+        path = "${home}/git/codeberg.org/.devpod.env";
+        mode = "0600";
+      };
+
+      # Git Work
       "git/work/config" = {
         path = "${home}/git/work/.gitconfig";
         mode = "0640";
+      };
+      "git/work/envrc" = {
+        path = "${home}/git/work/.envrc";
+        mode = "0600";
+      };
+      "git/work/devpod.env" = {
+        path = "${home}/git/work/.devpod.env";
+        mode = "0600";
       };
 
       # SSH config

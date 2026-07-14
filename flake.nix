@@ -30,7 +30,8 @@
     };
 
     # Helium browser
-    helium-browser.url = "github:AlvaroParker/helium-nix";
+    # helium-browser.url = "github:AlvaroParker/helium-nix";
+    helium-browser.url = "github:schembriaiden/helium-browser-nix-flake";
 
     # Betterfox
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
