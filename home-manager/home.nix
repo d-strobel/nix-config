@@ -159,10 +159,6 @@ in {
       tofu-ls
       vscode-json-languageserver
       yaml-language-server
-
-      # Helix
-      steelix
-      steel
     ]);
 
   # --------------------
