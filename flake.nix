@@ -63,6 +63,15 @@
           ./hosts/noxus/configuration.nix
         ];
       };
+      # Use with: sudo nixos-rebuild switch --flake .#piltover
+      piltover = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+        };
+        modules = [
+          ./hosts/piltover/configuration.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration
