@@ -425,26 +425,30 @@ in {
   # Security
   # --------------------
 
-  # copied and saved for later use
-  # services = {
-  #   usbguard = {
-  #     enable = true;
-  #     rules = ''
-  #       allow id 1d6b:0002 serial "0000:00:14.0" name "xHCI Host Controller" hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" parent-hash "rV9bfLq7c2eA4tYjVjwO4bxhm+y6GgZpl9J60L0fBkY=" with-interface 09:00:00 with-connect-type ""
-  #       allow id 1d6b:0003 serial "0000:00:14.0" name "xHCI Host Controller" hash "3Wo3XWDgen1hD5xM3PSNl3P98kLp1RUTgGQ5HSxtf8k=" parent-hash "rV9bfLq7c2eA4tYjVjwO4bxhm+y6GgZpl9J60L0fBkY=" with-interface 09:00:00 with-connect-type ""
-  #       allow id 1235:8211 serial "Y72EB6E1AD7499" name "Scarlett Solo USB" hash "vYKb5BFrLgfYzbTqAtyq0N2yZisUuqjchfbd1NjGgiE=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { 01:01:20 01:02:20 01:02:20 01:02:20 01:02:20 ff:01:20 } with-connect-type "hotplug"
-  #       allow id 258a:0033 serial "" name "Wired Gaming Mouse" hash "NjvNTGeMdzH8KOqM6YIuBwfVCZluftC/mdg5mR2aLlY=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-2" with-interface { 03:01:02 03:01:01 } with-connect-type "hotplug"
-  #       allow id 046d:c539 serial "" name "USB Receiver" hash "zPVf0/h8u0iaLZgla3hm9BjINDTSEEIMF/GWCyOYCwo=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-3" with-interface { 03:01:01 03:01:02 03:00:00 } with-connect-type "hotplug"
-  #       allow id 1050:0407 serial "" name "YubiKey OTP+FIDO+CCID" hash "Q+A8QQReKclmBSaDIYja0w4Bx6ld2IU6wF7HFKdtJ3Q=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-5" with-interface { 03:01:01 03:00:00 0b:00:00 } with-connect-type "hotplug"
-  #       allow id 04f2:b50c serial "" name "HP Truevision HD" hash "xR2ZRjJzpB6sW1I9lU5CPcYRjCiW23iyfnr67QjSNWw=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-6" with-interface { 0e:01:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 } with-connect-type "hardwired"
-  #       allow id 8087:0a2a serial "" name "" hash "7jCRH2DCYUfdP9zZCYIQH6Z5QWx8Nzt8sX21UHwxIqA=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-7" with-interface { e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 } with-connect-type "hardwired"
-  #       allow id 04f3:22f6 serial "" name "Touchscreen" hash "x1+RDZDWJlnHus7DN6iDdnCOJj52ogmObdk0JlocWtc=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-8" with-interface 03:00:00 with-connect-type "hardwired"
-  #     '';
-  #     #dbus.enable = true;
-  #     IPCAllowedGroups = ["wheel"];
-  #     IPCAllowedUsers = [];
-  #   };
-  # };
+  services = {
+    usbguard = {
+      enable = true;
+      # To get blocked devices: usbguard list-devices -b
+      rules = ''
+        allow id 1d6b:0002 serial "0000:00:14.0" name "xHCI Host Controller" hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" parent-hash "rV9bfLq7c2eA4tYjVjwO4bxhm+y6GgZpl9J60L0fBkY=" with-interface 09:00:00 with-connect-type ""
+        allow id 1d6b:0003 serial "0000:00:14.0" name "xHCI Host Controller" hash "XCHNkqbiDxI/M86q3Xx/1NPsFNctpAcKPF2KF9AkPpY=" parent-hash "rV9bfLq7c2eA4tYjVjwO4bxhm+y6GgZpl9J60L0fBkY=" with-interface 09:00:00 with-connect-type ""
+        allow id 1d6b:0002 serial "0000:3c:00.0" name "xHCI Host Controller" hash "+k9gUUE6Cnbob2WB/I//KMZ1hZ1UgvI6RrqNkIDvdmQ=" parent-hash "zCxLdr73Tn0YoKg15XR1ttIXizl8vMD+KtVAQnBZO8I=" with-interface 09:00:00 with-connect-type ""
+        allow id 1d6b:0003 serial "0000:3c:00.0" name "xHCI Host Controller" hash "KkQZN5DqcZCTZozZRGI/Qr09HJrHE8L5Ml5YlUl2G3Y=" parent-hash "zCxLdr73Tn0YoKg15XR1ttIXizl8vMD+KtVAQnBZO8I=" with-interface 09:00:00 with-connect-type ""
+        allow id 2109:2817 serial "" name "USB2.0 Hub             " hash "I0EyQg3EPh4pnLnd0hJMXwPi69STx6hDl43+nji0FxA=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-1" with-interface { 09:00:01 09:00:02 } with-connect-type "hotplug"
+        allow id 058f:9540 serial "" name "EMV Smartcard Reader" hash "j6z/wqFtA1bZWwBIPmIr/g8KfsEQJ63vpgf4cBcNLbU=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-3" with-interface 0b:00:00 with-connect-type "not used"
+        allow id 8087:0a2b serial "" name "" hash "TtRMrWxJil9GOY/JzidUEOz0yUiwwzbLm8D7DJvGxdg=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" via-port "1-7" with-interface { e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 } with-connect-type "not used"
+        allow id 04f2:b604 serial "0001" name "Integrated Camera" hash "Sra5Do2lULxlGqcVOc0E68CJLWT1st8KiYXu4dbUQoQ=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { 0e:01:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 } with-connect-type "not used"
+        allow id 06cb:009a serial "176bb407c4ef" name "" hash "vA8TYlGOgvX8lO6gCOGyqpKROqeqveEaV5lInGaxn7Q=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface ff:00:00 with-connect-type "not used"
+        allow id 2109:0817 serial "" name "USB3.0 Hub             " hash "vQNT567XT+bPBqIu0p/etX+pnHWglTlGAjGJuRFxsxA=" parent-hash "XCHNkqbiDxI/M86q3Xx/1NPsFNctpAcKPF2KF9AkPpY=" via-port "2-1" with-interface 09:00:00 with-connect-type "hotplug"
+        allow id 0bda:0316 serial "20120501030900000" name "USB3.0-CRW" hash "WG1MSC3YZsmCslTNGpjTTjT2lUvhNfU4gEVvD3gIuV4=" parent-hash "XCHNkqbiDxI/M86q3Xx/1NPsFNctpAcKPF2KF9AkPpY=" with-interface 08:06:50 with-connect-type "not used"
+        allow id 05ac:0250 serial "" name "Keychron K2" hash "Ve+iuk3i2DIWlQQWnbTUbGbwFPk913tgx8Qpip54foA=" parent-hash "I0EyQg3EPh4pnLnd0hJMXwPi69STx6hDl43+nji0FxA=" via-port "1-1.2" with-interface { 03:01:01 03:01:02 } with-connect-type "unknown"
+        allow id 1050:0407 serial "" name "YubiKey OTP+FIDO+CCID" hash "Q+A8QQReKclmBSaDIYja0w4Bx6ld2IU6wF7HFKdtJ3Q=" parent-hash "I0EyQg3EPh4pnLnd0hJMXwPi69STx6hDl43+nji0FxA=" via-port "1-1.3" with-interface { 03:01:01 03:00:00 0b:00:00 } with-connect-type "unknown"
+        allow id 04a5:8001 serial "" name "BenQ ZOWIE Gaming Mouse" hash "Rfmn4vEZ5Jh/iqGZ739u7SpoJP3tx8iAponKBSJoKhU=" parent-hash "I0EyQg3EPh4pnLnd0hJMXwPi69STx6hDl43+nji0FxA=" via-port "1-1.4" with-interface 03:01:02 with-connect-type "unknown"
+      '';
+      IPCAllowedGroups = [];
+      IPCAllowedUsers = ["root"];
+    };
+  };
 
   security = {
     # Enable sudo-rs
