@@ -10,6 +10,7 @@
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
+    inputs.jay.nixosModules.default
   ];
 
   # --------------------
@@ -89,21 +90,28 @@ in {
 
     # Networking
     networkmanagerapplet
-
-    # Misc
-    hardinfo2
-    engrampa
   ];
 
   # Shells
   programs.bash.enable = true;
   programs.fish.enable = true;
 
-  # Helium Browser
-  programs.chromium = {
-    enable = true;
-    extraOpts = {
-      "SpellcheckEnabled" = false;
+  fonts = {
+    packages = with pkgs; [
+      jetbrains-mono
+      nerd-fonts.jetbrains-mono
+      noto-fonts
+      noto-fonts-color-emoji
+      noto-fonts-cjk-sans
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Noto Serif"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["JetBrainsMono Nerd Font" "Noto Sans Mono"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 
@@ -115,39 +123,46 @@ in {
   services.displayManager.ly = {
     enable = true;
     package = with pkgs; ly;
+    settings = {
+      session_log = "/home/${username}/.local/state/ly-session.log";
+    };
   };
 
   # xdg-desktop-portal
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
     ];
   };
 
-  # Wayland Compositor
-  programs.sway = {
-    enable = true;
-    xwayland.enable = true;
-    extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      swaybg
-      sway-contrib.grimshot
-    ];
+  hardware.graphics.enable = true;
 
-    # These options gives us some usefull files to include
-    # in our sway config (/etc/sway/config.d/*)
-    wrapperFeatures.gtk = true;
-    wrapperFeatures.base = true;
+  # Wayland Compositor
+  programs.jay = {
+    enable = true;
+    package = with pkgs; jay;
+    xwayland.enable = false;
+    extraPackages = with pkgs; [
+      wl-tray-bridge
+    ];
   };
 
   # Native wayland support in all chrome and most electron apps
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+    NIXOS_OZONE_WL = "1";
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "20";
+  };
 
-  # Swaylock unlocking
-  security.pam.services.swaylock = {};
+  # PAM services
+  security.pam.services = {
+    swaylock.enableGnomeKeyring = true;
+  };
 
   # Keyrings
   services.gnome.gnome-keyring.enable = true;
@@ -163,15 +178,6 @@ in {
     packages = with pkgs; [dconf];
   };
   programs.dconf.enable = true;
-
-  # File manager
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
 
   # --------------------
   # Virtualisation
@@ -192,18 +198,6 @@ in {
         runAsRoot = true;
         swtpm.enable = true;
       };
-    };
-  };
-
-  # --------------------
-  # Systemd services
-  # --------------------
-  systemd.user.services.kanshi = {
-    description = "kanshi daemon";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.kanshi}/bin/kanshi";
-      Environment = "PATH=${config.system.path}/bin";
     };
   };
 
@@ -550,6 +544,12 @@ in {
     "kernel.ftrace_enabled" = false;
   };
   boot.kernelModules = ["tcp_bbr"];
+
+  boot.kernelParams = [
+    # Reduce messages on same tty as tui greeter.
+    # https://wiki.archlinux.org/title/Greetd#Prevent_systemd_messages_from_overwriting_console-based_greeterd
+    "console=tty0"
+  ];
 
   boot.blacklistedKernelModules = [
     # Obscure network protocols

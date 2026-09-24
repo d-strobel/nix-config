@@ -24,6 +24,12 @@
       flake = false;
     };
 
+    # Jay wayland compositor
+    jay = {
+      url = "github:mahkoh/jay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # Neovim nightly overlay
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";

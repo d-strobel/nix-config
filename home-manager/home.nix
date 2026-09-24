@@ -61,7 +61,7 @@ in {
   home.packages =
     [
       # Neovim
-      # inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # Helium Browser
       inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -73,6 +73,7 @@ in {
       # Terminal
       foot
       tmux
+      herdr
       zoxide
       fzf
       direnv
@@ -80,6 +81,7 @@ in {
       keychain
 
       # Desktop applications
+      pcmanfm
       obsidian
       signal-desktop
       pavucontrol
@@ -88,7 +90,7 @@ in {
       gnome-calculator
       winbox4
       localsend
-      brave
+      brave-origin
       remmina
       ledger-live-desktop
       glib
@@ -96,9 +98,8 @@ in {
       adwaita-icon-theme
       sioyek
       librepods
-      keepassxc
-      tutanota-desktop
-      zennotes-desktop
+      proton-vpn
+      engrampa
 
       # CLI tools
       ffmpeg
@@ -110,8 +111,11 @@ in {
       ipcalc
       imagemagick
       imv
+      jq
 
       # Screenshot tools
+      grim
+      slurp
       satty
 
       # Notifications
@@ -120,13 +124,9 @@ in {
       # Time-based dark/light theme
       darkman
 
-      # Status Bar
-      waybar
-
-      # Fonts
-      font-awesome
-      jetbrains-mono
-      nerd-fonts.jetbrains-mono
+      # Window manager tools
+      i3status-rust
+      swaylock
 
       # Clipboard
       wl-clipboard-rs
@@ -136,7 +136,6 @@ in {
       fuzzel
 
       # Neovim dependencies
-      neovim
       gcc
       tree-sitter
 
@@ -167,15 +166,20 @@ in {
   home.file = {
     # dot_config
     ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/sway";
+    ".config/mango".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/mango";
+    ".config/jay".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/jay";
     ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/swaylock";
     ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/kanshi";
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/dunst";
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/waybar";
+    ".config/i3status-rs".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/i3status-rs";
+    ".config/wl-tray-bridge".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/wl-tray-bridge";
     ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/foot";
     ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/config.fish";
     ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/functions";
     ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/themes";
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/tmux";
+    ".config/herdr/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/herdr/config.toml";
     ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/git";
     ".config/btop".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/btop";
     ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fuzzel";
@@ -183,8 +187,9 @@ in {
     ".config/sioyek".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/sioyek";
     ".config/devpod".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/devpod";
     ".config/darkman".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/darkman";
-    ".config/zennotes".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/zennotes";
     ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/helix";
+    ".config/mimeapps.list".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/mime/mimeapps.list";
+    ".config/imv".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/imv";
     # dot_local
     ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_local/bin";
     ".local/wallpaper".source = config.lib.file.mkOutOfStoreSymlink "${hmPath}/wallpaper";
@@ -697,32 +702,8 @@ in {
       createDirectories = true;
       setSessionVariables = true;
     };
-
     mime.enable = true;
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "image/jpeg" = "imv.desktop";
-        "image/png" = "imv.desktop";
-        "text/plain" = "org.gnome.TextEditor.desktop";
-        "text/html" = "org.gnome.TextEditor.desktop";
-        "text/csv" = "org.gnome.TextEditor.desktop";
-        "application/pdf" = ["sioyek.desktop"];
-        "application/zip" = "engrampa.desktop";
-        "application/x-tar" = "engrampa.desktop";
-        "application/x-bzip2" = "engrampa.desktop";
-        "application/x-gzip" = "engrampa.desktop";
-        "x-scheme-handler/http" = ["librewolf.desktop" "chromium-browser.desktop"];
-        "x-scheme-handler/https" = ["librewolf.desktop" "chromium-browser.desktop"];
-        "x-scheme-handler/about" = ["librewolf.desktop" "chromium-browser.desktop"];
-        "x-scheme-handler/unknown" = ["librewolf.desktop" "chromium-browser.desktop"];
-        "audio/mp3" = "vlc.desktop";
-        "audio/x-matroska" = "vlc.desktop";
-        "video/webm" = "vlc.desktop";
-        "video/mp4" = "vlc.desktop";
-        "video/x-matroska" = "vlc.desktop";
-      };
-    };
+    mimeApps.enable = false;
   };
 
   # --------------------
@@ -747,7 +728,7 @@ in {
 
       if [ ! -d "$DOTFILES_DIR/.git" ]; then
         echo "Cloning dotfiles repository..."
-          ${pkgs.git}/bin/git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+        ${pkgs.git}/bin/git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
       fi
     '';
 
