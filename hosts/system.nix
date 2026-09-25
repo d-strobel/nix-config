@@ -47,7 +47,12 @@ in {
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "NetworkManager-fortisslvpn-gnome-1.4.0"
+      ];
+    };
   };
 
   # --------------------
