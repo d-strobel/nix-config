@@ -39,9 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Helium browser
-    helium-browser.url = "github:schembriaiden/helium-browser-nix-flake";
-
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
