@@ -3,11 +3,11 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    # Include the default system configuration
-    ../modules/system.nix
-
     # Include special thinkpad T14 settings
-    ../modules/lenovo-thinkpad-t14.nix
+    ./lenovo-thinkpad-t14.nix
+
+    # Include the default system configuration
+    ../system.nix
   ];
 
   # Bootloader.
