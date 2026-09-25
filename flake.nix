@@ -6,6 +6,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -76,6 +79,16 @@
         };
         modules = [
           ./hosts/piltover/configuration.nix
+        ];
+      };
+      # Use with: sudo nixos-rebuild switch --flake .#shurima
+      shurima = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+        };
+        modules = [
+          ./hosts/shurima/configuration.nix
+          inputs.nixos-hardware.nixosModules.framework-intel-core-ultra-series3
         ];
       };
     };
