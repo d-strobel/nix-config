@@ -86,9 +86,6 @@ in {
       # Neovim
       inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-      # Helium Browser
-      inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-
       # Devpod (fork)
       devpod
 
