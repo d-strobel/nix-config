@@ -173,7 +173,6 @@ in {
   services.gnome.gnome-keyring.enable = true;
 
   # Automount
-  services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
