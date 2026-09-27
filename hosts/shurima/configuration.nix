@@ -7,7 +7,6 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../system.nix
     ];
@@ -16,8 +15,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-d5338498-96cf-45ed-9b33-d29661e39acf".device = "/dev/disk/by-uuid/d5338498-96cf-45ed-9b33-d29661e39acf";
-  networking.hostName = "shurima"; # Define your hostname.
+  # LUKS
+  boot.initrd.luks.devices."luks-21930165-2df1-4153-92c8-44eefa39a533".device = "/dev/disk/by-uuid/21930165-2df1-4153-92c8-44eefa39a533";
+
+  # Hostname
+  networking.hostName = "shurima";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
