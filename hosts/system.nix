@@ -425,6 +425,18 @@ in {
     ''
   ];
 
+  
+  # --------------------
+  # Boot
+  # --------------------
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.kernelParams = [
+    # Reduce messages on same tty as tui greeter.
+    # https://wiki.archlinux.org/title/Greetd#Prevent_systemd_messages_from_overwriting_console-based_greeterd
+    "console=tty0"
+  ];
+
   # --------------------
   # Security
   # --------------------
@@ -526,12 +538,6 @@ in {
     "kernel.ftrace_enabled" = false;
   };
   boot.kernelModules = ["tcp_bbr"];
-
-  boot.kernelParams = [
-    # Reduce messages on same tty as tui greeter.
-    # https://wiki.archlinux.org/title/Greetd#Prevent_systemd_messages_from_overwriting_console-based_greeterd
-    "console=tty0"
-  ];
 
   boot.blacklistedKernelModules = [
     # Obscure network protocols
