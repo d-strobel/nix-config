@@ -60,7 +60,6 @@
 in {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
-    inputs.betterfox.modules.homeManager.betterfox
   ];
 
   # --------------------
