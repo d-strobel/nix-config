@@ -601,6 +601,10 @@ in {
         path = "/etc/NetworkManager/system-connections/wifi-iphone_ds.nmconnection";
         mode = "0600";
       };
+      "networkmanager/connections/wifi-sdk-gast-ocp" = {
+        path = "/etc/NetworkManager/system-connections/sdk-gast-ocp.nmconnection";
+        mode = "0600";
+      };
 
       # VPN connections
       "networkmanager/connections/vpn-sdk" = {
