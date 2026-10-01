@@ -19,26 +19,33 @@
 
 ## Installation
 
-> This is the most simple installation method for me right now.
-
-1. Install NixOS via GUI Installer (e.g. Gnome)
-1. Install without any WindowManager
-1. Use the correct user + password (User should be admin as well)
-1. Activate LUKS encryption
-1. Boot into the system
-1. Login with the user
+1. Install NixOS via the Live-ISO GUI Installer.
+1. Install without any WindowManager (minimal).
+1. Use the correct user + password (User should be admin as well).
+1. Set filesystem to `btrfs` and set a passphrase for `LUKS` encryption.
+1. After the Installation is finished do not reboot yet!
+1. Mount the new nixos filesystem to `/mnt/root`. Lookup the name of the LUKS
+   partition with `lsblk`. Then mount with
+   `sudo mount /dev/mapper/luks-<ID> /mnt/root`.
+1. Run the [post-install](./hack/post-install.sh) script:
+   `curl -fsSL https://raw.githubusercontent.com/d-strobel/nix-config/main/hack/post-install.sh | sudo bash`.
+1. Get age keys from passwordmanager and place them into
+   `/mnt/root/home/dstrobel/.config/sops/age/keys.txt` and
+   `/mnt/root/var/lib/sops/age/keys.txt`.
+1. Get the netrc file text from the passwordmanager and place it into
+   `/mnt/root/home/dstrobel/.netrc`.
+1. Reboot into the new system.
+1. Login with your user.
 1. Connect to Wifi: `nmcli device wifi connect <SSID> password <PASSWORD>` OR
-   `nmtui`
-1. Create temporary shell: `nix-shell -p vim git home-manager`
-1. Clone this repo: `git clone https://github.com/d-strobel/nix-config.git`
-1. Create and paste the age keys for sops secrets. For home
-   `~/.config/sops/age/keys.txt` (user only mode 0600), for system
-   `/var/lib/sops/age/keys.txt` (root only mode 0600).
-1. Install system flake:
-   `sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake .#HOST`
-1. Insert username and password for the private github repository when asked.
-1. Install home configuration: `home-manager switch --flake .#USER`
-1. Reboot
+   `nmtui`.
+1. Create temporary shell: `nix-shell -p vim git home-manager`.
+1. Change into the nixos-config directory:
+   `cd ~/git/github.com/d-strobel/nix-config`.
+1. Prefetch the flake inputs: `nix flake prefetch-inputs`.
+1. Install system flake: `sudo nixos-rebuild switch --flake .#HOST`.
+1. Install home config: `home-manager switch --flake .#USER`.
+1. Reboot.
+1. Change the git repos url to ssh: `git remote set-url origin <NEW-SSH-URL>`
 
 ## Update
 
@@ -57,6 +64,7 @@ sudo nixos-rebuild switch --flake .#HOST
 home-manager switch --flake .#USER
 
 # 4. Optional: Gargabe collection
+nix-collect-garbage -d
 sudo nix-collect-garbage -d
 ```
 
