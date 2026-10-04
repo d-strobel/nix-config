@@ -82,9 +82,6 @@ in {
   # --------------------
   home.packages =
     [
-      # Neovim
-      inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
-
       # Devpod (fork)
       devpod
 
@@ -157,6 +154,7 @@ in {
       fuzzel
 
       # Neovim dependencies
+      neovim
       gcc
       tree-sitter
 

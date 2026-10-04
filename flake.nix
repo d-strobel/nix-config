@@ -33,12 +33,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # Neovim nightly overlay
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
