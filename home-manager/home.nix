@@ -89,6 +89,7 @@ in {
     ]
     ++ (with pkgs; [
       # Terminal
+      ghostty
       foot
       tmux
       herdr
@@ -194,6 +195,7 @@ in {
     ".config/i3status-rs".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/i3status-rs";
     ".config/wl-tray-bridge".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/wl-tray-bridge";
     ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/foot";
+    ".config/ghostty".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/ghostty";
     ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/config.fish";
     ".config/fish/functions".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/functions";
     ".config/fish/themes".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot_config/fish/themes";
