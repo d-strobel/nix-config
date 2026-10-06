@@ -131,6 +131,7 @@ in {
       imagemagick
       imv
       jq
+      p7zip
 
       # Screenshot tools
       grim
