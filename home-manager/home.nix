@@ -12,51 +12,10 @@
   # Sops secrets path
   secretsPath = toString inputs.nix-secrets;
 
-  # devsy
-  devsy = pkgs.stdenv.mkDerivation rec {
-    pname = "devsy";
-    version = "1.19.0";
-
-    src = pkgs.fetchurl {
-      url = "https://github.com/devsy-org/devsy/releases/download/v${version}/devsy-linux-amd64";
-      sha256 = "sha256-L0PyirWzmbN5CRrrCWKOxrcNyCISpk0w3o4qShiknvU=";
-    };
-
-    dontUnpack = true;
-    phases = ["installPhase" "postInstall"];
-    installPhase = ''
-      mkdir -p $out/bin
-      cp ${src} $out/bin/devsy
-      chmod +x $out/bin/devsy
-    '';
-    postInstall = ''
-      mkdir -p $out/share/fish/vendor_completions.d
-      $out/bin/devsy completion fish > $out/share/fish/vendor_completions.d/devsy.fish
-    '';
-  };
-
-  # Devpod (fork)
-  devpod = pkgs.stdenv.mkDerivation rec {
-    pname = "devpod";
-    version = "0.25.0";
-
-    src = pkgs.fetchurl {
-      url = "https://github.com/skevetter/devpod/releases/download/v${version}/devpod-linux-amd64";
-      sha256 = "sha256-OlCPrxrc57yYCl0z+FFfTqJ8Ifxzplc2QsvlduA/ApI=";
-    };
-
-    dontUnpack = true;
-    phases = ["installPhase" "postInstall"];
-    installPhase = ''
-      mkdir -p $out/bin
-      cp ${src} $out/bin/devpod
-      chmod +x $out/bin/devpod
-    '';
-    postInstall = ''
-      mkdir -p $out/share/fish/vendor_completions.d
-      $out/bin/devpod completion fish > $out/share/fish/vendor_completions.d/devpod.fish
-    '';
-  };
+  # Custom derivations
+  devsy = pkgs.callPackage ./derivations/devsy.nix {};
+  devpod = pkgs.callPackage ./derivations/devpod.nix {};
+  microsandbox = pkgs.callPackage ./derivations/microsandbox.nix {};
 in {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
@@ -84,8 +43,8 @@ in {
     [
       # Devpod (fork)
       devpod
-
       devsy
+      microsandbox
     ]
     ++ (with pkgs; [
       # Terminal
