@@ -41,7 +41,7 @@ in {
   # --------------------
   home.packages =
     [
-      # Devpod (fork)
+      # Custom derivations
       devpod
       devsy
       microsandbox
