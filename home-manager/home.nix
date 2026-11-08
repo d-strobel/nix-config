@@ -76,6 +76,7 @@ in {
       librepods
       proton-vpn
       engrampa
+      bruno
 
       # CLI tools
       ffmpeg
