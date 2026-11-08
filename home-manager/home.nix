@@ -18,6 +18,7 @@
 in {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
+    inputs.direnv-instant.homeModules.direnv-instant
   ];
 
   # --------------------
@@ -53,7 +54,6 @@ in {
       zoxide
       fzf
       direnv
-      nix-direnv
       keychain
 
       # Desktop applications
@@ -137,6 +137,12 @@ in {
       vscode-json-languageserver
       yaml-language-server
     ]);
+
+  # Asynchronus direnv evaluation
+  programs.direnv-instant = {
+    enable = true;
+    enableFishIntegration = false; # Manually handled in dotfiles
+  };
 
   # --------------------
   # Dotfiles

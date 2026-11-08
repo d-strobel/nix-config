@@ -33,6 +33,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    direnv-instant = {
+      url = "github:Mic92/direnv-instant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Mage fish completions
     mage-fish-completions.url = "github:d-strobel/mage-fish-completions";
 
