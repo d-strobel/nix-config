@@ -14,7 +14,6 @@
 
   # Custom derivations
   devsy = pkgs.callPackage ./derivations/devsy.nix {};
-  devpod = pkgs.callPackage ./derivations/devpod.nix {};
   microsandbox = pkgs.callPackage ./derivations/microsandbox.nix {};
 in {
   imports = [
@@ -42,7 +41,6 @@ in {
   home.packages =
     [
       # Custom derivations
-      devpod
       devsy
       microsandbox
     ]
